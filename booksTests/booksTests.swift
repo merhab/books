@@ -28,7 +28,7 @@ class booksTests: XCTestCase {
         for i in props.indices {
             str = String(describing: type(of: props[i].value))
             
-            print ("\(fld[props[i].key] ) : \(props[i].value)")
+            print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
             if props[i].key != "ID" {
             if str == "String"  {
                 
