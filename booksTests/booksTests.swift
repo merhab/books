@@ -18,31 +18,7 @@ class booksTests: XCTestCase {
         var myBook = Book()
         rds = MNRecordset(database: db, record: myBook)
         XCTAssertNotNil(rds)
-        let fld = rds.getField()
-        
-        let props = try! properties(myBook)
-        print (props)
-       
-        
-        var str = ""
-        for i in props.indices {
-            str = String(describing: type(of: props[i].value))
-            
-            print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
-            if props[i].key != "ID" {
-            if str == "String"  {
-                
-                try! set(fld[props[i].key] ?? "", key: props[i].key, for: &myBook )
-             
-
-            } else if str == "Double"{
-                try! set(fld[props[i].key] ?? -1.0, key: props[i].key, for: &myBook )
-            }else {
-                try! set(fld[props[i].key] ?? -1, key: props[i].key, for: &myBook )
-
-                }
-            }
-            myBook.ID = Int(fld["ID"] as! Int64)
+        myBook = rds.getObject(myRd: myBook) as! Book
       
         
    
@@ -51,8 +27,7 @@ class booksTests: XCTestCase {
         XCTAssertNotNil(myBook)
        
         
-        }
-        print (myBook.pgText)
+       
     }
     override func setUp() {
         super.setUp()

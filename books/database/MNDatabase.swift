@@ -226,9 +226,66 @@ class MNRecordset {
         return fields[positionInPage]
     }
     
-    func getObject(myRd : MNrecord) {
-        //var rd = MNrecord()
-   
+    func getObject(myRd : MNrecord)-> MNrecord {
+
+        //var myRecord : MNrecord
+        switch String(describing: type(of: myRd)) {
+        case "Book":
+            let    myRecord = myRd as! Book
+            return recordToObject(myRd: myRecord) as! Book
+        case "Men" :
+            let    myRecord = myRd as! Men
+            return recordToObject(myRd: myRecord) as! Men
+        case "BooksList" :
+            let    myRecord = myRd as! BooksList
+            return recordToObject(myRd: myRecord) as! BooksList
+        case "BookIndex" :
+            let    myRecord = myRd as! BookIndex
+            return recordToObject(myRd: myRecord) as! BookIndex
+        case "BookInfo" :
+            let    myRecord = myRd as! BookInfo
+            return recordToObject(myRd: myRecord) as! BookInfo
+        case "BooksCat" :
+            let   myRecord = myRd as! BooksCat
+             return recordToObject(myRd: myRecord) as! BooksCat
+            
+        default:
+            let  myRecord = myRd
+          return recordToObject(myRd: myRecord) as! MNrecord
+        }
+        
+ 
+        
+    }
+    private  func recordToObject<T>(myRd : T) -> AnyObject {
+        let fld = getField()
+         var myRecord = myRd
+        let props = try! properties(myRd)
+        print (props)
+        var str = ""
+        for i in props.indices {
+            str = String(describing: type(of: props[i].value))
+            
+            print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
+            if props[i].key != "ID" {
+                if str == "String"  {
+                    
+                    try! set(fld[props[i].key] ?? "", key: props[i].key, for: &myRecord )
+                    
+                    
+                } else if str == "Double"{
+                    try! set(fld[props[i].key] ?? -1.0, key: props[i].key, for: &myRecord )
+                }else {
+                    if fld[props[i].key] != nil {
+                    try! set(Int((fld[props[i].key]) as! Int64 ) , key: props[i].key, for: &myRecord )
+                    } else {try! set(-1 , key: props[i].key, for: &myRecord )}
+                }
+            }
+
+            
+        }
+        (myRecord as! MNrecord).ID = Int(fld["ID"] as! Int64)
+        return myRecord as AnyObject
     }
     
     

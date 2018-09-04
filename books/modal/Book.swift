@@ -37,12 +37,13 @@ class Men : MNrecord {
 
 
 class Book : MNrecord {
-    var PgFormattedText  = ""
-    var PgIndexedText  = ""
-    var PgOrder  = -1.0
+    var pgFormattedText  = ""
+    var pgIndexedText  = ""
+    var pgOrder  = -1.0
     var pgText  = ""
-    var PgVersion  = -1
-    var Volume  = -1
+    var pgVersion  = -1
+    var volume  = -1
+    var pgId = -1
 }
 
 class BookIndex : MNrecord {
