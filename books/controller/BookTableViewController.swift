@@ -30,16 +30,16 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var db : MNDatabase
     db = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
-    
+
     let rds : MNRecordset
     let myBook = BooksList()
     rds = MNRecordset(database: db, record: myBook)
     return rds.recordCount
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! Mycell
-        
+
        var db : MNDatabase
        db = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
 
@@ -50,7 +50,7 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
        myBook = rds.getObject(myRd: myBook) as! BooksList
         cell.aLabel.text=myBook.bkTitle
         return cell
-        
+    
         
     }
 
