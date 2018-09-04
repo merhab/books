@@ -18,18 +18,34 @@ class Mycell: UITableViewCell {
 
 class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
     }
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+    var db : MNDatabase
+    db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+    
+    let rds : MNRecordset
+    let myBook = Book()
+    rds = MNRecordset(database: db, record: myBook)
+    return rds.recordCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! Mycell
-        cell.aLabel.text="hi"
+        
+       var db : MNDatabase
+       db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+
+       let rds : MNRecordset
+        var myBook = Book()
+      rds = MNRecordset(database: db, record: myBook)
+        rds.move(to :indexPath.row)
+       myBook = rds.getObject(myRd: myBook) as! Book
+        cell.aLabel.text=myBook.pgText
         return cell
         
         

@@ -18,7 +18,21 @@ class booksTests: XCTestCase {
         var myBook = Book()
         rds = MNRecordset(database: db, record: myBook)
         XCTAssertNotNil(rds)
+        rds.move(to : 0)
         myBook = rds.getObject(myRd: myBook) as! Book
+        print(myBook.pgText)
+        rds.move(to : 9)
+        myBook = rds.getObject(myRd: myBook) as! Book
+        print(myBook.pgText)
+        rds.move(to : 10)
+        myBook = rds.getObject(myRd: myBook) as! Book
+        print(myBook.pgText)
+        rds.move(to : 20)
+        myBook = rds.getObject(myRd: myBook) as! Book
+        print(myBook.pgText)
+        rds.move(to : 19)
+        myBook = rds.getObject(myRd: myBook) as! Book
+        print(myBook.pgText)
       
         
    

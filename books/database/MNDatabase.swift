@@ -105,7 +105,7 @@ class MNDatabase {
         if records == -1 {   // is limit = -1 get all records
             sql1 = "\(sql)"
         }else{
-            sql1 = " \(sql) limit \(from),\(records)"
+           sql1 = " \(sql) limit \(from),\(records)"
         }
         let stmt = try! database.prepare(sql1)
             for row in stmt{
@@ -161,10 +161,11 @@ class MNRecordset {
     var recordNo = -1
     var isEmpty = true
     private var positionInPage = -1
-    private var dataBase = MNDatabase(path: "")
+    private var dataBase : MNDatabase //(path: "")
     
     init (database:MNDatabase,record:MNrecord) {
         tableName = record.getTableName()
+        self.dataBase = database
         let sql = "select count(id) as recordCount from \(tableName)"
         recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if recordCount > 0 {
@@ -183,7 +184,7 @@ class MNRecordset {
         
     }
     
-    private func move(to position:Int) {
+     func move(to position:Int) {
         if position<recordCount,position>=0{
             recordNo=position
             positionInPage = position % limit
@@ -261,7 +262,7 @@ class MNRecordset {
         let fld = getField()
          var myRecord = myRd
         let props = try! properties(myRd)
-        print (props)
+       // print (props)
         var str = ""
         for i in props.indices {
             str = String(describing: type(of: props[i].value))
