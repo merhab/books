@@ -276,8 +276,17 @@ class MNRecordset {
                     
                 } else if str == "Double"{
                     try! set(fld[props[i].key] ?? -1.0, key: props[i].key, for: &myRecord )
-                }else {
-                    if fld[props[i].key] != nil {
+                }else if str == "Bool"{
+                    if fld[props[i].key] is Int64 {
+                        if fld[props[i].key] as! Int64 == 1 {
+                            try! set(true, key: props[i].key, for: &myRecord )}else {
+                          try! set(false, key: props[i].key, for: &myRecord )
+                        }}
+                        else {
+                    try! set(fld[props[i].key] ?? false, key: props[i].key, for: &myRecord )
+                    }}
+                else {
+                    if fld[props[i].key] != nil && !(fld[props[i].key] is String)  {
                     try! set(Int((fld[props[i].key]) as! Int64 ) , key: props[i].key, for: &myRecord )
                     } else {try! set(-1 , key: props[i].key, for: &myRecord )}
                 }

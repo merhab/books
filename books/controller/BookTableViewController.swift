@@ -26,10 +26,10 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var db : MNDatabase
-    db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+    db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/booksList.kitab")
     
     let rds : MNRecordset
-    let myBook = Book()
+    let myBook = BooksList()
     rds = MNRecordset(database: db, record: myBook)
     return rds.recordCount
     }
@@ -38,14 +38,14 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! Mycell
         
        var db : MNDatabase
-       db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+       db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/booksList.kitab")
 
        let rds : MNRecordset
-        var myBook = Book()
+        var myBook = BooksList()
       rds = MNRecordset(database: db, record: myBook)
         rds.move(to :indexPath.row)
-       myBook = rds.getObject(myRd: myBook) as! Book
-        cell.aLabel.text=myBook.pgText
+       myBook = rds.getObject(myRd: myBook) as! BooksList
+        cell.aLabel.text=myBook.bkTitle
         return cell
         
         
