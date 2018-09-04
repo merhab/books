@@ -22,7 +22,7 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         if MNFile.createFolderInDocuments(folder: MNFile.booksFolderName) {
-            MNFile.searchDbFilesInRes(myFunc: MNFile.moveFileToBookFolder)
+          let any =  MNFile.searchDbFilesInRes(myFunc: MNFile.moveFileToBookFolder)
         }
         
         
