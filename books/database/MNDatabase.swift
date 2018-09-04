@@ -170,9 +170,16 @@ class MNRecordset {
         tableName = record.getTableName()
         self.dataBase = database
         let sql = "select count(id) as recordCount from \(tableName)"
+        MNRecordset(database: database, sql: sql)
+    
+    }
+    init (database:MNDatabase,sql:String) {
+
+        self.dataBase = database
+       
         recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if recordCount > 0 {
-        fields=database.getRecords(of: record, ofset: ofSet, limit: limit)
+            fields=database.getRecords(from: sql, ofset: ofSet, limit: limit)
         } else {
             fields = [[String:Any]]()
         }
@@ -184,8 +191,24 @@ class MNRecordset {
             recordNo = 0
             positionInPage = 0
         }
-       masterRecordset = self
-    
+        masterRecordset = self
+        
+    }
+    init (database:MNDatabase,sql:String , whereSql : String , orderBy : String) {
+        
+        self.dataBase = database
+        var orderBy1 , whereSql1 : String
+        if whereSql != "" {
+             whereSql1 = " where \(whereSql) "
+        } else {let whereSql1 = ""}
+        if orderBy != "" {
+             orderBy1 = " order by \(orderBy) "
+        } else {
+             orderBy1 = ""
+        }
+        let sql1 = " \(sql) \(whereSql1) \(orderBy1) "
+       MNRecordset(database: database, sql: sql1)
+        
     }
     
      func move(to position:Int) {
