@@ -94,7 +94,7 @@ class MNFile  {
           }
     }
     
-   static func searchDbFilesInDoc(myFunc: (String) -> Void)->[String]{// use this myFumc to move files
+   static func searchDbFilesInDoc(myFunc: (String) -> Bool)->[String]{// use this myFumc to move files
         var files = [String]()
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let fileManager = FileManager.default
@@ -104,7 +104,7 @@ class MNFile  {
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
                     files.append("\(documentsPath)/\(element)")
-                    myFunc("\(documentsPath)/\(element)")
+                    if !myFunc("\(documentsPath)/\(element)") { return [String]()}
                 }
                 
             }
@@ -113,9 +113,9 @@ class MNFile  {
         return files
     }
     
-    static func searchDbFilesInRes(myFunc: (String) -> Void)->[String]{// use this myFumc to move files
+    static func searchDbFilesInRes(myFunc: (String) -> Bool)->[String]{// use this myFumc to move files
         var files = [String]()
-        let documentsPath = Bundle.main.resourcePath! + "/Resources"
+        let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
         
         let fileManager = FileManager.default
         let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath)!
@@ -124,7 +124,7 @@ class MNFile  {
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
                     files.append("\(documentsPath)/\(element)")
-                    myFunc("\(documentsPath)/\(element)")
+                   if  !myFunc("\(documentsPath)/\(element)") { return [String]()}
                 }
                 
             }

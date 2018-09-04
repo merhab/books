@@ -258,6 +258,9 @@ class MNRecordset {
  
         
     }
+    
+    //*********************
+    
     private  func recordToObject<T>(myRd : T) -> AnyObject {
         let fld = getField()
          var myRecord = myRd
@@ -269,24 +272,31 @@ class MNRecordset {
             
             print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
             if props[i].key != "ID" {
+                // case Property type is String
                 if str == "String"  {
                     
                     try! set(fld[props[i].key] ?? "", key: props[i].key, for: &myRecord )
                     
-                    
+                  // case Property type is Double
                 } else if str == "Double"{
                     try! set(fld[props[i].key] ?? -1.0, key: props[i].key, for: &myRecord )
+                    // case Property type is Bool
                 }else if str == "Bool"{
                     if fld[props[i].key] is Int64 {
+                        // sqlite sent 1 instead of true
                         if fld[props[i].key] as! Int64 == 1 {
                             try! set(true, key: props[i].key, for: &myRecord )}else {
+                            // sqlite send 0 instead of false
                           try! set(false, key: props[i].key, for: &myRecord )
                         }}
                         else {
                     try! set(fld[props[i].key] ?? false, key: props[i].key, for: &myRecord )
                     }}
+                    // case Property type is Int
                 else {
-                    if fld[props[i].key] != nil && !(fld[props[i].key] is String)  {
+                    if fld[props[i].key] != nil &&
+                        !(fld[props[i].key] is String) // case Property type is Int but not set , sqlite send empty string
+                    {
                     try! set(Int((fld[props[i].key]) as! Int64 ) , key: props[i].key, for: &myRecord )
                     } else {try! set(-1 , key: props[i].key, for: &myRecord )}
                 }

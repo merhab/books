@@ -21,12 +21,15 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if MNFile.createFolderInDocuments(folder: MNFile.booksFolderName) {
+            MNFile.searchDbFilesInRes(myFunc: MNFile.moveFileToBookFolder)
+        }
         
         
     }
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     var db : MNDatabase
-    db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/booksList.kitab")
+    db = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
     
     let rds : MNRecordset
     let myBook = BooksList()
@@ -38,7 +41,7 @@ class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! Mycell
         
        var db : MNDatabase
-       db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/booksList.kitab")
+       db = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
 
        let rds : MNRecordset
         var myBook = BooksList()
