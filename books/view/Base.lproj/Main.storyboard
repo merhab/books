@@ -58,7 +58,7 @@
         <!--Book View Controller-->
         <scene sceneID="Bgf-tB-Epb">
             <objects>
-                <viewController id="pvm-At-JpK" customClass="BookViewController" sceneMemberID="viewController">
+                <viewController id="pvm-At-JpK" customClass="BookViewController" customModule="books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JV2-o0-Rqr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

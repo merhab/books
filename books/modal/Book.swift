@@ -20,6 +20,7 @@ class BooksList: MNrecord {
     var bkVersion  = -1
     var bkYearPublication  = -1
     var selected  = false
+    
 }
 
 //***********************

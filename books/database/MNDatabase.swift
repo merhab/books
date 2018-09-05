@@ -273,7 +273,7 @@ class MNRecordset {
         for i in props.indices {
             str = String(describing: type(of: props[i].value))
             
-            print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
+            //print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
             if props[i].key != "ID" {
                 // case Property type is String
                 if str == "String"  {

@@ -21,29 +21,29 @@ class MNrecord  {
             // return props[props.startIndex].key
 
     }
-    func getObject(field : [String:Any]) {
-            let fld = field
-          
-            let props = try! properties(self)
-            print (props)
-            var rd = self
-            
-            var str = ""
-            for i in props.indices {
-                str = String(describing: type(of: props[i].value))
-                
-                print ("\(props[i].key) : \(props[i].value)")
-                if str == "String"{
-                    
-                    try! set(fld[props[i].key] ?? "", key: props[i].key, for: &rd )
-                } else {
-                    try! set(fld[props[i].key] ?? -1, key: props[i].key, for: &rd )
-                }
-            }
-            print (rd)
-            
-        }
-        
+//    func getObject(field : [String:Any]) {
+//            let fld = field
+//
+//            let props = try! properties(self)
+//            //print (props)
+//            var rd = self
+//
+//            var str = ""
+//            for i in props.indices {
+//                str = String(describing: type(of: props[i].value))
+//
+//                //print ("\(props[i].key) : \(props[i].value)")
+//                if str == "String"{
+//
+//                    try! set(fld[props[i].key] ?? "", key: props[i].key, for: &rd )
+//                } else {
+//                    try! set(fld[props[i].key] ?? -1, key: props[i].key, for: &rd )
+//                }
+//            }
+//            print (rd)
+//
+//        }
+    
       
     
 

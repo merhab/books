@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 class BookViewController: UIViewController {
     
-    var rdsBook : MNRecordset
+    var rdsBook : MNRecordset?
+    var bookPath = ""
     
     override func viewDidLoad() {
         //
