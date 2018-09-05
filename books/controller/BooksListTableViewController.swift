@@ -16,15 +16,21 @@ class Mycell: UITableViewCell {
     
 }
 
-class BookTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class BooksListTableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
+    var rdsBooksList : MNRecordset
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if MNFile.createFolderInDocuments(folder: MNFile.booksFolderName) {
           let any =  MNFile.searchDbFilesInRes(myFunc: MNFile.moveFileToBookFolder)
+            print(any)
         }
         
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var bookView : BookViewController = segue.destination as BookViewController
         
     }
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -162,9 +162,9 @@ class MNRecordset {
     var isEmpty = true
     private var positionInPage = -1
     private var dataBase : MNDatabase //(path: "")
-//    var masterRecordset : MNRecordset
-//    var masterCol = ""
-//    var detailCol = ""
+   var masterRecordset : MNRecordset?
+   var masterCol = ""
+   var detailCol = ""
     
     init (database:MNDatabase,record:MNrecord) {
         tableName = record.getTableName()
