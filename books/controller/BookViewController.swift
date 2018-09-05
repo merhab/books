@@ -14,17 +14,9 @@ class BookViewController: UIViewController {
     var rdsBook : MNRecordset?
     var database : MNDatabase?
     var book = Book()
-    var bookPath = "" {
-        didSet {
-            if bookPath != "" {
-            database = MNDatabase(path: bookPath)
-            
-
-            rdsBook = MNRecordset(database: database!, record: book)
-            book = rdsBook?.getObject(myRd: book) as! Book
-            }
-        }
-    }
+    var bookPath = ""
+      
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

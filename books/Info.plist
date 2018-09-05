@@ -41,5 +41,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>UthmanTN1 Ver10.otf</string>
+		<string>UthmanTN1B Ver10.otf</string>
+	</array>
 </dict>
 </plist>

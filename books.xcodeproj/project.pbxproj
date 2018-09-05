@@ -47,6 +47,8 @@
 		49C5E43D213F260700ED9BF0 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5E43C213F260600ED9BF0 /* SQLite.framework */; };
 		49C5E43E213F260700ED9BF0 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49C5E43C213F260600ED9BF0 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E43F2140385800ED9BF0 /* BookViewController.swift */; };
+		49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */; };
+		49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		49AF51B3213C3F8A00964DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C5E43C213F260600ED9BF0 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SQLite.framework; sourceTree = "<group>"; };
 		49C5E43F2140385800ED9BF0 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UthmanTN1 Ver10.otf"; sourceTree = "<group>"; };
+		49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UthmanTN1B Ver10.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,8 @@
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
+				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
+				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
 				499CEAE1213ECB9E00CEA848 /* 1.kitab */,
 				499CEAE2213ECB9E00CEA848 /* booksList.kitab */,
 				4975254221357E61000A47E5 /* books */,
@@ -353,6 +359,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
+				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,
 				4975254B21357E63000A47E5 /* Assets.xcassets in Resources */,
 				499CEAE5213ECC7900CEA848 /* booksList.kitab in Resources */,

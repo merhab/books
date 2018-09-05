@@ -79,14 +79,9 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let ind = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
-        
-        let currentCell = tableView.cellForRow(at: ind!) as! Mycell
-                print (currentCell.aLabel.text)
-        if currentCell.bkId == 1 { // just for testing
-        bookPath = MNFile.getDataBasePath(book: "\(currentCell.bkId).kitab") // will pass this to the book view let it load the book by itSelf
+
         
         }
-    }
+  
 
 }
