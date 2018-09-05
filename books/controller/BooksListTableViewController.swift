@@ -46,7 +46,16 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let bookView : BookViewController = segue.destination as! BookViewController
-        bookView.bookPath = bookPath
+        let ind = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
+        
+        let currentCell = tableView.cellForRow(at: ind!) as! Mycell
+        if currentCell.bkId == 1 { // just for testing
+            bookPath = MNFile.getDataBasePath(book: "\(currentCell.bkId).kitab") // will pass this to the book view let it load the book by itSelf
+            
+        }
+
+        bookView.bookPath = self.bookPath
+        print(bookView.bookPath)
     }
     
     
@@ -70,11 +79,14 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let ind = tableView.indexPathForSelectedRow //optional, to get from any UIButton for example
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! Mycell
-        bookPath = MNFile.getDataBasePath(book: "\(cell.bkId).kitab") // will pass this to the book view let it load the book by itSelf
+        let currentCell = tableView.cellForRow(at: ind!) as! Mycell
+                print (currentCell.aLabel.text)
+        if currentCell.bkId == 1 { // just for testing
+        bookPath = MNFile.getDataBasePath(book: "\(currentCell.bkId).kitab") // will pass this to the book view let it load the book by itSelf
         
-        
+        }
     }
 
 }
