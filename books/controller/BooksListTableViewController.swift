@@ -74,7 +74,7 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
         cell.aLabel.text=myBook.bkTitle
         cell.bkId = myBook.bkId // will use this to load our book in the book view
         return cell
-    
+    //
         
     }
     
