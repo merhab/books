@@ -89,6 +89,14 @@ class MNDatabase {
         }
     
     }
+    func execute(_ sql : String) -> Bool {
+        do{try database.execute(sql)
+            return true
+        }
+        catch{
+            return false
+        }
+    }
     func saveOrUpdte(record:MNrecord)->Bool{
         if record.ID == -1{
             return save(record: record)
@@ -97,6 +105,22 @@ class MNDatabase {
         }
   
     }
+    func getRecords (query SQL : String) -> [[String:Any]] {
+        var field = [String:Any]()
+        var fields=[[String:Any]]()
+        let stmt = try! database.prepare(SQL)
+        for row in stmt{
+            field.removeAll()
+            for (index,name) in stmt.columnNames.enumerated() {
+                if row[index] != nil {
+                    field[name] = row[index]
+                }else {field[name] = ""}
+            }
+            fields.append(field)
+        }
+        return fields
+    }
+    
     func getRecords(from sql:String , ofset from:Int,limit records:Int)->[[String:Any]]{
         var field = [String:Any]()
         var fields=[[String:Any]]()

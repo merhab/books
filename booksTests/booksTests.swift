@@ -43,6 +43,32 @@ class booksTests: XCTestCase {
         
        
     }
+    
+    func testObjects()  {
+        let book = BooksList()
+        let props = book.getFields()
+        
+        for i in props.indices {
+            print("\(props[i].name) of type: \(props[i].type) \n"  )
+        }
+        print(book.mnSqlCreate)
+        
+        var db : MNDatabase
+        db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/testing.kitab")
+        
+        let rds : MNRecordset
+        var myBook = MNrecord()
+        let sql = myBook.mnSqlCreate
+        if db.execute(sql) {
+            print ("OK")
+        }else {
+            print("NO")
+        }
+
+        
+        
+    }
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -64,5 +90,6 @@ class booksTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
     
 }

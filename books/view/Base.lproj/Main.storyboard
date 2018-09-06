@@ -19,9 +19,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="XFE-pn-l45">
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="FXc-j1-htJ" id="PXe-Of-hmB"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" id="a29-4b-3h9" customClass="Mycell" customModule="books" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a29-4b-3h9" id="cs8-a3-o4s">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
@@ -64,10 +72,20 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="قائمة الكتب" id="PWd-XL-xhu"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="JmX-gM-6oN" id="pXL-Hf-gGv"/>
                         <outlet property="tableView" destination="JNg-OU-5ph" id="l54-Oh-Na2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIc-T0-Kbx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="JmX-gM-6oN">
+                    <connections>
+                        <outlet property="delegate" destination="FXc-j1-htJ" id="6Xi-de-7gO"/>
+                        <outlet property="searchBar" destination="XFE-pn-l45" id="fE4-zR-Efx"/>
+                        <outlet property="searchContentsController" destination="FXc-j1-htJ" id="ku1-kr-bkK"/>
+                        <outlet property="searchResultsDataSource" destination="FXc-j1-htJ" id="3Vw-ac-vMG"/>
+                        <outlet property="searchResultsDelegate" destination="FXc-j1-htJ" id="8XP-TC-rDD"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="846.875" y="-178.7109375"/>
         </scene>

@@ -25,6 +25,8 @@
 import Foundation
 
 extension Data : Value {
+    public typealias Datatype = Blob
+    
 
     public static var declaredDatatype: String {
         return Blob.declaredDatatype

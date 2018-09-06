@@ -22,6 +22,32 @@ class BooksList: MNrecord {
     var selected  = false
     
 }
+extension BooksList : Comparable {
+    static func < (lhs: BooksList, rhs: BooksList) -> Bool {
+      return  (lhs.bkVersion > rhs.bkVersion)
+    }
+    
+    static func == (lhs: BooksList, rhs: BooksList) -> Bool {
+       return (lhs.bkId == rhs.bkId)
+    }
+    
+    static let mnSqlCreate = """
+    CREATE TABLE IF NOT EXISTS "booksList" (
+    "bkId" INTEGER DEFAULT -1,
+    "bkTitle" TEXT DEFAULT "",
+    "bkAuthor" INTEGER DEFAULT -1,
+    "bkVersion" INTEGER DEFAULT -1,
+    "bkPublisher" TEXT DEFAULT "",
+    "bkYearPublication" INTEGER DEFAULT -1,
+    "bkAuthorInfo" TEXT DEFAULT "",
+    "bkCatId" INTEGER DEFAULT -1,
+    "bkMohakik" INTEGER DEFAULT -1,
+    "selected" INTEGER DEFAULT 0,
+    "BKinstalled" INTEGER DEFAULT 0,
+    "ID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
+    );
+"""
+}
 
 //***********************
 
@@ -34,6 +60,18 @@ class Men : MNrecord {
     var menName  = ""
     var menSurName  = ""
     var menTown  = ""
+}
+
+extension Men : Comparable {
+    static func < (lhs: Men, rhs: Men) -> Bool {
+     return (lhs.menId == rhs.menId)
+    }
+    
+    static func == (lhs: Men, rhs: Men) -> Bool {
+     return lhs.menbirthYear > rhs.menbirthYear
+    }
+    
+    
 }
 
 
