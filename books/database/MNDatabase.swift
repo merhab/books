@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import SQLite
+//import SQLite
 class MNDatabase {
     var database:Connection
     private var path:String=""
