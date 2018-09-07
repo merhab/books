@@ -39,7 +39,7 @@
 		4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
 		499CEAE5213ECC7900CEA848 /* booksList.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE2213ECB9E00CEA848 /* booksList.kitab */; };
 		499CEAE6213ECC8E00CEA848 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE1213ECB9E00CEA848 /* 1.kitab */; };
-		49A3CEA12138213400F06188 /* MNdatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNdatabase.swift */; };
+		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
 		49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E43F2140385800ED9BF0 /* BookViewController.swift */; };
@@ -130,7 +130,7 @@
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
 		499CEAE1213ECB9E00CEA848 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		499CEAE2213ECB9E00CEA848 /* booksList.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = booksList.kitab; sourceTree = "<group>"; };
-		49A3CEA02138213400F06188 /* MNdatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNdatabase.swift; sourceTree = "<group>"; };
+		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A6347E2141F36E0050A67E /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 		49AF51A4213C3B2F00964DE0 /* database */ = {
 			isa = PBXGroup;
 			children = (
-				49A3CEA02138213400F06188 /* MNdatabase.swift */,
+				49A3CEA02138213400F06188 /* MNDatabase.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -539,7 +539,7 @@
 				4975257621358C34000A47E5 /* UnsafePointer+Extensions.swift in Sources */,
 				4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */,
 				4975258521358C34000A47E5 /* Metadata.swift in Sources */,
-				49A3CEA12138213400F06188 /* MNdatabase.swift in Sources */,
+				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,

@@ -12,6 +12,13 @@ import Foundation
 
 class MNrecord  {
     var ID = -1
+    var mnSQLgetWithId : String {
+        get {
+            var sql = ""
+            sql = "select * from \(getTableName) where ID = \(ID)"
+            return sql
+        }
+    }
       var mnSqlCreate : String {
         get{
         let doubleQuote = """
@@ -54,25 +61,12 @@ class MNrecord  {
             
            return str
         }
-//        """
-//    CREATE TABLE IF NOT EXISTS "booksList" (
-//    "bkId" INTEGER DEFAULT -1,
-//    "bkTitle" TEXT DEFAULT "",
-//    "bkAuthor" INTEGER DEFAULT -1,
-//    "bkVersion" INTEGER DEFAULT -1,
-//    "bkPublisher" TEXT DEFAULT "",
-//    "bkYearPublication" INTEGER DEFAULT -1,
-//    "bkAuthorInfo" TEXT DEFAULT "",
-//    "bkCatId" INTEGER DEFAULT -1,
-//    "bkMohakik" INTEGER DEFAULT -1,
-//    "selected" INTEGER DEFAULT 0,
-//    "BKinstalled" INTEGER DEFAULT 0,
-//    "ID" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
-//    );
-//"""
+
     }
 
-    
+    func isNull()->Bool{
+        if ID == -1 {return true}else{return false}
+    }
     func getTableName() -> String {
     
             return String(describing: type(of: self)).lowercased()
