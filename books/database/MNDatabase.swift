@@ -120,6 +120,20 @@ class MNDatabase {
         }
         return fields
     }
+    func getArrayOfIDs (query SQL :String)->[Int]{
+        var array = [Int]()
+        let stmt = try! database.prepare(SQL)
+        for row in stmt{
+            for (index,_) in stmt.columnNames.enumerated() {
+
+                    array.append(Int(row[index] as! Int64)-1)
+
+            }
+
+        }
+        
+        return array
+    }
     
     func getRecords(from sql:String , ofset from:Int,limit records:Int)->[[String:Any]]{
         var field = [String:Any]()

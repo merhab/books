@@ -14,25 +14,39 @@ class MNRecordset {
     private var fields=[[String:Any]]()
     var ofSet = 0
     var limit = 10
-    var tableName=""
-    var recordCount=0
-    var recordNo = -1
+    var tableName : String
+    var recordCount : Int
+    var recordNo : Int
     var isEmpty = true
-    private var positionInPage = -1
+    var database : MNDatabase
+    private var positionInPage : Int
     private var dataBase : MNDatabase //(path: "")
-    var masterRecordset : MNRecordset?
-    var masterCol = ""
-    var detailCol = ""
-    var slaveRecordSet : MNRecordset?
-    var slaveKey = ""
-    var isSlave = false
-    var haveSlave = false
+    var range : MNRecordSetRange
     var field: Dictionary<String, Any> {
         get{ return getField()}
     }
-    var sql : String {
+   private var sql : String {
         get {
-            return "select * from \(tableName) limit \(ofSet),\(limit)"
+            return "select * from \(tableName) "
+        }
+    }
+    var filter = "" // the where sql close without the where
+    var filtered = false {
+        didSet {
+            if filtered  {
+            let sqlFilter = "select ID from \(tableName) where  \(filter)"
+            let myRange = database.getArrayOfIDs(query: sqlFilter)
+                range=MNRecordSetRange(array: myRange)
+                if let _ = myRange.index(of: recordNo)  {
+                range.position = recordNo
+                range.arrayPosition = range.array.index(of: recordNo)!
+                }else {
+                moveFirst()
+                }
+            }else{
+              range = MNRecordSetRange(min: 0, max: recordCount-1)
+                range.position = recordNo
+            }
         }
     }
     
@@ -47,22 +61,21 @@ class MNRecordset {
     }
     
      init (database : MNDatabase ,record : MNrecord , SQL : String){
+        self.database = database
+        range = MNRecordSetRange(min: -1,max: -1)
         var sql = ""
         tableName = record.getTableName()
         self.dataBase = database
 
          sql = "select count(id) as recordCount from \(tableName)"
         recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
-        if recordCount > 0 {
-            if SQL == "" {
-            fields=database.getRecords(of: record, ofset: ofSet, limit: limit)
-            } else {
-            fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)
-            }
-
-        } else {
-            fields = [[String:Any]]()
-        }
+        if recordCount > 0
+        {
+            range.min=0
+            range.max=recordCount-1
+            if SQL == ""{fields=database.getRecords(of: record, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)}
+        } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
             recordNo = -1
@@ -71,6 +84,7 @@ class MNRecordset {
             recordNo = 0
             positionInPage = 0
         }
+
     }
     
 
@@ -93,26 +107,27 @@ class MNRecordset {
     }
     func moveNext()  {
         if !eof() {
-            move(to: recordNo+1)
+            move(to: range.nextPosition())
         }
     }
     func movePreior()  {
         if !bof(){
-            move(to: recordNo-1)
+            move(to: range.priorPosition())
         }
     }
     func moveFirst()  {
-        move(to: 0)
+        move(to: range.firstPosition())
     }
     
     func moveLast()  {
-        move(to: recordCount-1)
+        
+        move(to: range.lastPosition())
     }
     func eof() -> Bool {
-        return recordNo == recordCount-1
+        return range.isEnd()
     }
     func bof() -> Bool {
-        return recordNo==0
+        return range.isStart()
     }
     func getField()->[String:Any] {
         return fields[positionInPage]
@@ -202,3 +217,95 @@ class MNRecordset {
     
     
 }
+
+// *********************************
+//a classe to make range of index for the record set]
+// to make it easy to filter the rocord set
+
+struct MNRecordSetRange {
+    var position : Int
+    var max : Int
+    var min : Int
+    var hasRange : Bool
+    var array = [Int]()
+    fileprivate var arrayPosition = -1
+    init (min : Int,max :Int){
+        self.min=min
+        self.max=max
+        position = min
+        hasRange = false
+    }
+    init(array:[Int]) {
+        if array.count != 0 {
+        min=array[0]
+        max=array[array.count-1]
+        position = min
+        hasRange=true
+        arrayPosition=0
+        self.array=array
+        }else
+        {
+            hasRange = false
+            max = -1
+            min = -1
+            position = -1
+        }
+        
+ 
+    }
+
+    
+    func isEnd() -> Bool {
+        return (position == max)
+    }
+    func isStart() -> Bool {
+        return (position == min)
+    }
+   mutating func firstPosition()->Int {
+        if hasRange {
+            position = array[0]
+            arrayPosition=0
+        }else{
+            position = min
+    }
+        
+        return position
+    }
+    
+    mutating func lastPosition() -> Int {
+        if hasRange {
+            position = array[array.count-1]
+            arrayPosition=array.count-1
+        }else{
+            position = max
+        }
+        
+        return position
+    }
+    
+    mutating func nextPosition()->Int{
+        if !isEnd(){
+        if hasRange {
+            position = array[arrayPosition+1]
+            arrayPosition+=1
+        }else{
+            position += 1
+        }
+        }
+        return position
+    }
+    
+    mutating func priorPosition()->Int{
+        if !isStart(){
+            if hasRange {
+                position = array[arrayPosition-1]
+                arrayPosition-=1
+            }else{
+                position -= 1
+            }
+        }
+        return position
+    }
+    
+}
+

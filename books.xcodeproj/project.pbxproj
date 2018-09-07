@@ -135,7 +135,6 @@
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A6347E2141F36E0050A67E /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
 		49A634802141F36E0050A67E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49AF51B3213C3F8A00964DE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49C5E43F2140385800ED9BF0 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UthmanTN1 Ver10.otf"; sourceTree = "<group>"; };
 		49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UthmanTN1B Ver10.otf"; sourceTree = "<group>"; };
@@ -195,7 +194,6 @@
 				499CEAE1213ECB9E00CEA848 /* 1.kitab */,
 				499CEAE2213ECB9E00CEA848 /* booksList.kitab */,
 				4975254221357E61000A47E5 /* books */,
-				49AF51B0213C3F8A00964DE0 /* booksTests */,
 				49A6347D2141F36E0050A67E /* booksTests */,
 				4975254121357E61000A47E5 /* Products */,
 				4975255521357E8F000A47E5 /* suplimentair */,
@@ -325,14 +323,6 @@
 				49A3CEA02138213400F06188 /* MNDatabase.swift */,
 			);
 			path = database;
-			sourceTree = "<group>";
-		};
-		49AF51B0213C3F8A00964DE0 /* booksTests */ = {
-			isa = PBXGroup;
-			children = (
-				49AF51B3213C3F8A00964DE0 /* Info.plist */,
-			);
-			path = booksTests;
 			sourceTree = "<group>";
 		};
 		49C5E5322140ABD700ED9BF0 /* SQLite */ = {

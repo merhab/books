@@ -14,16 +14,33 @@ class booksTests: XCTestCase {
    
     
     func testingThings() {
-
-        let str =  NSStringFromClass(Book.self)
-        let c = NSClassFromString("Book")?.initialize()
-        //(c as! Book).pgId
-        let newString = str.replacingOccurrences(of: ".Type", with: "", options: .literal, range: nil)
-        print(newString)
+        let db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+        let array = db.getArrayOfIDs(query: "select ID from book ")
+        print(array)
+        let rds = MNRecordset(database: db, record: Book())
+        rds.filter = " ID = 5 "
+        rds.filtered = true
+        print(rds.getObject(myRd: Book()).ID)
+        rds.moveNext()
+        print(rds.getObject(myRd: Book()).ID)
+        rds.filtered = false
+        print(rds.getObject(myRd: Book()).ID)
+        rds.moveNext()
+        print(rds.getObject(myRd: Book()).ID)
+        rds.moveLast()
+        print(rds.getObject(myRd: Book()).ID)
+        rds.filter = " ID > 5 "
+        rds.filtered=true
+        print(rds.getObject(myRd: Book()).ID)
+        rds.movePreior()
+                print(rds.getObject(myRd: Book()).ID)
+        rds.moveFirst()
+                print(rds.getObject(myRd: Book()).ID)
+        
+        
+        
     }
-//    static func nour<T> ()->T{
-//    let str = String(describing:type(of: T.self))
-//    }
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
