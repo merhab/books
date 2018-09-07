@@ -23,6 +23,14 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     var bookPath = ""
     
     override func viewDidLoad() {
+        func moveFiles(file :String) {
+            let bookInfo = BookInfo ()
+            let book  = Book()
+            
+            if   MNFile.moveFileToBookFolder(file: file) {
+                //
+            }
+        }
         super.viewDidLoad()
         
         // will move all books files from resource to the book directory in doc

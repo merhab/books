@@ -12,7 +12,7 @@ class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
         rdsBook?.moveNext()
         book = rdsBook?.getObject(myRd: book) as! Book
-       // UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionFlipFromLeft], animations: {self.page.text = self.book.pgText})
+   //     UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlDown], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.rightToLeftAnimation()
     }
@@ -20,7 +20,7 @@ class BookViewController: UIViewController {
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
         rdsBook?.movePreior()
         book = rdsBook?.getObject(myRd: book) as! Book
-       // UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionFlipFromRight], animations: {self.page.text = self.book.pgText})
+    //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.leftToRightAnimation()
     }
