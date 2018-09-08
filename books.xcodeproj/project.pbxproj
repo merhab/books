@@ -37,6 +37,9 @@
 		4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257421358C34000A47E5 /* RelativePointer.swift */; };
 		4975258D213591EB000A47E5 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258C213591EB000A47E5 /* Properties.swift */; };
 		4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
+		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
+		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
+		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		499CEAE5213ECC7900CEA848 /* booksList.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE2213ECB9E00CEA848 /* booksList.kitab */; };
 		499CEAE6213ECC8E00CEA848 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE1213ECB9E00CEA848 /* 1.kitab */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
@@ -128,6 +131,8 @@
 		4975257421358C34000A47E5 /* RelativePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativePointer.swift; sourceTree = "<group>"; };
 		4975258C213591EB000A47E5 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = "../../../../Downloads/Reflection-master/Sources/Reflection/Properties.swift"; sourceTree = "<group>"; };
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
+		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
+		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		499CEAE1213ECB9E00CEA848 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		499CEAE2213ECB9E00CEA848 /* booksList.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = booksList.kitab; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
@@ -213,6 +218,7 @@
 		4975254221357E61000A47E5 /* books */ = {
 			isa = PBXGroup;
 			children = (
+				4997985021440645005D46C5 /* Extensions */,
 				49C5E5322140ABD700ED9BF0 /* SQLite */,
 				49C5E54E2140ABD700ED9BF0 /* SQLiteObjc */,
 				49AF51A4213C3B2F00964DE0 /* database */,
@@ -273,6 +279,14 @@
 			path = reflection;
 			sourceTree = "<group>";
 		};
+		4997985021440645005D46C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4997984D21440623005D46C5 /* Extentions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		49A6347D2141F36E0050A67E /* booksTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */,
+				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
 				4975254521357E61000A47E5 /* BooksListTableViewController.swift */,
 				49C5E43F2140385800ED9BF0 /* BookViewController.swift */,
 			);
@@ -525,6 +540,7 @@
 				4975257B21358C34000A47E5 /* Construct.swift in Sources */,
 				4975257921358C34000A47E5 /* MemoryProperties.swift in Sources */,
 				49C5E5592140ABD700ED9BF0 /* Statement.swift in Sources */,
+				4997984E21440623005D46C5 /* Extentions.swift in Sources */,
 				4975257821358C34000A47E5 /* Metadata+Kind.swift in Sources */,
 				4975257621358C34000A47E5 /* UnsafePointer+Extensions.swift in Sources */,
 				4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */,
@@ -551,6 +567,7 @@
 				4975258621358C34000A47E5 /* ReflectionError.swift in Sources */,
 				49C5E5652140ABD700ED9BF0 /* FTS5.swift in Sources */,
 				49C5E5792140ABD700ED9BF0 /* Operators.swift in Sources */,
+				4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */,
 				4975258321358C34000A47E5 /* NominalType.swift in Sources */,
 				49C5E5632140ABD700ED9BF0 /* FTS4.swift in Sources */,
 				4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */,
@@ -566,6 +583,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4997984F21440623005D46C5 /* Extentions.swift in Sources */,
 				49A6347F2141F36E0050A67E /* booksTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

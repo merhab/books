@@ -135,6 +135,7 @@ class MNRecordset {
     
 
     func getObject(myRd : MNrecord)-> MNrecord {
+        //TODO: remove thos from here to dbMNrecord
         
         //var myRecord : MNrecord
         switch String(describing: type(of: myRd)) {
@@ -150,9 +151,6 @@ class MNRecordset {
         case "BookIndex" :
             let    myRecord = myRd as! BookIndex
             return recordToObject(myRd: myRecord) as! BookIndex
-        case "BookInfo" :
-            let    myRecord = myRd as! BookInfo
-            return recordToObject(myRd: myRecord) as! BookInfo
         case "BooksCat" :
             let   myRecord = myRd as! BooksCat
             return recordToObject(myRd: myRecord) as! BooksCat

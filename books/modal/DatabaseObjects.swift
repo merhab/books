@@ -13,33 +13,17 @@ class BooksList: MNrecord {
     var bkAuthorInfo  = ""
     var bkCatId  = -1
     var bkId  = -1
-    var bKinstalled  = -1
     var bkMohakik  = -1
     var bkPublisher  = ""
     var bkTitle  = ""
     var bkVersion  = -1
     var bkYearPublication  = -1
-    var selected  = false
-    
-}
-extension BooksList : Comparable {
-    static func < (lhs: BooksList, rhs: BooksList) -> Bool {
-      return  (lhs.bkVersion > rhs.bkVersion)
-    }
-    
-    static func == (lhs: BooksList, rhs: BooksList) -> Bool {
-       return (lhs.bkId == rhs.bkId)
-    }
-    func getBookInfoFromBooksListTable() -> BooksList {
-        var bookInfo = BooksList()
-        if !isNull() {
-            
-        }
-        
-        return bookInfo
-    }
 
+    
 }
+
+
+
 
 //***********************
 
@@ -54,17 +38,7 @@ class Men : MNrecord {
     var menTown  = ""
 }
 
-extension Men : Comparable {
-    static func < (lhs: Men, rhs: Men) -> Bool {
-     return (lhs.menId == rhs.menId)
-    }
-    
-    static func == (lhs: Men, rhs: Men) -> Bool {
-     return lhs.menbirthYear > rhs.menbirthYear
-    }
-    
-    
-}
+
 
 
 class Book : MNrecord {
@@ -88,18 +62,7 @@ class BookIndex : MNrecord {
     var indOrder  = -1.0
 }
 
-class BookInfo : MNrecord {
-    
-    var bkAuthor  = -1
-    var bkAuthorInfo  = ""
-    var bkCatId  = -1
-    var bkId  = -1
-    var bkMohakik  = -1
-    var bkPublisher  = ""
-    var bkTitle  = ""
-    var bkVersion  = -1
-    var bkYearPublication  = -1
-}
+
 
 class BooksCat : MNrecord {
     var bkCatDeep  = -1

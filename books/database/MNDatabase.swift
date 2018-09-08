@@ -108,18 +108,44 @@ class MNDatabase {
     func getRecords (query SQL : String) -> [[String:Any]] {
         var field = [String:Any]()
         var fields=[[String:Any]]()
-        let stmt = try! database.prepare(SQL)
-        for row in stmt{
-            field.removeAll()
-            for (index,name) in stmt.columnNames.enumerated() {
-                if row[index] != nil {
-                    field[name] = row[index]
-                }else {field[name] = ""}
+        do {let stmt = try database.prepare(SQL)
+            for row in stmt{
+                field.removeAll()
+                for (index,name) in stmt.columnNames.enumerated() {
+                    if row[index] != nil {
+                        field[name] = row[index]
+                    }else {field[name] = ""}
+                }
+                fields.append(field)
             }
-            fields.append(field)
+            return fields
+            
         }
-        return fields
+        catch {
+            return [[String:Any]]()
+        }
+
     }
+    
+    func getTableStruct (table name :String)-> String{
+        
+        var str = ""
+        let sql = "SELECT sql FROM sqlite_master WHERE tbl_name = '\(name)' AND type = 'table'"
+        let stmt = try! database.prepare(sql)
+        for row in stmt{
+            for (index,_) in stmt.columnNames.enumerated() {
+               
+                str = (row[index] as! String)
+            
+                
+            }
+            
+        }
+        return str
+        
+    }
+    
+    
     func getArrayOfIDs (query SQL :String)->[Int]{
         var array = [Int]()
         let stmt = try! database.prepare(SQL)
@@ -134,6 +160,8 @@ class MNDatabase {
         
         return array
     }
+    
+
     
     func getRecords(from sql:String , ofset from:Int,limit records:Int)->[[String:Any]]{
         var field = [String:Any]()

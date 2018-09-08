@@ -85,13 +85,30 @@ class MNFile  {
         let dataPath = "\(documentsDirectory)/\(booksFolderName)/\(name)"
         
         //print (dataPath)
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: dataPath){
+
+
             
             return dataPath
+
+    }
+    
+    static func fileExists(path : String)->Bool {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: path){
+            
+            return true
         }else{
-            return "" // no book found in path
-          }
+            return false // no book found in path
+        }
+    }
+    
+    static func deleteFile(path : String)-> Bool{
+        let fileManager = FileManager.default
+        do { try fileManager.removeItem(atPath: path)
+            return true
+        } catch{ return false
+            
+        }
     }
     
    static func searchDbFilesInDoc(myFunc: (String) -> Bool)->[String]{// use this myFumc to move files
@@ -103,8 +120,11 @@ class MNFile  {
             // print(element)
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
+
+                    if !myFunc("\(documentsPath)/\(element)") {
                     files.append("\(documentsPath)/\(element)")
-                    if !myFunc("\(documentsPath)/\(element)") { return [String]()}
+                        
+                    }
                 }
                 
             }
@@ -123,8 +143,9 @@ class MNFile  {
             // print(element)
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
-                    files.append("\(documentsPath)/\(element)")
-                   if  !myFunc("\(documentsPath)/\(element)") { return [String]()}
+  //                  files.append("\(documentsPath)/\(element)")
+                   if  myFunc("\(documentsPath)/\(element)") {
+                    files.append("\(documentsPath)/\(element)")}
                 }
                 
             }

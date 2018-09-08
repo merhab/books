@@ -40,6 +40,11 @@ class booksTests: XCTestCase {
         
         
     }
+    
+    func testingDB () {
+        let db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
+        print(db.getTableStruct(table: "BookInfo"))
+    }
 
     override func setUp() {
         super.setUp()
