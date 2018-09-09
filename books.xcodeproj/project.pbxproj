@@ -12,7 +12,6 @@
 		4975254921357E61000A47E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4975254721357E61000A47E5 /* Main.storyboard */; };
 		4975254B21357E63000A47E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4975254A21357E63000A47E5 /* Assets.xcassets */; };
 		4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4975254C21357E63000A47E5 /* LaunchScreen.storyboard */; };
-		4975255721357F50000A47E5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255621357F50000A47E5 /* MNRecord.swift */; };
 		4975257521358C34000A47E5 /* Metadata+Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255E21358C32000A47E5 /* Metadata+Tuple.swift */; };
 		4975257621358C34000A47E5 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255F21358C32000A47E5 /* UnsafePointer+Extensions.swift */; };
 		4975257721358C34000A47E5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975256021358C32000A47E5 /* Array+Extensions.swift */; };
@@ -105,7 +104,6 @@
 		4975254A21357E63000A47E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4975254D21357E63000A47E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4975254F21357E63000A47E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4975255621357F50000A47E5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		4975255E21358C32000A47E5 /* Metadata+Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Metadata+Tuple.swift"; sourceTree = "<group>"; };
 		4975255F21358C32000A47E5 /* UnsafePointer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsafePointer+Extensions.swift"; sourceTree = "<group>"; };
 		4975256021358C32000A47E5 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 			children = (
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
 				49A3CEA82138214700F06188 /* MNFile.swift */,
-				4975255621357F50000A47E5 /* MNRecord.swift */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -550,7 +547,6 @@
 				4975258221358C34000A47E5 /* Get.swift in Sources */,
 				4975258121358C34000A47E5 /* MetadataType.swift in Sources */,
 				4975257721358C34000A47E5 /* Array+Extensions.swift in Sources */,
-				4975255721357F50000A47E5 /* MNRecord.swift in Sources */,
 				49C5E56D2140ABD700ED9BF0 /* Expression.swift in Sources */,
 				49C5E5752140ABD700ED9BF0 /* DateAndTimeFunctions.swift in Sources */,
 				49C5E5732140ABD700ED9BF0 /* CustomFunctions.swift in Sources */,
