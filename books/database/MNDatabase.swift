@@ -10,6 +10,11 @@ import Foundation
 //import SQLite
 class MNDatabase {
     var database:Connection
+    var lastInsertRowid : Int {
+        get {
+            return Int(database.lastInsertRowid)
+        }
+    }
     private var path:String=""
     
     init(path:String) {
@@ -30,86 +35,6 @@ class MNDatabase {
         }
     }
     
-    func save(record:MNrecord) -> Bool {
-        var str1=""
-        var str2=""
- 
-        for i in record.getFields(){
-            if i.name != "ID" {
-            if i.type.lowercased() == "string" {
-                if str2==""{
-                    str2="'\(i.val)'"
-                }else{
-                    str2=str2+",'\(i.val)'"
-                    
-                }
-
-
-            } else if i.type.lowercased() == "bool" {
-                if str2==""{
-                    if i.val as! Bool == true { str2="1" } else { str2="0" }
-                }else{
-                    if i.val as! Bool == true { str2=str2+",1" } else { str2=str2+",0" }
-                
-                    
-                }
-            } else {
-                if str2==""{
-                    str2="\(i.val)"
-                }else{
-                    str2=str2+",\(i.val)"
-                    
-                }
-                }
-            if str1==""{
-                str1=i.name
-            }else {
-                str1=str1+","+i.name
-            }
-            
-        }
-        }
-        
-        let tableName=record.getTableName()
-        let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
-        do {try database.run(sql)
-            record.ID=Int(database.lastInsertRowid)
-            return true
-        }
-        catch let error {
-            print ("Cant insert record \(error)")
-         return false
-        }
-        
-
-        
-    }
-    func update(record:MNrecord)->Bool {
-        var values = [String]()
-        var int=0
-        var str1=""
-        var str2=""
-        for i in record.getFields(){
-            values.append("\(i.val)")
-            str1="\(i.name) = ?\(int)"
-            int+=1
-            if str2==""{
-                str2=str1
-            }else{
-                str2="\(str2),\(str1)"
-            }
-            
-        }
-        let tbl=record.getTableName()
-        let sql="update \(tbl) set \(str2) where id=\(record.ID)"
-        do{try database.run(sql,values)
-            return true
-        }
-        catch{
-            return false
-        }
-    
-    }
     func execute(_ sql : String) -> Bool {
         do{try database.execute(sql)
             return true
@@ -119,14 +44,7 @@ class MNDatabase {
             return false
         }
     }
-    func saveOrUpdte(record:MNrecord)->Bool{
-        if record.ID == -1{
-            return save(record: record)
-        }else{
-        return update(record:record)
-        }
-  
-    }
+
     func getRecords (query SQL : String) -> [[String:Any]] {
         var field = [String:Any]()
         var fields=[[String:Any]]()
@@ -207,10 +125,30 @@ class MNDatabase {
             }
             return fields
        
+  
+    }
+    func run (sql : String , _ bindings: Binding?... )-> Bool{
+        do {  try
+            database.run(sql, bindings)
+            try database.run(sql)
+            return true
+        }catch let error {
+            print("cant run \(sql) \n \(error)")
+            return false
+        }
         
     }
-    
-    func getRecords(of record:MNrecord,ofset from:Int,limit records :Int) ->[[String:Any]] {
+    func run (sql : String ,bindings:[Binding?] )-> Bool{
+        do {  try database.run(sql, bindings)
+
+            return true
+        }catch let error {
+            print("cant run \(sql) \n \(error)")
+            return false
+        }
+        
+    }
+    func getRecords(of table:String,ofset from:Int,limit count :Int) ->[[String:Any]] {
        // let stmt = try db.prepare("SELECT id, email FROM users")
         //for row in stmt {
           //  for (index, name) in stmt.columnNames.enumerated() {
@@ -220,11 +158,11 @@ class MNDatabase {
         //}
    
         var sql=""
-        let table=record.getTableName()
+
 
              sql = "select * from \(table)"
     
-     return getRecords(from: sql, ofset: from, limit: records)
+     return getRecords(from: sql, ofset: from, limit: count)
 
     }
 }

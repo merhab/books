@@ -52,19 +52,19 @@ class MNRecordset {
     
                                                         // implementation
     
-    convenience init (database:MNDatabase,record:MNrecord) {
+    convenience init (database:MNDatabase,table:String) {
         
         
-
-        self.init(database: database, record: record,SQL : "")
+        self.init(database: database, tableName: table, SQL: "")
         
     }
     
-     init (database : MNDatabase ,record : MNrecord , SQL : String){
+     init (database : MNDatabase ,tableName : String , SQL : String){
         self.database = database
+        self.tableName = tableName
         range = MNRecordSetRange(min: -1,max: -1)
         var sql = ""
-        tableName = record.getTableName()
+
         self.dataBase = database
 
          sql = "select count(id) as recordCount from \(tableName)"
@@ -73,7 +73,8 @@ class MNRecordset {
         {
             range.min=0
             range.max=recordCount-1
-            if SQL == ""{fields=database.getRecords(of: record, ofset: ofSet, limit: limit)}
+
+            if SQL == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
             else{fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)}
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
@@ -134,84 +135,17 @@ class MNRecordset {
     }
     
 
-    func getObject(myRd : MNrecord)-> MNrecord {
-        //TODO: remove thos from here to dbMNrecord
-        
-        //var myRecord : MNrecord
-        switch String(describing: type(of: myRd)) {
-        case "Book":
-            let    myRecord = myRd as! Book
-            return recordToObject(myRd: myRecord) as! Book
-        case "Men" :
-            let    myRecord = myRd as! Men
-            return recordToObject(myRd: myRecord) as! Men
-        case "BooksList" :
-            let    myRecord = myRd as! BooksList
-            return recordToObject(myRd: myRecord) as! BooksList
-        case "BookIndex" :
-            let    myRecord = myRd as! BookIndex
-            return recordToObject(myRd: myRecord) as! BookIndex
-        case "BooksCat" :
-            let   myRecord = myRd as! BooksCat
-            return recordToObject(myRd: myRecord) as! BooksCat
-            
-        default:
-            let  myRecord = myRd
-            return recordToObject(myRd: myRecord) as! MNrecord
-        }
-        
-        
-        
-    }
+//    func getObject(myRd : MNrecord)-> MNrecord {
+//
+//       return DBMNrecord(database: database, record: myRd).getObject( fld: getField())
+//
+//        
+//        
+//    }
     
     //*********************
     
-    private  func recordToObject<T>(myRd : T) -> AnyObject {
-        let fld = getField()
-        var myRecord = myRd
-        let props = try! properties(myRd)
-        // print (props)
-        var str = ""
-        for i in props.indices {
-            str = String(describing: type(of: props[i].value))
-            
-            //print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
-            if props[i].key != "ID" {
-                // case Property type is String
-                if str == "String"  {
-                    
-                    try! set(fld[props[i].key] ?? "", key: props[i].key, for: &myRecord )
-                    
-                    // case Property type is Double
-                } else if str == "Double"{
-                    try! set(fld[props[i].key] ?? -1.0, key: props[i].key, for: &myRecord )
-                    // case Property type is Bool
-                }else if str == "Bool"{
-                    if fld[props[i].key] is Int64 {
-                        // sqlite sent 1 instead of true
-                        if fld[props[i].key] as! Int64 == 1 {
-                            try! set(true, key: props[i].key, for: &myRecord )}else {
-                            // sqlite send 0 instead of false
-                            try! set(false, key: props[i].key, for: &myRecord )
-                        }}
-                    else {
-                        try! set(fld[props[i].key] ?? false, key: props[i].key, for: &myRecord )
-                    }}
-                    // case Property type is Int
-                else {
-                    if fld[props[i].key] != nil &&
-                        !(fld[props[i].key] is String) // case Property type is Int but not set , sqlite send empty string
-                    {
-                        try! set(Int((fld[props[i].key]) as! Int64 ) , key: props[i].key, for: &myRecord )
-                    } else {try! set(-1 , key: props[i].key, for: &myRecord )}
-                }
-            }
-            
-            
-        }
-        (myRecord as! MNrecord).ID = Int(fld["ID"] as! Int64)
-        return myRecord as AnyObject
-    }
+
     
     
 }

@@ -31,7 +31,7 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
         let dbBooksList = DBMNrecord(database: databaseBookList, record: BooksList())
         _ = dbBooksList.createTable()
         _ = dbBooksList.updateTableStruct()
-        rdsBooksList = MNRecordset(database: databaseBookList, record: BooksList())
+            rdsBooksList = MNRecordset(database: databaseBookList, table: BooksList().getTableName())
         
         func moveFile(file :String)-> Bool {// TODO  move files must makes a log file
 
@@ -115,7 +115,8 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
 
         rdsBooksList?.move(to :indexPath.row)
         var myBook = BooksList()
-        myBook = rdsBooksList?.getObject(myRd: myBook) as! BooksList
+        myBook =  DBMNrecord(database: (rdsBooksList?.database)!, record: myBook).getObject(fld: (rdsBooksList?.getField())!) as! BooksList
+        //myBook = rdsBooksList?.getObject(myRd: myBook) as! BooksList
         cell.aLabel.text=myBook.bkTitle
         cell.bkId = myBook.bkId // will use this to load our book in the book view
         return cell

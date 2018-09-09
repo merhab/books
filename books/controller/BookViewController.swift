@@ -11,7 +11,7 @@ import UIKit
 class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
         rdsBook?.moveNext()
-        book = rdsBook?.getObject(myRd: book) as! Book
+        book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
    //     UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlDown], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.rightToLeftAnimation()
@@ -19,7 +19,7 @@ class BookViewController: UIViewController {
 
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
         rdsBook?.movePreior()
-        book = rdsBook?.getObject(myRd: book) as! Book
+        book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.leftToRightAnimation()
@@ -41,10 +41,12 @@ class BookViewController: UIViewController {
         
 
         database = MNDatabase(path: bookPath)
-        DBMNrecord(database: database!, record: book).updateTableStruct()
+        let dbRecord = DBMNrecord(database: database!, record: book)
+        _ = dbRecord.updateTableStruct()
         
-        rdsBook = MNRecordset(database: database!, record: book)
-        book = rdsBook?.getObject(myRd: book) as! Book
+        rdsBook = MNRecordset(database: database!, table: book.getTableName())
+        book =  dbRecord.getObject(fld: (rdsBook?.getField())!) as! Book
+        //book = rdsBook?.getObject(myRd: book) as! Book
 
         page.text = book.pgText
         

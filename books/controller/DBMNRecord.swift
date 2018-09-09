@@ -123,13 +123,93 @@ class DBMNrecord  {
     }
 
     func insert() -> Bool {
-        return database.save(record: record)
+        return save(record: record)
     }
     func update() -> Bool {
-        return database.update(record: record)
+        return update(record: record)
     }
     
-    
+    func save(record:MNrecord) -> Bool {
+        var str1=""
+        var str2=""
+        
+        for i in record.getFields(){
+            if i.name != "ID" {
+                if i.type.lowercased() == "string" {
+                    if str2==""{
+                        str2="'\(i.val)'"
+                    }else{
+                        str2=str2+",'\(i.val)'"
+                        
+                    }
+                    
+                    
+                } else if i.type.lowercased() == "bool" {
+                    if str2==""{
+                        if i.val as! Bool == true { str2="1" } else { str2="0" }
+                    }else{
+                        if i.val as! Bool == true { str2=str2+",1" } else { str2=str2+",0" }
+                        
+                        
+                    }
+                } else {
+                    if str2==""{
+                        str2="\(i.val)"
+                    }else{
+                        str2=str2+",\(i.val)"
+                        
+                    }
+                }
+                if str1==""{
+                    str1=i.name
+                }else {
+                    str1=str1+","+i.name
+                }
+                
+            }
+        }
+        func saveOrUpdte(record:MNrecord)->Bool{
+            if record.ID == -1{
+                return save(record: record)
+            }else{
+                return update(record:record)
+            }
+            
+        }
+        let tableName=record.getTableName()
+        let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
+            let success = database.run(sql: sql)
+            record.ID=database.lastInsertRowid
+            return success
+
+        
+        
+        
+    }
+    func update(record:MNrecord)->Bool {
+        var values = [String]()
+        var int=0
+        var str1=""
+        var str2=""
+        for i in record.getFields(){
+            values.append("\(i.val)")
+            str1="\(i.name) = ?\(int)"
+            int+=1
+            if str2==""{
+                str2=str1
+            }else{
+                str2="\(str2),\(str1)"
+            }
+            
+        }
+        let tbl=record.getTableName()
+        let sql="update \(tbl) set \(str2) where id=\(record.ID)"
+        let success =  database.run(sql: sql,bindings: values)
+            return success
+     
+        
+    }
+
     private func sqlAddFieldToTableStruct(field : Field)-> String {
         var str = "ALTER TABLE \(record.getTableName()) ADD "
         switch field.type {
@@ -171,7 +251,7 @@ class DBMNrecord  {
     func getRecordWithId(ID : Int) {
        let flds = database.getRecords(query: "select * from \(record.getTableName()) where ID = \(ID)")
         if flds.count > 0 {
-           record = getObject(myRd: record, fld: flds[0])
+           record = getObject( fld: flds[0])
         }
         
     }
@@ -186,16 +266,17 @@ class DBMNrecord  {
         }
         let flds = database.getRecords(query: str)
         if flds.count > 0 {
-           record = getObject(myRd :record ,fld: flds[0])
+           record = getObject(fld: flds[0])
         }
     }
 
     
     //*********************
-    func getObject(myRd : MNrecord,fld : [String : Any])-> MNrecord {
+    func getObject(fld : [String : Any])-> MNrecord {
         //TODO: remove thos from here to dbMNrecord
         
         //var myRecord : MNrecord
+        let myRd = record
         switch String(describing: type(of: myRd)  ) {
         case "Book":
             let    myRecord = myRd as! Book
