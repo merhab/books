@@ -40,6 +40,7 @@
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997985521447BE5005D46C5 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 4997985121447940005D46C5 /* 1.kitab */; };
+		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
@@ -131,6 +132,7 @@
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		4997985121447940005D46C5 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
+		499798562144AAF9005D46C5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +303,7 @@
 		49AF51A1213C3AE800964DE0 /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				499798562144AAF9005D46C5 /* MNRecord.swift */,
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
 				49A3CEA82138214700F06188 /* MNFile.swift */,
 			);
@@ -524,6 +527,7 @@
 				49C5E5552140ABD700ED9BF0 /* Blob.swift in Sources */,
 				49C5E5772140ABD700ED9BF0 /* Setter.swift in Sources */,
 				49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */,
+				499798572144AAF9005D46C5 /* MNRecord.swift in Sources */,
 				49C5E5532140ABD700ED9BF0 /* Connection.swift in Sources */,
 				49C5E5612140ABD700ED9BF0 /* RTree.swift in Sources */,
 				49A3CEA92138214700F06188 /* MNFile.swift in Sources */,
