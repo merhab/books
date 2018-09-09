@@ -117,7 +117,7 @@ class MNFile  {
         let fileManager = FileManager.default
         let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath )!
         while let element = enumerator.nextObject() as? String {
-            // print(element)
+             print(element)
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
 
@@ -140,7 +140,7 @@ class MNFile  {
         let fileManager = FileManager.default
         let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath)!
         while let element = enumerator.nextObject() as? String {
-            // print(element)
+             print(element)
             if element.hasSuffix(".kitab") {
                 if (element as NSString).lastPathComponent == element {
   //                  files.append("\(documentsPath)/\(element)")

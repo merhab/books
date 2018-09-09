@@ -12,7 +12,7 @@
 		4975254921357E61000A47E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4975254721357E61000A47E5 /* Main.storyboard */; };
 		4975254B21357E63000A47E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4975254A21357E63000A47E5 /* Assets.xcassets */; };
 		4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4975254C21357E63000A47E5 /* LaunchScreen.storyboard */; };
-		4975255721357F50000A47E5 /* MNrecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255621357F50000A47E5 /* MNrecord.swift */; };
+		4975255721357F50000A47E5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255621357F50000A47E5 /* MNRecord.swift */; };
 		4975257521358C34000A47E5 /* Metadata+Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255E21358C32000A47E5 /* Metadata+Tuple.swift */; };
 		4975257621358C34000A47E5 /* UnsafePointer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975255F21358C32000A47E5 /* UnsafePointer+Extensions.swift */; };
 		4975257721358C34000A47E5 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975256021358C32000A47E5 /* Array+Extensions.swift */; };
@@ -40,8 +40,7 @@
 		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
-		499CEAE5213ECC7900CEA848 /* booksList.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE2213ECB9E00CEA848 /* booksList.kitab */; };
-		499CEAE6213ECC8E00CEA848 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 499CEAE1213ECB9E00CEA848 /* 1.kitab */; };
+		4997985521447BE5005D46C5 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 4997985121447940005D46C5 /* 1.kitab */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
@@ -106,7 +105,7 @@
 		4975254A21357E63000A47E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4975254D21357E63000A47E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4975254F21357E63000A47E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4975255621357F50000A47E5 /* MNrecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNrecord.swift; sourceTree = "<group>"; };
+		4975255621357F50000A47E5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		4975255E21358C32000A47E5 /* Metadata+Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Metadata+Tuple.swift"; sourceTree = "<group>"; };
 		4975255F21358C32000A47E5 /* UnsafePointer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsafePointer+Extensions.swift"; sourceTree = "<group>"; };
 		4975256021358C32000A47E5 /* Array+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -133,8 +132,7 @@
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		499CEAE1213ECB9E00CEA848 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
-		499CEAE2213ECB9E00CEA848 /* booksList.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = booksList.kitab; sourceTree = "<group>"; };
+		4997985121447940005D46C5 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,8 +194,7 @@
 			children = (
 				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
 				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
-				499CEAE1213ECB9E00CEA848 /* 1.kitab */,
-				499CEAE2213ECB9E00CEA848 /* booksList.kitab */,
+				4997985121447940005D46C5 /* 1.kitab */,
 				4975254221357E61000A47E5 /* books */,
 				49A6347D2141F36E0050A67E /* booksTests */,
 				4975254121357E61000A47E5 /* Products */,
@@ -308,7 +305,7 @@
 			children = (
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
 				49A3CEA82138214700F06188 /* MNFile.swift */,
-				4975255621357F50000A47E5 /* MNrecord.swift */,
+				4975255621357F50000A47E5 /* MNRecord.swift */,
 			);
 			path = modal;
 			sourceTree = "<group>";
@@ -495,14 +492,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4997985521447BE5005D46C5 /* 1.kitab in Resources */,
 				49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */,
 				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
 				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,
 				4975254B21357E63000A47E5 /* Assets.xcassets in Resources */,
-				499CEAE5213ECC7900CEA848 /* booksList.kitab in Resources */,
 				4975254921357E61000A47E5 /* Main.storyboard in Resources */,
-				499CEAE6213ECC8E00CEA848 /* 1.kitab in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,7 +550,7 @@
 				4975258221358C34000A47E5 /* Get.swift in Sources */,
 				4975258121358C34000A47E5 /* MetadataType.swift in Sources */,
 				4975257721358C34000A47E5 /* Array+Extensions.swift in Sources */,
-				4975255721357F50000A47E5 /* MNrecord.swift in Sources */,
+				4975255721357F50000A47E5 /* MNRecord.swift in Sources */,
 				49C5E56D2140ABD700ED9BF0 /* Expression.swift in Sources */,
 				49C5E5752140ABD700ED9BF0 /* DateAndTimeFunctions.swift in Sources */,
 				49C5E5732140ABD700ED9BF0 /* CustomFunctions.swift in Sources */,

@@ -41,7 +41,7 @@ class BookViewController: UIViewController {
         
 
         database = MNDatabase(path: bookPath)
-        
+        DBMNrecord(database: database!, record: book).updateTableStruct()
         
         rdsBook = MNRecordset(database: database!, record: book)
         book = rdsBook?.getObject(myRd: book) as! Book

@@ -30,7 +30,9 @@ class DBMNrecord  {
         "
         """
             var str = ""
-            let props = record.getFields()
+            var  props = record.getFields()
+
+            
             for i in props.indices {
                 switch props[i].type {
                 case  "String" :
@@ -41,10 +43,18 @@ class DBMNrecord  {
                     }
                     
                 case "Int" :
+                    if props[i].name == "ID" {
+                        if str == "" {
+                            str = "\"ID\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT "
+                        } else {
+                            str = str + " , \"ID\" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT "
+                        }
+                    }else {
                     if str == "" {
                         str = "\(doubleQuote)\(props[i].name)\(doubleQuote) INTEGER DEFAULT -1 "
-                    } else {
+                        } else {
                         str = str + " , \(doubleQuote)\(props[i].name)\(doubleQuote) INTEGER DEFAULT -1 "
+                        }
                     }
                 case "Bool" :
                     if str == "" {
@@ -79,14 +89,10 @@ class DBMNrecord  {
 
     }
     
-    func CheckColInTableStructure (field name:String)->Bool{
+    func getTableStructure ()->String{
         
         let str = database.getTableStruct(table: record.getTableName())
-        if str.index(of: name) != nil {
-            //let domains = str.prefix(upTo: index)
-            //print(domains)  // "ab\n"
-            return true
-        } else {return false}
+        return str
    
 
     }
@@ -96,9 +102,10 @@ class DBMNrecord  {
         var str = ""
 
             let fields = record.getFields()
+            let tblStruct = getTableStructure()
             for i in fields.indices {
                 let field = fields[i]
-                if CheckColInTableStructure(field: field.name) {
+                if !tblStruct.contains(field.name) {
                     if str == "" {
                         str = sqlAddFieldToTableStruct(field: field)
                     }else {

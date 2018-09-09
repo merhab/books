@@ -31,32 +31,53 @@ class MNDatabase {
     }
     
     func save(record:MNrecord) -> Bool {
-        var values = [String]()
         var str1=""
         var str2=""
-        var int=0
+ 
         for i in record.getFields(){
-            values.append("\(i.val)")
+            if i.name != "ID" {
+            if i.type.lowercased() == "string" {
+                if str2==""{
+                    str2="'\(i.val)'"
+                }else{
+                    str2=str2+",'\(i.val)'"
+                    
+                }
+
+
+            } else if i.type.lowercased() == "bool" {
+                if str2==""{
+                    if i.val as! Bool == true { str2="1" } else { str2="0" }
+                }else{
+                    if i.val as! Bool == true { str2=str2+",1" } else { str2=str2+",0" }
+                
+                    
+                }
+            } else {
+                if str2==""{
+                    str2="\(i.val)"
+                }else{
+                    str2=str2+",\(i.val)"
+                    
+                }
+                }
             if str1==""{
                 str1=i.name
             }else {
                 str1=str1+","+i.name
             }
-            if str2==""{
-                str2="?\(int)"
-            }else{
-                str2=str2+",?\(int)"
-                
-            }
-            int+=1
+            
         }
+        }
+        
         let tableName=record.getTableName()
         let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
-        do {try database.run(sql,values)
+        do {try database.run(sql)
             record.ID=Int(database.lastInsertRowid)
             return true
         }
-        catch{
+        catch let error {
+            print ("Cant insert record \(error)")
          return false
         }
         
@@ -93,7 +114,8 @@ class MNDatabase {
         do{try database.execute(sql)
             return true
         }
-        catch{
+        catch let error{
+            print("cant create table: \(error)")
             return false
         }
     }

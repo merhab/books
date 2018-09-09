@@ -25,12 +25,13 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         var databaseBookList : MNDatabase
-
+        if MNFile.createFolderInDocuments(folder: MNFile.booksFolderName) {
         databaseBookList = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
+            
         let dbBooksList = DBMNrecord(database: databaseBookList, record: BooksList())
         _ = dbBooksList.createTable()
         _ = dbBooksList.updateTableStruct()
-
+        rdsBooksList = MNRecordset(database: databaseBookList, record: BooksList())
         
         func moveFile(file :String)-> Bool {// TODO  move files must makes a log file
 
@@ -38,6 +39,7 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
             databaseBook = MNDatabase(path: file)
             let dbBookInfoFromBooksList = DBMNrecord (database: databaseBookList, record: BooksList())
             let dbBookInfoFromBook = DBMNrecord(database: databaseBook, record: BooksList())
+           print( dbBookInfoFromBook.updateTableStruct())
             dbBookInfoFromBook.getRecordWithId(ID: 1)
                 if !dbBookInfoFromBook.isNull {
                     dbBookInfoFromBooksList.getFirstRecord(filter: " bkId = \((dbBookInfoFromBook.record as! BooksList).bkId)")
@@ -59,6 +61,7 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
                 }
                 
             if   MNFile.moveFileToBookFolder(file: file) {
+                
                return true
             }else{
                 return false
@@ -68,11 +71,12 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
         }
         
         // will move all books files from resource to the book directory in doc
-        if MNFile.createFolderInDocuments(folder: MNFile.booksFolderName) {
+
           var any =  MNFile.searchDbFilesInRes(myFunc: moveFile)
           any.append(contentsOf: MNFile.searchDbFilesInDoc(myFunc: moveFile))
             print(any)
         }
+
         
 
         
@@ -101,7 +105,7 @@ class BooksListTableViewController: UIViewController,UITableViewDelegate,UITable
     
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-    return rdsBooksList?.recordCount ?? 0
+    return rdsBooksList!.recordCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
