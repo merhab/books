@@ -38,7 +38,6 @@ class BookViewController: UIViewController {
 //        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.viewSwipped(_:)))
 //        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
 //        page.addGestureRecognizer(swipeLeft)
-        
 
         database = MNDatabase(path: bookPath)
         let dbRecord = DBMNrecord(database: database!, record: book)

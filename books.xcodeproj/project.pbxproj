@@ -41,6 +41,7 @@
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997985521447BE5005D46C5 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 4997985121447940005D46C5 /* 1.kitab */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
+		499798782145EF81005D46C5 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798772145EF81005D46C5 /* CatViewController.swift */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
@@ -133,6 +134,7 @@
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		4997985121447940005D46C5 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		499798562144AAF9005D46C5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
+		499798772145EF81005D46C5 /* CatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +327,7 @@
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
 				4975254521357E61000A47E5 /* BooksListTableViewController.swift */,
 				49C5E43F2140385800ED9BF0 /* BookViewController.swift */,
+				499798772145EF81005D46C5 /* CatViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				49C5E56D2140ABD700ED9BF0 /* Expression.swift in Sources */,
 				49C5E5752140ABD700ED9BF0 /* DateAndTimeFunctions.swift in Sources */,
 				49C5E5732140ABD700ED9BF0 /* CustomFunctions.swift in Sources */,
+				499798782145EF81005D46C5 /* CatViewController.swift in Sources */,
 				4975258D213591EB000A47E5 /* Properties.swift in Sources */,
 				4975257E21358C34000A47E5 /* NominalTypeDescriptor.swift in Sources */,
 				4975254421357E61000A47E5 /* AppDelegate.swift in Sources */,
