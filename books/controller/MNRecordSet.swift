@@ -192,20 +192,28 @@ struct MNRecordSetRange {
     var min : Int
     var hasRange : Bool
     var array = [Int]()
-    var recordCount : Int
+    var recordCount : Int {
+        get {
+            if array.count == 0 {
+                return  max-min+1
+
+            }else {
+                return array.count
+            }
+        }
+    }
     fileprivate var arrayPosition = -1
     init (min : Int,max :Int){
         self.min=min
         self.max=max
         position = min
         hasRange = false
-        recordCount = max-min+1
-    }
+            }
     init(array:[Int]) {
         if array.count != 0 {
         min=array[0]
         max=array[array.count-1]
-        recordCount = array.count
+        
         position = min
         hasRange=true
         arrayPosition=0
@@ -216,7 +224,7 @@ struct MNRecordSetRange {
             max = -1
             min = -1
             position = -1
-            recordCount = 0
+
         }
         
  
