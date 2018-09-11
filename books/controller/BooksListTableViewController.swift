@@ -56,14 +56,17 @@ class BooksListTableViewController: UIViewController  {
         databaseBookList = MNDatabase(path: MNFile.getDataBasePath(book: "booksList.kitab"))
         let dbBooksList = DBMNrecord(database: databaseBookList!, record: BooksList())
         let dbCat = DBMNrecord(database: databaseBookList!, record: BooksCat())
+        let dbMen = DBMNrecord(database: databaseBookList!, record: Men())
         if databaseExists {
             _ = dbBooksList.updateTableStruct()
             _ = dbCat.updateTableStruct()
+            _ = dbMen.updateTableStruct()
         }else {
             _ = dbBooksList.createTable()
             _ = dbCat.createTable()
-            (dbCat.record as! BooksCat).bkCatTitle = "عقيدة"
-            _ = dbCat.insert()
+            _ = dbMen.createTable()
+//            (dbCat.record as! BooksCat).bkCatTitle = "عقيدة"
+//            _ = dbCat.insert()
         }
     }
     
@@ -78,23 +81,29 @@ class BooksListTableViewController: UIViewController  {
         databaseBook = MNDatabase(path: file)
         let dbBookInfoFromBooksList = DBMNrecord (database: databaseBookList!, record: BooksList())
         let dbBookInfoFromBook = DBMNrecord(database: databaseBook, record: BooksList())
+        let dbMenFromBooksList = DBMNrecord (database: databaseBookList!, record: Men())
+        let dbMenFromBook = DBMNrecord(database: databaseBook, record: Men())
+        let dbCatFromBooksList = DBMNrecord (database: databaseBookList!, record: BooksCat())
+        let dbCatFromBook = DBMNrecord(database: databaseBook, record: BooksCat())
         //print( dbBookInfoFromBook.updateTableStruct())
         dbBookInfoFromBook.getRecordWithId(ID: 1)
         if !dbBookInfoFromBook.isNull {
             dbBookInfoFromBooksList.getFirstRecord(filter: " bkId = \((dbBookInfoFromBook.record as! BooksList).bkId)")
-            if dbBookInfoFromBooksList.isNull {
-                dbBookInfoFromBooksList.record = dbBookInfoFromBook.record
-                _ = dbBookInfoFromBooksList.insert()
-            }else {
-                if dbBookInfoFromBook.record > dbBookInfoFromBooksList.record {
-                    dbBookInfoFromBooksList.record = dbBookInfoFromBook.record
-                    _ = dbBookInfoFromBooksList.update()
-                } else {
-                    _ = MNFile.deleteFile(path: file)
-                    print ("error book already exists: \(file)")
-                   
-                }
-            }    
+            
+           _ = dbBookInfoFromBooksList.saveOrUpdate(dbRecord: dbBookInfoFromBook)
+            
+            dbMenFromBook.getRecordWithId(ID: 1)
+            if !dbMenFromBook.isNull {
+                dbMenFromBooksList.getFirstRecord(filter: "menId = \((dbMenFromBook.record as! Men).menId)")
+                _ = dbMenFromBooksList.saveOrUpdate(dbRecord: dbMenFromBook)
+            }
+            
+            dbCatFromBook.getRecordWithId(ID: 1)
+            if !dbCatFromBook.isNull {
+                dbCatFromBooksList.getFirstRecord(filter: "bkCatId = \((dbCatFromBook.record as! BooksCat).bkCatId)")
+                _ = dbCatFromBooksList.saveOrUpdate(dbRecord: dbCatFromBook)
+            }
+            
         }else{
             _ = MNFile.deleteFile(path: file)
             print ("error no info found file deleted  : \(file)")
@@ -129,8 +138,8 @@ class BooksListTableViewController: UIViewController  {
           var files =  MNFile.searchDbFilesInRes()
           files.append(contentsOf: MNFile.searchDbFilesInDoc())
           moveFile(files: files)
-            rdsBooksList = MNRecordset(database: databaseBookList!, table: "booksList")
-
+            rdsBooksList?.refresh()
+            rdsCat?.refresh()
         }
    
     

@@ -123,13 +123,11 @@ class DBMNrecord  {
     }
 
     func insert() -> Bool {
-        return save(record: record)
+        return save()
     }
-    func update() -> Bool {
-        return update(record: record)
-    }
+
     
-    func save(record:MNrecord) -> Bool {
+    func save() -> Bool {
         var str1=""
         var str2=""
         
@@ -180,16 +178,38 @@ class DBMNrecord  {
         
     }
     
-    func saveOrUpdte(record:MNrecord)->Bool{
+    func saveOrUpdte()->Bool{
         if record.ID == -1{
-            return save(record: record)
+            return save()
         }else{
-            return update(record:record)
+            return update()
         }
         
     }
     
-    func update(record:MNrecord)->Bool {
+    
+    // save or update from another dbrecord
+    
+    func saveOrUpdate(dbRecord : DBMNrecord) -> Bool {
+
+        if dbRecord.isNull {return false}
+        else {
+            if self.isNull {
+                self.record = dbRecord.record
+                return self.insert()
+                
+            }else {
+                if self.record > dbRecord.record {
+                    self.record = dbRecord.record
+                    return self.update()
+                }else { return false}
+
+            }
+        }
+
+    }
+    
+    func update()->Bool {
         var values = [String]()
         var int=0
         var str1=""

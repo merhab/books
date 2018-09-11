@@ -33,9 +33,10 @@ class MNRecordset {
     var filter = "" // the where sql close without the where
     var filtered = false {
         didSet {
-            if filtered  {
+            if filtered  {//TODO there is bugs in filter
             let sqlFilter = "select ID from \(tableName) where  \(filter)"
             let myRange = database.getArrayOfIDs(query: sqlFilter)
+                
                 range=MNRecordSetRange(array: myRange)
                 if let _ = myRange.index(of: recordNo)  {
                 range.position = recordNo
@@ -59,9 +60,8 @@ class MNRecordset {
         
     }
    
-    private func initialisation(database : MNDatabase ,tableName : String , SQL : String){
-        self.database = database
-        self.tableName = tableName
+    private func initialisation(){
+
         range = MNRecordSetRange(min: -1,max: -1)
         var sql = ""
         
@@ -74,8 +74,8 @@ class MNRecordset {
             range.min=0
             range.max=recordCount-1
             
-            if SQL == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
-            else{fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)}
+            fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)
+
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
@@ -132,6 +132,9 @@ class MNRecordset {
         }
     }
     func refresh(){
+        let n = recordNo
+        initialisation()
+        move(to: n)
         
     }
     func moveNext()  {
