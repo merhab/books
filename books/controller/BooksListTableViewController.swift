@@ -71,13 +71,14 @@ class BooksListTableViewController: UIViewController  {
         return MNFile.createFolderInDocuments(folder: MNFile.booksFolderName)
     }
     
-    func moveFile(file :String)-> Bool {// TODO  move files must makes a log file
-        
+    func moveFile(files :[String]) {// TODO  move files must makes a log file
+        print(files)
+        for file in files {
         var databaseBook : MNDatabase
         databaseBook = MNDatabase(path: file)
         let dbBookInfoFromBooksList = DBMNrecord (database: databaseBookList!, record: BooksList())
         let dbBookInfoFromBook = DBMNrecord(database: databaseBook, record: BooksList())
-        print( dbBookInfoFromBook.updateTableStruct())
+        //print( dbBookInfoFromBook.updateTableStruct())
         dbBookInfoFromBook.getRecordWithId(ID: 1)
         if !dbBookInfoFromBook.isNull {
             dbBookInfoFromBooksList.getFirstRecord(filter: " bkId = \((dbBookInfoFromBook.record as! BooksList).bkId)")
@@ -90,21 +91,23 @@ class BooksListTableViewController: UIViewController  {
                     _ = dbBookInfoFromBooksList.update()
                 } else {
                     _ = MNFile.deleteFile(path: file)
-                    return false
+                    print ("error book already exists: \(file)")
+                   
                 }
-            }
+            }    
         }else{
             _ = MNFile.deleteFile(path: file)
-            return false
+            print ("error no info found file deleted  : \(file)")
+           
         }
         
         if   MNFile.moveFileToBookFolder(file: file) {
-            
-            return true
+            print ("file moved to book folder: \(file)")
+           
         }else{
-            return false
+         print ("error cant moved to book folder: \(file)")
         }
-        
+        }
         
     }
     
@@ -123,8 +126,10 @@ class BooksListTableViewController: UIViewController  {
         
         // will move all books files from resource to the book directory in doc
 
-          var any =  MNFile.searchDbFilesInRes(myFunc: moveFile)
-          any.append(contentsOf: MNFile.searchDbFilesInDoc(myFunc: moveFile))
+          var files =  MNFile.searchDbFilesInRes()
+          files.append(contentsOf: MNFile.searchDbFilesInDoc())
+          moveFile(files: files)
+            rdsBooksList = MNRecordset(database: databaseBookList!, table: "booksList")
 
         }
    
@@ -136,10 +141,9 @@ class BooksListTableViewController: UIViewController  {
         let ind = booksListTableView.indexPathForSelectedRow //optional, to get from any UIButton for example
         
         let currentCell = booksListTableView.cellForRow(at: ind!) as! Mycell
-        if currentCell.bkId == 1 { // just for testing
+
             bookPath = MNFile.getDataBasePath(book: "\(currentCell.bkId).kitab") // will pass this to the book view let it load the book by itSelf
-            
-        }
+
 
         bookView.bookPath = self.bookPath
         print(bookView.bookPath)

@@ -58,7 +58,35 @@ class MNRecordset {
         self.init(database: database, tableName: table, SQL: "")
         
     }
-    
+   
+    private func initialisation(database : MNDatabase ,tableName : String , SQL : String){
+        self.database = database
+        self.tableName = tableName
+        range = MNRecordSetRange(min: -1,max: -1)
+        var sql = ""
+        
+        self.dataBase = database
+        
+        sql = "select count(id) as recordCount from \(tableName)"
+        recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        if recordCount > 0
+        {
+            range.min=0
+            range.max=recordCount-1
+            
+            if SQL == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)}
+        } else {fields = [[String:Any]]()}
+        isEmpty = (fields.count == 0)
+        if isEmpty {
+            recordNo = -1
+            positionInPage = -1
+        }else {
+            recordNo = 0
+            positionInPage = 0
+        }
+
+    }
      init (database : MNDatabase ,tableName : String , SQL : String){
         self.database = database
         self.tableName = tableName
@@ -104,7 +132,7 @@ class MNRecordset {
         }
     }
     func refresh(){
-        fields = dataBase.getRecords(from: sql, ofset: ofSet, limit: limit)
+        
     }
     func moveNext()  {
         if !eof() {

@@ -130,7 +130,7 @@ class MNDatabase {
     func run (sql : String , _ bindings: Binding?... )-> Bool{
         do {  try
             database.run(sql, bindings)
-            try database.run(sql)
+           // try database.run(sql)
             return true
         }catch let error {
             print("cant run \(sql) \n \(error)")

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49289F78214645AE00620690 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F75214645AE00620690 /* 1.kitab */; };
+		49289F79214645AE00620690 /* 5.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F76214645AE00620690 /* 5.kitab */; };
+		49289F7A214645AE00620690 /* 4.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F77214645AE00620690 /* 4.kitab */; };
 		4975254421357E61000A47E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254321357E61000A47E5 /* AppDelegate.swift */; };
 		4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254521357E61000A47E5 /* BooksListTableViewController.swift */; };
 		4975254921357E61000A47E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4975254721357E61000A47E5 /* Main.storyboard */; };
@@ -39,7 +42,6 @@
 		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
-		4997985521447BE5005D46C5 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 4997985121447940005D46C5 /* 1.kitab */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		499798782145EF81005D46C5 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798772145EF81005D46C5 /* CatViewController.swift */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
@@ -99,6 +101,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49289F75214645AE00620690 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../KOTOB/1.kitab; sourceTree = "<group>"; };
+		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
+		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
 		4975254021357E61000A47E5 /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4975254321357E61000A47E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4975254521357E61000A47E5 /* BooksListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListTableViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +199,9 @@
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
+				49289F75214645AE00620690 /* 1.kitab */,
+				49289F77214645AE00620690 /* 4.kitab */,
+				49289F76214645AE00620690 /* 5.kitab */,
 				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
 				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
 				4997985121447940005D46C5 /* 1.kitab */,
@@ -495,8 +503,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4997985521447BE5005D46C5 /* 1.kitab in Resources */,
 				49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */,
+				49289F78214645AE00620690 /* 1.kitab in Resources */,
+				49289F79214645AE00620690 /* 5.kitab in Resources */,
+				49289F7A214645AE00620690 /* 4.kitab in Resources */,
 				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
 				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,

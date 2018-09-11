@@ -110,49 +110,41 @@ class MNFile  {
             
         }
     }
-    
-   static func searchDbFilesInDoc(myFunc: (String) -> Bool)->[String]{// use this myFumc to move files
+   static func searchDb(pathURL: URL) -> [String] {
         var files = [String]()
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let fileManager = FileManager.default
-        let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath )!
-        while let element = enumerator.nextObject() as? String {
-             print(element)
-            if element.hasSuffix(".kitab") {
-                if (element as NSString).lastPathComponent == element {
-
-                    if !myFunc("\(documentsPath)/\(element)") {
-                    files.append("\(documentsPath)/\(element)")
-                        
-                    }
+        let keys = [URLResourceKey.isDirectoryKey, URLResourceKey.localizedNameKey]
+        let options: FileManager.DirectoryEnumerationOptions = [.skipsPackageDescendants, .skipsSubdirectoryDescendants, .skipsHiddenFiles]
+        
+        let enumerator = fileManager.enumerator(
+            at: pathURL,
+            includingPropertiesForKeys: keys,
+            options: options,
+            errorHandler: {(url, error) -> Bool in
+                return true
+        })
+        
+        if enumerator != nil {
+            while let file = enumerator!.nextObject() {
+                let path =  (file as! URL).path 
+                if path.hasSuffix(".kitab"){
+                    files.append(path)
                 }
-                
             }
-            
         }
+        
         return files
     }
+   static func searchDbFilesInDoc()->[String]{// use this myFumc to move files
+
+    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
+    }
     
-    static func searchDbFilesInRes(myFunc: (String) -> Bool)->[String]{// use this myFumc to move files
-        var files = [String]()
+    static func searchDbFilesInRes()->[String]{// use this myFumc to move files
+
         let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
-        
-        let fileManager = FileManager.default
-        let enumerator: FileManager.DirectoryEnumerator = fileManager.enumerator(atPath: documentsPath)!
-        while let element = enumerator.nextObject() as? String {
-             print(element)
-            if element.hasSuffix(".kitab") {
-                if (element as NSString).lastPathComponent == element {
-  //                  files.append("\(documentsPath)/\(element)")
-                   if  myFunc("\(documentsPath)/\(element)") {
-                    files.append("\(documentsPath)/\(element)")}
-                }
-                
-            }
-            
-        }
-        
-        return files
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
     }
 }
 

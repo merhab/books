@@ -168,14 +168,7 @@ class DBMNrecord  {
                 
             }
         }
-        func saveOrUpdte(record:MNrecord)->Bool{
-            if record.ID == -1{
-                return save(record: record)
-            }else{
-                return update(record:record)
-            }
-            
-        }
+
         let tableName=record.getTableName()
         let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
             let success = database.run(sql: sql)
@@ -186,6 +179,16 @@ class DBMNrecord  {
         
         
     }
+    
+    func saveOrUpdte(record:MNrecord)->Bool{
+        if record.ID == -1{
+            return save(record: record)
+        }else{
+            return update(record:record)
+        }
+        
+    }
+    
     func update(record:MNrecord)->Bool {
         var values = [String]()
         var int=0
@@ -348,9 +351,9 @@ class DBMNrecord  {
             
             
         }
-        (myRecord as! MNrecord).ID = Int(fld["ID"] as! Int64)
-        (myRecord as! MNrecord).ID = Int(fld["ID"] as! Int64)
-        if (Int(fld["selected"] as! Int64)) == 0 {(myRecord as! MNrecord).selected = false } else { (myRecord as! MNrecord).selected = true}
+        (myRecord as! MNrecord).ID = Int(fld["ID"] as? Int64 ?? -1)
+
+        if (Int(fld["selected"] as? Int64 ?? 0)) == 0 {(myRecord as! MNrecord).selected = false } else { (myRecord as! MNrecord).selected = true}
         (myRecord as! MNrecord).version = (fld["version"] as? Double) ?? 0.0
         return myRecord as AnyObject
     }
