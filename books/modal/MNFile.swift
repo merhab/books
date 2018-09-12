@@ -146,5 +146,10 @@ class MNFile  {
         let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
         return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
     }
+    static func searchDbFilesInInbox()->[String]{
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]+"/Inbox"
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
+        
+    }
 }
 

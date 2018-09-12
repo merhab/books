@@ -39,11 +39,14 @@
 		4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257421358C34000A47E5 /* RelativePointer.swift */; };
 		4975258D213591EB000A47E5 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258C213591EB000A47E5 /* Properties.swift */; };
 		4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
+		497C9B69214895670066BED9 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 497C9B68214895660066BED9 /* images.jpeg */; };
 		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		499798782145EF81005D46C5 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798772145EF81005D46C5 /* CatViewController.swift */; };
+		49A17C33214895C400282144 /* lazarus_orange.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49A17C32214895C300282144 /* lazarus_orange.icns */; };
+		49A17C35214895D900282144 /* lazarus_orange.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49A17C34214895D900282144 /* lazarus_orange.icns */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
@@ -135,11 +138,14 @@
 		4975257421358C34000A47E5 /* RelativePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativePointer.swift; sourceTree = "<group>"; };
 		4975258C213591EB000A47E5 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = "../../../../Downloads/Reflection-master/Sources/Reflection/Properties.swift"; sourceTree = "<group>"; };
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
+		497C9B68214895660066BED9 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		4997985121447940005D46C5 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		499798562144AAF9005D46C5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		499798772145EF81005D46C5 /* CatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
+		49A17C32214895C300282144 /* lazarus_orange.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = lazarus_orange.icns; sourceTree = "<group>"; };
+		49A17C34214895D900282144 /* lazarus_orange.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = lazarus_orange.icns; path = ../../../../Developer/lazarus/images/icons/lazarus_orange.icns; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +205,9 @@
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
+				49A17C32214895C300282144 /* lazarus_orange.icns */,
+				49A17C34214895D900282144 /* lazarus_orange.icns */,
+				497C9B68214895660066BED9 /* images.jpeg */,
 				49289F75214645AE00620690 /* 1.kitab */,
 				49289F77214645AE00620690 /* 4.kitab */,
 				49289F76214645AE00620690 /* 5.kitab */,
@@ -504,10 +513,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */,
+				497C9B69214895670066BED9 /* images.jpeg in Resources */,
 				49289F78214645AE00620690 /* 1.kitab in Resources */,
+				49A17C35214895D900282144 /* lazarus_orange.icns in Resources */,
 				49289F79214645AE00620690 /* 5.kitab in Resources */,
 				49289F7A214645AE00620690 /* 4.kitab in Resources */,
 				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
+				49A17C33214895C400282144 /* lazarus_orange.icns in Resources */,
 				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,
 				4975254B21357E63000A47E5 /* Assets.xcassets in Resources */,
