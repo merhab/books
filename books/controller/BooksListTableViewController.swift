@@ -166,10 +166,10 @@ class BooksListTableViewController: UIViewController  {
 extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == booksListTableView {
-        return rdsBooksList!.range.recordCount
+        return rdsBooksList!.recordCount
         }
         if tableView == catTableView {
-            return (rdsCat!.range.recordCount)
+            return (rdsCat!.recordCount)
         }
         return 0
         
@@ -182,7 +182,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: booksListCellId, for: indexPath) as! Mycell
         rdsBooksList?.move(to :indexPath.row)
         var myBook = BooksList()
-        myBook =  DBMNrecord(database: (rdsBooksList?.database)!, record: myBook).getObject(fld: (rdsBooksList?.getField())!) as! BooksList
+        myBook =  DBMNrecord(database: (rdsBooksList?.dataBase)!, record: myBook).getObject(fld: (rdsBooksList?.getField())!) as! BooksList
         //myBook = rdsBooksList?.getObject(myRd: myBook) as! BooksList
         cell.booksListLabel.text=myBook.bkTitle
         cell.bkId = myBook.bkId // will use this to load our book in the book view
@@ -192,7 +192,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             let cell = tableView.dequeueReusableCell(withIdentifier: catCellId, for: indexPath) as! Mycell
             rdsCat?.move(to :indexPath.row)
             var myCat = BooksCat()
-            myCat =  DBMNrecord(database: (rdsCat?.database)!, record: myCat).getObject(fld: (rdsCat?.getField())!) as! BooksCat
+            myCat =  DBMNrecord(database: (rdsCat?.dataBase)!, record: myCat).getObject(fld: (rdsCat?.getField())!) as! BooksCat
             cell.booksListLabel.text=myCat.bkCatTitle
             cell.bkId = myCat.bkCatId// will use this to load our book in the book view
             return cell
