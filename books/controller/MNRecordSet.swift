@@ -169,6 +169,41 @@ class MNRecordset {
         
     }
     
+    init (database : MNDatabase ,tableName : String ,columns:String ,whereSql : String , orderBy : String){
+        
+        
+        self.dataBase = database
+        self.tableName = tableName
+        self.whereSql = whereSql
+        self.orderBySql=orderBy
+        var sql = ""
+        if whereSql != "" {
+            sql = "select count(id) as recordCount from \(tableName) where \(whereSql)"
+        }else {
+            sql = "select count(id) as recordCount from \(tableName) "
+        }
+        recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        if whereSql != "" {
+            sql = "select \(columns) from \(tableName) where \(whereSql)"
+        }else {
+            sql = "select \(columns) from \(tableName) "
+        }
+        if recordCount > 0
+        {
+            if sql == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(from: sql, ofset: ofSet, limit: limit)}
+        } else {fields = [[String:Any]]()}
+        isEmpty = (fields.count == 0)
+        if isEmpty {
+            recordNo = -1
+            positionInPage = -1
+        }else {
+            recordNo = 0
+            positionInPage = 0
+        }
+        
+    }
+    
 
     
     func move(to position:Int) {
