@@ -103,7 +103,7 @@ class MNDatabase {
     
 
     
-    func getRecords(from sql:String , ofset from:Int,limit records:Int)->[[String:Any]]{
+    func getRecords(query sql:String , ofset from:Int,limit records:Int)->[[String:Any]]{
         var field = [String:Any]()
         var fields=[[String:Any]]()
         var sql1=""
@@ -162,7 +162,7 @@ class MNDatabase {
 
              sql = "select * from \(table)"
     
-     return getRecords(from: sql, ofset: from, limit: count)
+     return getRecords(query: sql, ofset: from, limit: count)
 
     }
 }

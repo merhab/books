@@ -20,6 +20,9 @@ class MNRecordset {
     var isEmpty = true
     private var whereSql = ""
     private var orderBySql = ""
+    /*!
+     * @param sqlClose containe the where and the order by keywords
+    */
     private var sqlCloses : String {
         get{
             var str = ""
@@ -73,28 +76,41 @@ class MNRecordset {
     }
     private func getRecordsCount()->Int {
         var str = ""
-        if sqlCloses != "" {
-            str = " select count(id) as recordCount from \(tableName) where \(sqlCloses) "
+        let sqlCloseTmp = sqlCloses
+        if sqlCloseTmp != "" {
+            str = " select count(id) as recordCount from \(tableName)  \(sqlCloseTmp) "
         }
         else {
         str = "select count(id) as recordCount  from \(tableName) "
         }
         
  
-        return Int(dataBase.getRecords(from: str, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        return Int(dataBase.getRecords(query: str, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
     }
    
+    /*!
+    * @brief this function will reset the recordset
+    */
     private func initialisation(){
+        ofSet=0
+        var sql = ""
+        if sqlCloses != "" {
+            sql = "select count(id) as recordCount from \(tableName)  \(sqlCloses)"
+        }else {
+            sql = "select count(id) as recordCount from \(tableName) "
+        }
+        recordCount = Int(dataBase.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        if sqlCloses != "" {
+            sql = "select * from \(tableName)  \(sqlCloses)"
+        }else {
+            sql = "select * from \(tableName) "
+        }
 
-
-
-        recordCount = getRecordsCount()
+        
         if recordCount > 0
         {
-
-            
-            fields=dataBase.getRecords(of: tableName, ofset: ofSet, limit: limit)
-
+            if sql == ""{fields=dataBase.getRecords(of: tableName, ofset: ofSet, limit: limit)}
+            else{fields = dataBase.getRecords(query: sql, ofset: ofSet, limit: limit)}
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
@@ -104,8 +120,11 @@ class MNRecordset {
             recordNo = 0
             positionInPage = 0
         }
+        
+        
 
     }
+    
      init (database : MNDatabase ,tableName : String , SQL : String){
         self.dataBase = database
         self.tableName = tableName
@@ -115,13 +134,13 @@ class MNRecordset {
         self.dataBase = database
 
          sql = "select count(id) as recordCount from \(tableName)"
-        recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if recordCount > 0
         {
 
 
             if SQL == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
-            else{fields = database.getRecords(from: SQL, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(query: SQL, ofset: ofSet, limit: limit)}
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
@@ -133,7 +152,11 @@ class MNRecordset {
         }
 
     }
-    
+    /*!
+     * @brief initialise the recordset with where and order by
+     * @param whereSql is String without the 'WHERE' keyword
+     * @param orderBy is String without 'ORDER BY' keyword
+     */
     init (database : MNDatabase ,tableName : String , whereSql : String , orderBy : String){
         
         self.dataBase = database
@@ -146,16 +169,20 @@ class MNRecordset {
         }else {
           sql = "select count(id) as recordCount from \(tableName) "
         }
-        recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if whereSql != "" {
             sql = "select * from \(tableName) where \(whereSql)"
         }else {
             sql = "select * from \(tableName) "
         }
+        if orderBy != "" {
+            sql = sql + " order by \(orderBy)"
+        }
+        
         if recordCount > 0
         {
             if sql == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
-            else{fields = database.getRecords(from: sql, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(query: sql, ofset: ofSet, limit: limit)}
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
@@ -182,16 +209,19 @@ class MNRecordset {
         }else {
             sql = "select count(id) as recordCount from \(tableName) "
         }
-        recordCount = Int(database.getRecords(from: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
+        recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if whereSql != "" {
             sql = "select \(columns) from \(tableName) where \(whereSql)"
         }else {
             sql = "select \(columns) from \(tableName) "
         }
+        if orderBy != "" {
+            sql = sql + " order by \(orderBy)"
+        }
         if recordCount > 0
         {
             if sql == ""{fields=database.getRecords(of: tableName, ofset: ofSet, limit: limit)}
-            else{fields = database.getRecords(from: sql, ofset: ofSet, limit: limit)}
+            else{fields = database.getRecords(query: sql, ofset: ofSet, limit: limit)}
         } else {fields = [[String:Any]]()}
         isEmpty = (fields.count == 0)
         if isEmpty {
@@ -214,15 +244,15 @@ class MNRecordset {
                 ofSet = position - (position % limit)
                 
                 let sql = "select * from \(tableName)"
-                fields = dataBase.getRecords(from: sql, ofset: ofSet, limit: limit)
+                fields = dataBase.getRecords(query: sql, ofset: ofSet, limit: limit)
             }
             
         }
     }
     func refresh(){
-        let n = recordNo
+
         initialisation()
-        move(to: n)
+
         
     }
     func moveNext()  {
