@@ -65,8 +65,10 @@ class BooksListTableViewController: UIViewController  {
             _ = dbBooksList.createTable()
             _ = dbCat.createTable()
             _ = dbMen.createTable()
-//            (dbCat.record as! BooksCat).bkCatTitle = "عقيدة"
-//            _ = dbCat.insert()
+            (dbCat.record as! BooksCat).bkCatTitle = "كل الكتب"
+            dbCat.record.ID = 1
+            (dbCat.record as! BooksCat).bkCatOrder = -1
+            _ = dbCat.insert()
         }
     }
     
@@ -129,7 +131,7 @@ class BooksListTableViewController: UIViewController  {
             
 
             rdsBooksList = MNRecordset(database: databaseBookList!, table: BooksList().getTableName())
-            rdsCat = MNRecordset(database: databaseBookList!, table: BooksCat().getTableName())
+            rdsCat = MNRecordset(database: databaseBookList!, tableName: BooksCat().getTableName(), whereSql: "", orderBy: "bkCatOrder")
         
  
         
@@ -140,6 +142,7 @@ class BooksListTableViewController: UIViewController  {
           moveFile(files: files)
             rdsBooksList?.refresh()
             rdsCat?.refresh()
+
         }
    
     
@@ -200,6 +203,27 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
        
         return Mycell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+      if tableView == catTableView {
+      let currentCell = catTableView.cellForRow(at: indexPath) as! Mycell
+        rdsBooksList?.filtered = false
+        if currentCell.bkId == -1 {
+          rdsBooksList?.filter = ""
+          rdsBooksList?.filtered = false
+        }else{
+        rdsBooksList?.filter = " bkCatId = \(currentCell.bkId)"
+        rdsBooksList?.filtered = true
+        }
+
+        booksListTableView.reloadData()
+        catMenuButtonAction(UIBarButtonItem())
+
+        }
+    }
+
+
 }
 
 

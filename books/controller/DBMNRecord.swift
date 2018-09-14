@@ -170,7 +170,9 @@ class DBMNrecord  {
         let tableName=record.getTableName()
         let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
             let success = database.run(sql: sql)
+        if success {
             record.ID=database.lastInsertRowid
+        }
             return success
 
         

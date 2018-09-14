@@ -10,19 +10,23 @@ import Foundation
 import UIKit
 class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
+        if !(rdsBook?.eof())!{
         rdsBook?.moveNext()
         book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
    //     UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlDown], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.rightToLeftAnimation()
+        }
     }
 
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
+        if !(rdsBook?.bof())! {
         rdsBook?.movePreior()
         book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
         self.page.text = self.book.pgText
         page.leftToRightAnimation()
+        }
     }
     
     @IBOutlet weak var page: UITextView!

@@ -20,7 +20,7 @@ class MNrecord  {
         if ID == -1 {return true}else{return false}
     }
     
-    func getTableName() -> String {
+     func getTableName() -> String {
         
         return String(describing: type(of: self)).lowercased()
         //let props = try! properties(MNrecord.)
