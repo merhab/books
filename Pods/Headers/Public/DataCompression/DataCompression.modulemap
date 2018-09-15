@@ -1,0 +1,6 @@
+module DataCompression {
+  umbrella header "DataCompression-umbrella.h"
+
+  export *
+  module * { export * }
+}

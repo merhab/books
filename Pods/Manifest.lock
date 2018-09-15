@@ -1,0 +1,16 @@
+PODS:
+  - DataCompression (3.0.0)
+
+DEPENDENCIES:
+  - DataCompression
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DataCompression
+
+SPEC CHECKSUMS:
+  DataCompression: 4df426340ccbf53851df71dd652bd80d0ea47eb7
+
+PODFILE CHECKSUM: ec8ab183fe82d683a9ce1ec50b91e46a570cde0d
+
+COCOAPODS: 1.5.3

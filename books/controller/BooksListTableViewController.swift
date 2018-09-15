@@ -44,8 +44,10 @@ class BooksListTableViewController: UIViewController  {
          catViewTrailling.constant = 0
         }
         UIView.animate(withDuration: 0.3, animations: {self.view.layoutIfNeeded()})
+        
+        }
        
-    }
+    
     func connectToBooksList(){
         var databaseExists = false
         if MNFile.fileExists(path: MNFile.getDataBasePath(book: "booksList.kitab")) {
