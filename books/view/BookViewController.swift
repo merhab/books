@@ -12,8 +12,8 @@ class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
         if !(dbKitab!.rdsKitab.eof()){
         dbKitab!.rdsKitab.moveNext()
-        dbKitab!.getCurrentSafha()
-        self.page.text = dbKitab!.currentSafha.nass
+
+        self.page.text = dbKitab!.getCurrentSafha().nass
         page.rightToLeftAnimation()
         }
     }
@@ -23,8 +23,7 @@ class BookViewController: UIViewController {
         dbKitab!.rdsKitab.movePreior()
 
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
-        dbKitab!.getCurrentSafha()
-        self.page.text = dbKitab!.currentSafha.nass
+        self.page.text = dbKitab!.getCurrentSafha().nass
         page.leftToRightAnimation()
         }
     }
@@ -42,10 +41,7 @@ class BookViewController: UIViewController {
 //        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
 //        page.addGestureRecognizer(swipeLeft)
         dbKitab = DbKitab(kitabId: kitabId)
-        
-        
-        dbKitab!.getCurrentSafha()
-        page.text = dbKitab!.currentSafha.nass
+        page.text = dbKitab!.getCurrentSafha().nass
         
     }
     
@@ -57,7 +53,7 @@ class BookViewController: UIViewController {
             //swippedView.slideInFromRight()
             if swippedView.tag == 1 {
                 page.leftToRightAnimation()
-                self.page.text = dbKitab!.currentSafha.nass
+                self.page.text = dbKitab!.getCurrentSafha().nass
             } else {
               //  page.leftToRightAnimation()
                 //label2.text = displayString

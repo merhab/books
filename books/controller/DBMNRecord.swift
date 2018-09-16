@@ -37,6 +37,7 @@ class DBMNrecord  {
         "
         """
             var str = ""
+            var str2 = ""
             var  props = record.getFields()
 
             
@@ -47,6 +48,12 @@ class DBMNrecord  {
                         str = "\(doubleQuote)\(props[i].name)\(doubleQuote) TEXT DEFAULT \(doubleQuote)\(doubleQuote) "
                     } else {
                         str = str + " , \(doubleQuote)\(props[i].name)\(doubleQuote) TEXT DEFAULT \(doubleQuote)\(doubleQuote) "
+                    }
+                    if str2 == "" {
+                       str2 = " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name) ;"
+                    }else {
+                        str2 = str2 + " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name) ;"
+
                     }
                     
                 case "Int" :
@@ -79,7 +86,7 @@ class DBMNrecord  {
                     // str = ""
                 }
             }
-            str = "CREATE TABLE IF NOT EXISTS \(doubleQuote)\(record.getTableName())\(doubleQuote) (" + str + ");"
+            str = "CREATE TABLE IF NOT EXISTS \(doubleQuote)\(record.getTableName())\(doubleQuote) (" + str + ") ; " + str2
             
             return str
         }
@@ -287,6 +294,11 @@ class DBMNrecord  {
         }
         
     }
+    /**
+     get one record from database with the given filter
+        - Parameters:
+            - close: the Where condition without 'Where' keyword
+     */
     
     func getFirstRecord(filter close : String){
         var str = ""

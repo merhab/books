@@ -8,12 +8,32 @@
 
 import Foundation
 class DbKitab {
-    var rdsKitab : MNRecordset
-    var dbSafha : DBMNrecord
+   private var rdsKitab : MNRecordset
+    private var dbSafha : DBMNrecord
     var dbKitabParam : DBMNrecord
-    var currentSafha : Nass
+    private var currentSafha : Nass
     var dataBase : MNDatabase
+    var khawi : Bool {
+        get{
+            return rdsKitab.isEmpty
+        }
+    }
+    var akhirKitab : Bool{
+        get {
+            return rdsKitab.eof()
+        }
+    }
+    var awalKitab : Bool {
+        get{
+            return rdsKitab.eof()
+        }
+    }
     var kitabId : Int
+    var safhaId : Int {
+        get{
+            return dbSafha.record.ID
+        }
+    }
     
     init(kitabId : Int) {
     self.kitabId = kitabId
@@ -25,13 +45,13 @@ class DbKitab {
     dbKitabParam = DBMNrecord(database: dataBase, record: MNrecordParams())
         _ = dbKitabParam.createTable()
         if rdsKitab.isEmpty {
-            currentSafha = Nass(nass: "", kalimaBidaya: Kalima(kalima: ""))
+            currentSafha = Nass(nass: "", kalimaBidaya: Kalima(text: ""))
         } else {
             //TODO: getObject nee redesign
            dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = Nass.getWords(text: safha.pgText)
-            let kalima = Kalima(kalima: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+            let kalima = Kalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
             currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
   
             
@@ -40,13 +60,32 @@ class DbKitab {
         
     }
     
-    func getCurrentSafha()  {
+    func getCurrentSafha()->Nass  {
          dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
         let safha = dbSafha.record as! Book
         let words = Nass.getWords(text: safha.pgText)
-        let kalima = Kalima(kalima: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+        let kalima = Kalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
         currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
+        return currentSafha
 
         
     }
+    
+    func awal()   {
+        rdsKitab.moveFirst()
+    }
+    func akhir()  {
+        rdsKitab.moveLast()
+    }
+    func sabik()  {
+        rdsKitab.movePreior()
+    }
+    func lahik()  {
+        rdsKitab.moveNext()
+    }
+    func idhab(ila position:Int)  {
+        rdsKitab.move(to: position)
+    }
+    
+
 }

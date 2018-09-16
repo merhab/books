@@ -81,6 +81,7 @@
 		49E27EE8214E58A40045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE5214E58A40045622E /* StemConst.swift */; };
 		49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB1214E67DB0045622E /* DbKitab.swift */; };
 		49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB3214E89FE0045622E /* DBBooksList.swift */; };
+		49E27FB6214E99D80045622E /* Bahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB5214E99D80045622E /* Bahth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		49E27EEF214E590E0045622E /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../KOTOB/1.kitab; sourceTree = "<group>"; };
 		49E27FB1214E67DB0045622E /* DbKitab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
 		49E27FB3214E89FE0045622E /* DBBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBBooksList.swift; sourceTree = "<group>"; };
+		49E27FB5214E99D80045622E /* Bahth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bahth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +356,7 @@
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
 				49E27FB1214E67DB0045622E /* DbKitab.swift */,
 				49E27FB3214E89FE0045622E /* DBBooksList.swift */,
+				49E27FB5214E99D80045622E /* Bahth.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */,
 				49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */,
 				4975258521358C34000A47E5 /* Metadata.swift in Sources */,
+				49E27FB6214E99D80045622E /* Bahth.swift in Sources */,
 				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
 				49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */,
