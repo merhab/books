@@ -11,7 +11,7 @@ protocol AnyExtensions {}
 extension AnyExtensions {
     
     static func construct(constructor: (Property.Description) throws -> Any) throws -> Any {
-        return try Reflection.constructGenericType(self, constructor: constructor)
+        return try constructGenericType(self, constructor: constructor)
     }
     
     static func isValueTypeOrSubtype(_ value: Any) -> Bool {

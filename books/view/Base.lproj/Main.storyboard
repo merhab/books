@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Md2-L6-Trr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4S4-ng-2yC">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JNg-OU-5ph">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="9dK-MP-NQU">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -74,10 +74,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-0T-QhD">
-                                <rect key="frame" x="768" y="64" width="311" height="960"/>
+                                <rect key="frame" x="768" y="64" width="311" height="911"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4iz-Tg-Gut">
-                                        <rect key="frame" x="8" y="8" width="295" height="944"/>
+                                        <rect key="frame" x="8" y="8" width="295" height="895"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <searchBar key="tableHeaderView" contentMode="redraw" id="n0l-OF-070">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="44"/>
@@ -174,7 +174,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmh-vP-358" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1760.9375" y="-274.21875"/>
+            <point key="canvasLocation" x="2526.5625" y="-274.21875"/>
+        </scene>
+        <!--البحث-->
+        <scene sceneID="8Xq-3X-eTp">
+            <objects>
+                <viewController id="twG-C6-dts" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="15c-fH-M11">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="le3-Ws-RPs"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="البحث" id="hLK-ww-Bcd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JDZ-FM-P7T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073" y="473"/>
+        </scene>
+        <!--الحديثة-->
+        <scene sceneID="04l-LR-lHI">
+            <objects>
+                <viewController id="506-Eu-8FW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fTe-ci-ZIA">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="baR-uQ-ebD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="الحديثة" id="JVR-ZA-bgz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8z-jq-mRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="472"/>
         </scene>
         <!--Book View Controller-->
         <scene sceneID="Bgf-tB-Epb">
@@ -230,13 +262,15 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2702.34375" y="-179.8828125"/>
+            <point key="canvasLocation" x="3467.96875" y="-179.8828125"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--قائمة الكتب-->
         <scene sceneID="ngr-vj-0nG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Md2-L6-Trr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="قائمة الكتب" id="QZq-Jy-mpX"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zCz-BY-2Uh">
                         <rect key="frame" x="0.0" y="20" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,6 +281,25 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZ6-BC-GuX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.9375" y="-274.21875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Ybx-sB-CBV">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4S4-ng-2yC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cz9-kN-vtE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="506-Eu-8FW" kind="relationship" relationship="viewControllers" id="KKP-If-Qxa"/>
+                        <segue destination="Md2-L6-Trr" kind="relationship" relationship="viewControllers" id="io9-WG-czy"/>
+                        <segue destination="twG-C6-dts" kind="relationship" relationship="viewControllers" id="BMP-cC-nt7"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNn-PJ-AXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="995.3125" y="-274.21875"/>
         </scene>

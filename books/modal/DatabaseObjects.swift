@@ -8,6 +8,10 @@
 
 import Foundation
 
+class MNrecordParams: MNrecord {
+    var currentPosition = -1
+}
+
 class BooksList: MNrecord {
     var bkAuthor  = -1
     var bkAuthorInfo  = ""

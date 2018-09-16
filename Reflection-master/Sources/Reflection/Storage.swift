@@ -1,11 +1,11 @@
 extension AnyExtensions {
     
     mutating func mutableStorage() -> UnsafeMutableRawPointer {
-        return Reflection.mutableStorage(instance: &self)
+        return words.mutableStorage(instance: &self)
     }
     
     mutating func storage() -> UnsafeRawPointer {
-        return Reflection.storage(instance: &self)
+        return words.storage(instance: &self)
     }
     
 }

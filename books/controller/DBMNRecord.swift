@@ -9,12 +9,19 @@
 import Foundation
 
 class DBMNrecord  {
-    var database : MNDatabase
-    var record : MNrecord
+     var database : MNDatabase
+     var record : MNrecord
+    var tableName : String {
+        get{
+            return record.getTableName()
+        }
+    }
     var isNull : Bool {
         get {
             return record.isNull()
         }
+     
+        
     }
     
     var mnSQLgetWithId : String {
@@ -299,6 +306,7 @@ class DBMNrecord  {
     //*********************
     func getObject(fld : [String : Any])-> MNrecord {
         //TODO: remove thos from here to dbMNrecord
+        //TODO: getObject nee redesign
         
         //var myRecord : MNrecord
         let myRd = record

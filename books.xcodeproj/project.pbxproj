@@ -45,8 +45,6 @@
 		4997984F21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		499798782145EF81005D46C5 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798772145EF81005D46C5 /* CatViewController.swift */; };
-		49A17C33214895C400282144 /* lazarus_orange.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49A17C32214895C300282144 /* lazarus_orange.icns */; };
-		49A17C35214895D900282144 /* lazarus_orange.icns in Resources */ = {isa = PBXBuildFile; fileRef = 49A17C34214895D900282144 /* lazarus_orange.icns */; };
 		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49A6347F2141F36E0050A67E /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A6347E2141F36E0050A67E /* booksTests.swift */; };
@@ -78,6 +76,10 @@
 		49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E54D2140ABD700ED9BF0 /* Info.plist */; };
 		49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */; };
 		49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
+		49E27EE6214E58A40045622E /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE3214E58A30045622E /* Nass.swift */; };
+		49E27EE7214E58A40045622E /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE4214E58A40045622E /* Kalima.swift */; };
+		49E27EE8214E58A40045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE5214E58A40045622E /* StemConst.swift */; };
+		49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB1214E67DB0045622E /* DbKitab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +106,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3E0C7EC10CA1A18CE28A20B2 /* Pods-booksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-booksTests/Pods-booksTests.release.xcconfig"; sourceTree = "<group>"; };
 		49289F75214645AE00620690 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../KOTOB/1.kitab; sourceTree = "<group>"; };
 		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
 		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
@@ -142,11 +143,8 @@
 		497C9B68214895660066BED9 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		4997985121447940005D46C5 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.kitab; sourceTree = "<group>"; };
 		499798562144AAF9005D46C5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		499798772145EF81005D46C5 /* CatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
-		49A17C32214895C300282144 /* lazarus_orange.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = lazarus_orange.icns; sourceTree = "<group>"; };
-		49A17C34214895D900282144 /* lazarus_orange.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = lazarus_orange.icns; path = ../../../../Developer/lazarus/images/icons/lazarus_orange.icns; sourceTree = "<group>"; };
 		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49A6347C2141F36E0050A67E /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,9 +181,11 @@
 		49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SQLite-Bridging.m"; sourceTree = "<group>"; };
 		49C5E5522140ABD700ED9BF0 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
 		49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecordSet.swift; sourceTree = "<group>"; };
-		5B1DC3466CE4577C690AAD61 /* Pods-books.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-books.release.xcconfig"; path = "Pods/Target Support Files/Pods-books/Pods-books.release.xcconfig"; sourceTree = "<group>"; };
-		C2B4A064A17FA4D6FA237046 /* Pods-books.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-books.debug.xcconfig"; path = "Pods/Target Support Files/Pods-books/Pods-books.debug.xcconfig"; sourceTree = "<group>"; };
-		F28DA52A33F4B7A6DBE6F80C /* Pods-booksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-booksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-booksTests/Pods-booksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		49E27EE3214E58A30045622E /* Nass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Nass.swift; path = ../words/words/Nass.swift; sourceTree = "<group>"; };
+		49E27EE4214E58A40045622E /* Kalima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Kalima.swift; path = ../words/words/Kalima.swift; sourceTree = "<group>"; };
+		49E27EE5214E58A40045622E /* StemConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StemConst.swift; path = ../words/words/StemConst.swift; sourceTree = "<group>"; };
+		49E27EEF214E590E0045622E /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../KOTOB/1.kitab; sourceTree = "<group>"; };
+		49E27FB1214E67DB0045622E /* DbKitab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,21 +209,15 @@
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
-				49A17C32214895C300282144 /* lazarus_orange.icns */,
-				49A17C34214895D900282144 /* lazarus_orange.icns */,
-				497C9B68214895660066BED9 /* images.jpeg */,
-				49289F75214645AE00620690 /* 1.kitab */,
-				49289F77214645AE00620690 /* 4.kitab */,
-				49289F76214645AE00620690 /* 5.kitab */,
-				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
-				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
-				4997985121447940005D46C5 /* 1.kitab */,
 				4975254221357E61000A47E5 /* books */,
+				49E27EE4214E58A40045622E /* Kalima.swift */,
+				49E27EE3214E58A30045622E /* Nass.swift */,
+				49E27EE5214E58A40045622E /* StemConst.swift */,
+				49289F75214645AE00620690 /* 1.kitab */,
 				49A6347D2141F36E0050A67E /* booksTests */,
 				4975254121357E61000A47E5 /* Products */,
 				4975255521357E8F000A47E5 /* suplimentair */,
 				4975255821358941000A47E5 /* Frameworks */,
-				82610E91A05C442FA6D8F50F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,8 +238,8 @@
 				49C5E54E2140ABD700ED9BF0 /* SQLiteObjc */,
 				49AF51A4213C3B2F00964DE0 /* database */,
 				49AF51A3213C3AFB00964DE0 /* controller */,
-				49AF51A2213C3AF100964DE0 /* view */,
 				49AF51A1213C3AE800964DE0 /* modal */,
+				49AF51A2213C3AF100964DE0 /* view */,
 				4975255D21358C06000A47E5 /* reflection */,
 				4975254F21357E63000A47E5 /* Info.plist */,
 				49AF51A0213C3AC700964DE0 /* test */,
@@ -256,6 +250,12 @@
 		4975255521357E8F000A47E5 /* suplimentair */ = {
 			isa = PBXGroup;
 			children = (
+				497C9B68214895660066BED9 /* images.jpeg */,
+				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
+				49E27EEF214E590E0045622E /* 1.kitab */,
+				49289F77214645AE00620690 /* 4.kitab */,
+				49289F76214645AE00620690 /* 5.kitab */,
+				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
 				4975254A21357E63000A47E5 /* Assets.xcassets */,
 				4975254C21357E63000A47E5 /* LaunchScreen.storyboard */,
 				4975254321357E61000A47E5 /* AppDelegate.swift */,
@@ -337,6 +337,9 @@
 		49AF51A2213C3AF100964DE0 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				4975254521357E61000A47E5 /* BooksListTableViewController.swift */,
+				49C5E43F2140385800ED9BF0 /* BookViewController.swift */,
+				499798772145EF81005D46C5 /* CatViewController.swift */,
 				4975254721357E61000A47E5 /* Main.storyboard */,
 			);
 			path = view;
@@ -347,9 +350,7 @@
 			children = (
 				49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */,
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
-				4975254521357E61000A47E5 /* BooksListTableViewController.swift */,
-				49C5E43F2140385800ED9BF0 /* BookViewController.swift */,
-				499798772145EF81005D46C5 /* CatViewController.swift */,
+				49E27FB1214E67DB0045622E /* DbKitab.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -433,17 +434,6 @@
 				49C5E5502140ABD700ED9BF0 /* SQLite-Bridging.h */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		82610E91A05C442FA6D8F50F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C2B4A064A17FA4D6FA237046 /* Pods-books.debug.xcconfig */,
-				5B1DC3466CE4577C690AAD61 /* Pods-books.release.xcconfig */,
-				F28DA52A33F4B7A6DBE6F80C /* Pods-booksTests.debug.xcconfig */,
-				3E0C7EC10CA1A18CE28A20B2 /* Pods-booksTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,11 +522,9 @@
 				49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */,
 				497C9B69214895670066BED9 /* images.jpeg in Resources */,
 				49289F78214645AE00620690 /* 1.kitab in Resources */,
-				49A17C35214895D900282144 /* lazarus_orange.icns in Resources */,
 				49289F79214645AE00620690 /* 5.kitab in Resources */,
 				49289F7A214645AE00620690 /* 4.kitab in Resources */,
 				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
-				49A17C33214895C400282144 /* lazarus_orange.icns in Resources */,
 				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,
 				4975254B21357E63000A47E5 /* Assets.xcassets in Resources */,
@@ -579,6 +567,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E27EE6214E58A40045622E /* Nass.swift in Sources */,
+				49E27EE7214E58A40045622E /* Kalima.swift in Sources */,
+				49E27EE8214E58A40045622E /* StemConst.swift in Sources */,
 				4975258721358C34000A47E5 /* ValueWitnessTable.swift in Sources */,
 				4975258821358C34000A47E5 /* Metadata+Class.swift in Sources */,
 				49C5E55F2140ABD700ED9BF0 /* Cipher.swift in Sources */,
@@ -607,6 +598,7 @@
 				4975258521358C34000A47E5 /* Metadata.swift in Sources */,
 				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
+				49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,
 				49C5E5692140ABD700ED9BF0 /* Query.swift in Sources */,
@@ -794,7 +786,6 @@
 		};
 		4975255321357E63000A47E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2B4A064A17FA4D6FA237046 /* Pods-books.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -818,7 +809,6 @@
 		};
 		4975255421357E63000A47E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B1DC3466CE4577C690AAD61 /* Pods-books.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -842,7 +832,6 @@
 		};
 		49A634842141F36E0050A67E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F28DA52A33F4B7A6DBE6F80C /* Pods-booksTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -863,7 +852,6 @@
 		};
 		49A634852141F36E0050A67E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3E0C7EC10CA1A18CE28A20B2 /* Pods-booksTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

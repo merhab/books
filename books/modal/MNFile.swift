@@ -78,6 +78,12 @@ class MNFile  {
     
     //***********************
     
+    /**
+    get the path of a book in docs/kotob
+     - Parameters:
+        - name is string contain the kitab id and .kitab extenssion
+     */
+    
     static func getDataBasePath(book name:String)->String{  // just give the name of database ex:1.kitab
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let documentsDirectory = paths[0]
@@ -90,6 +96,16 @@ class MNFile  {
             
             return dataPath
 
+    }
+    /**
+    get the path of a book in docs/kotob
+     - Parameters:
+        - id: integer the Kitab id
+     
+     */
+    static func getDataBasePath(kitabId id:Int)->String{
+        let str = "\(id).kitab"
+        return getDataBasePath(book: str)
     }
     
     static func fileExists(path : String)->Bool {
