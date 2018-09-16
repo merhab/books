@@ -14,30 +14,7 @@ class booksTests: XCTestCase {
    
     
     func testingThings() {
-        let db = MNDatabase(path: "/Users/merhab/Documents/KOTOB/1.kitab")
-        let array = db.getArrayOfIDs(query: "select ID from book ")
-        print(array)
-        let rds = MNRecordset(database: db, record: Book())
-        rds.filter = " ID = 5 "
-        rds.filtered = true
-        print(rds.getObject(myRd: Book()).ID)
-        rds.moveNext()
-        print(rds.getObject(myRd: Book()).ID)
-        rds.filtered = false
-        print(rds.getObject(myRd: Book()).ID)
-        rds.moveNext()
-        print(rds.getObject(myRd: Book()).ID)
-        rds.moveLast()
-        print(rds.getObject(myRd: Book()).ID)
-        rds.filter = " ID > 5 "
-        rds.filtered=true
-        print(rds.getObject(myRd: Book()).ID)
-        rds.movePreior()
-                print(rds.getObject(myRd: Book()).ID)
-        rds.moveFirst()
-                print(rds.getObject(myRd: Book()).ID)
-        
-        
+       
         
     }
     
@@ -91,9 +68,7 @@ class booksTests: XCTestCase {
         
         // will move all books files from resource to the book directory in doc
 
-            var any =  MNFile.searchDbFilesInRes(myFunc: moveFile)
-            any.append(contentsOf: MNFile.searchDbFilesInDoc(myFunc: moveFile))
-            print(any)
+    
         }
         
         
