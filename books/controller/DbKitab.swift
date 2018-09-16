@@ -20,19 +20,19 @@ class DbKitab {
     let path = MNFile.getDataBasePath(kitabId: kitabId)
      dataBase = MNDatabase(path: path)
      dbSafha = DBMNrecord(database: dataBase, record: Book())
+     _ = dbSafha.updateTableStruct()
      rdsKitab = MNRecordset(database: dataBase, table: dbSafha.tableName)
     dbKitabParam = DBMNrecord(database: dataBase, record: MNrecordParams())
         _ = dbKitabParam.createTable()
         if rdsKitab.isEmpty {
-            currentSafha = Nass()
+            currentSafha = Nass(nass: "", kalimaBidaya: Kalima(kalima: ""))
         } else {
             //TODO: getObject nee redesign
-           dbSafha.getRecordWithId(ID:rdsKitab.getField()["ID"] as! Int )
+           dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = Nass.getWords(text: safha.pgText)
-            let kalima1 = Kalima(kalima: words[0], kalimaId: KalimaIdentificator(ID: -1, kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0))
-            let kalima2 = Kalima(kalima: words[words.count-1], kalimaId: KalimaIdentificator(ID: -1, kitabId: kitabId, safhaId: safha.ID, tartibInSafha: Double(words.count-1)))
-            currentSafha = Nass(nass: safha.pgText, nassIdentificator: NassIdentificator(ID: -1, kitabID: kitabId, kalimaBidaya: kalima1, kalimaNihaya: kalima2))
+            let kalima = Kalima(kalima: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+            currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
   
             
 
@@ -41,12 +41,12 @@ class DbKitab {
     }
     
     func getCurrentSafha()  {
-         dbSafha.getRecordWithId(ID:rdsKitab.getField()["ID"] as! Int )
+         dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
         let safha = dbSafha.record as! Book
         let words = Nass.getWords(text: safha.pgText)
-        let kalima1 = Kalima(kalima: words[0], kalimaId: KalimaIdentificator(ID: -1, kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0))
-        let kalima2 = Kalima(kalima: words[words.count-1], kalimaId: KalimaIdentificator(ID: -1, kitabId: kitabId, safhaId: safha.ID, tartibInSafha: Double(words.count-1)))
-        currentSafha = Nass(nass: safha.pgText, nassIdentificator: NassIdentificator(ID: -1, kitabID: kitabId, kalimaBidaya: kalima1, kalimaNihaya: kalima2))
+        let kalima = Kalima(kalima: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+        currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
+
         
     }
 }

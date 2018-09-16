@@ -10,30 +10,29 @@ import Foundation
 import UIKit
 class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
-        if !(rdsBook?.eof())!{
-        rdsBook?.moveNext()
-        book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
-   //     UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlDown], animations: {self.page.text = self.book.pgText})
-        self.page.text = self.book.pgText
+        if !(dbKitab!.rdsKitab.eof()){
+        dbKitab!.rdsKitab.moveNext()
+        dbKitab!.getCurrentSafha()
+        self.page.text = dbKitab!.currentSafha.nass
         page.rightToLeftAnimation()
         }
     }
 
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
-        if !(rdsBook?.bof())! {
-        rdsBook?.movePreior()
-        book =  DBMNrecord(database: database!, record: book).getObject(fld: (rdsBook?.getField())!) as! Book
+        if !(dbKitab!.rdsKitab.bof()) {
+        dbKitab!.rdsKitab.movePreior()
+
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
-        self.page.text = self.book.pgText
+        dbKitab!.getCurrentSafha()
+        self.page.text = dbKitab!.currentSafha.nass
         page.leftToRightAnimation()
         }
     }
     
     @IBOutlet weak var page: UITextView!
-        var rdsBook : MNRecordset?
-        var database : MNDatabase?
-        var book = Book()
-        var bookPath = ""
+
+        var dbKitab  : DbKitab?
+        var kitabId = -1
       
     
     
@@ -42,16 +41,11 @@ class BookViewController: UIViewController {
 //        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.viewSwipped(_:)))
 //        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
 //        page.addGestureRecognizer(swipeLeft)
-
-        database = MNDatabase(path: bookPath)
-        let dbRecord = DBMNrecord(database: database!, record: book)
-        _ = dbRecord.updateTableStruct()
+        dbKitab = DbKitab(kitabId: kitabId)
         
-        rdsBook = MNRecordset(database: database!, table: book.getTableName())
-        book =  dbRecord.getObject(fld: (rdsBook?.getField())!) as! Book
-        //book = rdsBook?.getObject(myRd: book) as! Book
-
-        page.text = book.pgText
+        
+        dbKitab!.getCurrentSafha()
+        page.text = dbKitab!.currentSafha.nass
         
     }
     
@@ -63,7 +57,7 @@ class BookViewController: UIViewController {
             //swippedView.slideInFromRight()
             if swippedView.tag == 1 {
                 page.leftToRightAnimation()
-                self.page.text = self.book.pgText
+                self.page.text = dbKitab!.currentSafha.nass
             } else {
               //  page.leftToRightAnimation()
                 //label2.text = displayString

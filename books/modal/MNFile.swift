@@ -126,7 +126,21 @@ class MNFile  {
             
         }
     }
+    /**
+     find all files with .kitab extension in an URL
+     - Parameters:
+     - pathURL: The Url where we search , files type is .kitab
+     */
    static func searchDb(pathURL: URL) -> [String] {
+        return searchDb(pathURL: pathURL, suffix: ".kitab")
+    }
+    /**
+     find all files with given extension in an URL
+     - Parameters:
+        - pathURL: The Url where we search
+        - suffix: the files suffix
+     */
+    static func searchDb(pathURL: URL,suffix : String) -> [String] {
         var files = [String]()
         let fileManager = FileManager.default
         let keys = [URLResourceKey.isDirectoryKey, URLResourceKey.localizedNameKey]
@@ -142,8 +156,8 @@ class MNFile  {
         
         if enumerator != nil {
             while let file = enumerator!.nextObject() {
-                let path =  (file as! URL).path 
-                if path.hasSuffix(".kitab"){
+                let path =  (file as! URL).path
+                if path.hasSuffix(suffix){
                     files.append(path)
                 }
             }
@@ -151,6 +165,7 @@ class MNFile  {
         
         return files
     }
+    
    static func searchDbFilesInDoc()->[String]{// use this myFumc to move files
 
     let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -167,5 +182,24 @@ class MNFile  {
         return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
         
     }
+    static func searchINDFilesInDoc()->[String]{// use this myFumc to move files
+        
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: ".fihras")
+    }
+    
+    static func searchIndFilesInRes()->[String]{// use this myFumc to move files
+        
+        let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: ".fihras")
+    }
+    static func searchIndFilesInInbox()->[String]{
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]+"/Inbox"
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: ".fihras")
+        
+    }
+
+    
+    
 }
 
