@@ -76,12 +76,20 @@
 		49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E54D2140ABD700ED9BF0 /* Info.plist */; };
 		49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */; };
 		49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
-		49E27EE6214E58A40045622E /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE3214E58A30045622E /* Nass.swift */; };
-		49E27EE7214E58A40045622E /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE4214E58A40045622E /* Kalima.swift */; };
-		49E27EE8214E58A40045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27EE5214E58A40045622E /* StemConst.swift */; };
-		49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB1214E67DB0045622E /* DbKitab.swift */; };
 		49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB3214E89FE0045622E /* DBBooksList.swift */; };
 		49E27FB6214E99D80045622E /* Bahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB5214E99D80045622E /* Bahth.swift */; };
+		49E281EC2150E7350045622E /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E72150E7340045622E /* Kalima.swift */; };
+		49E281ED2150E7350045622E /* FahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* FahresKalimat.swift */; };
+		49E281EE2150E7350045622E /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E92150E7340045622E /* DbKitab.swift */; };
+		49E281EF2150E7350045622E /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EA2150E7350045622E /* Nass.swift */; };
+		49E281F02150E7350045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EB2150E7350045622E /* StemConst.swift */; };
+		49E281F82150E7D20045622E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281F72150E7D20045622E /* AppDelegate.swift */; };
+		49E281FA2150E7D20045622E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281F92150E7D20045622E /* ViewController.swift */; };
+		49E281FC2150E7D20045622E /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281FB2150E7D20045622E /* Document.swift */; };
+		49E281FE2150E7D30045622E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49E281FD2150E7D30045622E /* Assets.xcassets */; };
+		49E282012150E7D30045622E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E281FF2150E7D30045622E /* Main.storyboard */; };
+		49E2820D2150E7D30045622E /* KotobiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E2820C2150E7D30045622E /* KotobiTests.swift */; };
+		49E282182150E7D40045622E /* KotobiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E282172150E7D40045622E /* KotobiUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +99,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4975253F21357E61000A47E5;
 			remoteInfo = books;
+		};
+		49E282092150E7D30045622E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4975253821357E61000A47E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49E281F42150E7D20045622E;
+			remoteInfo = Kotobi;
+		};
+		49E282142150E7D40045622E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4975253821357E61000A47E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49E281F42150E7D20045622E;
+			remoteInfo = Kotobi;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -183,13 +205,28 @@
 		49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SQLite-Bridging.m"; sourceTree = "<group>"; };
 		49C5E5522140ABD700ED9BF0 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
 		49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecordSet.swift; sourceTree = "<group>"; };
-		49E27EE3214E58A30045622E /* Nass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Nass.swift; path = ../words/words/Nass.swift; sourceTree = "<group>"; };
-		49E27EE4214E58A40045622E /* Kalima.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Kalima.swift; path = ../words/words/Kalima.swift; sourceTree = "<group>"; };
-		49E27EE5214E58A40045622E /* StemConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StemConst.swift; path = ../words/words/StemConst.swift; sourceTree = "<group>"; };
 		49E27EEF214E590E0045622E /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../KOTOB/1.kitab; sourceTree = "<group>"; };
-		49E27FB1214E67DB0045622E /* DbKitab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
 		49E27FB3214E89FE0045622E /* DBBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBBooksList.swift; sourceTree = "<group>"; };
 		49E27FB5214E99D80045622E /* Bahth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bahth.swift; sourceTree = "<group>"; };
+		49E281E72150E7340045622E /* Kalima.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalima.swift; sourceTree = "<group>"; };
+		49E281E82150E7340045622E /* FahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FahresKalimat.swift; sourceTree = "<group>"; };
+		49E281E92150E7340045622E /* DbKitab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DbKitab.swift; path = ../words/words/DbKitab.swift; sourceTree = "<group>"; };
+		49E281EA2150E7350045622E /* Nass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nass.swift; sourceTree = "<group>"; };
+		49E281EB2150E7350045622E /* StemConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StemConst.swift; sourceTree = "<group>"; };
+		49E281F52150E7D20045622E /* Kotobi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kotobi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E281F72150E7D20045622E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49E281F92150E7D20045622E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49E281FB2150E7D20045622E /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		49E281FD2150E7D30045622E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49E282002150E7D30045622E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49E282022150E7D30045622E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E282032150E7D30045622E /* Kotobi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kotobi.entitlements; sourceTree = "<group>"; };
+		49E282082150E7D30045622E /* KotobiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KotobiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E2820C2150E7D30045622E /* KotobiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotobiTests.swift; sourceTree = "<group>"; };
+		49E2820E2150E7D30045622E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E282132150E7D30045622E /* KotobiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KotobiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E282172150E7D40045622E /* KotobiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KotobiUITests.swift; sourceTree = "<group>"; };
+		49E282192150E7D40045622E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +244,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E281F22150E7D20045622E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E282052150E7D30045622E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E282102150E7D30045622E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -214,11 +272,16 @@
 			isa = PBXGroup;
 			children = (
 				4975254221357E61000A47E5 /* books */,
-				49E27EE4214E58A40045622E /* Kalima.swift */,
-				49E27EE3214E58A30045622E /* Nass.swift */,
-				49E27EE5214E58A40045622E /* StemConst.swift */,
 				49289F75214645AE00620690 /* 1.kitab */,
+				49E281E92150E7340045622E /* DbKitab.swift */,
+				49E281EB2150E7350045622E /* StemConst.swift */,
+				49E281EA2150E7350045622E /* Nass.swift */,
+				49E281E72150E7340045622E /* Kalima.swift */,
+				49E281E82150E7340045622E /* FahresKalimat.swift */,
 				49A6347D2141F36E0050A67E /* booksTests */,
+				49E281F62150E7D20045622E /* Kotobi */,
+				49E2820B2150E7D30045622E /* KotobiTests */,
+				49E282162150E7D40045622E /* KotobiUITests */,
 				4975254121357E61000A47E5 /* Products */,
 				4975255521357E8F000A47E5 /* suplimentair */,
 				4975255821358941000A47E5 /* Frameworks */,
@@ -230,6 +293,9 @@
 			children = (
 				4975254021357E61000A47E5 /* books.app */,
 				49A6347C2141F36E0050A67E /* booksTests.xctest */,
+				49E281F52150E7D20045622E /* Kotobi.app */,
+				49E282082150E7D30045622E /* KotobiTests.xctest */,
+				49E282132150E7D30045622E /* KotobiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,7 +420,6 @@
 			children = (
 				49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */,
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
-				49E27FB1214E67DB0045622E /* DbKitab.swift */,
 				49E27FB3214E89FE0045622E /* DBBooksList.swift */,
 				49E27FB5214E99D80045622E /* Bahth.swift */,
 			);
@@ -442,6 +507,38 @@
 			path = include;
 			sourceTree = "<group>";
 		};
+		49E281F62150E7D20045622E /* Kotobi */ = {
+			isa = PBXGroup;
+			children = (
+				49E281F72150E7D20045622E /* AppDelegate.swift */,
+				49E281F92150E7D20045622E /* ViewController.swift */,
+				49E281FB2150E7D20045622E /* Document.swift */,
+				49E281FD2150E7D30045622E /* Assets.xcassets */,
+				49E281FF2150E7D30045622E /* Main.storyboard */,
+				49E282022150E7D30045622E /* Info.plist */,
+				49E282032150E7D30045622E /* Kotobi.entitlements */,
+			);
+			path = Kotobi;
+			sourceTree = "<group>";
+		};
+		49E2820B2150E7D30045622E /* KotobiTests */ = {
+			isa = PBXGroup;
+			children = (
+				49E2820C2150E7D30045622E /* KotobiTests.swift */,
+				49E2820E2150E7D30045622E /* Info.plist */,
+			);
+			path = KotobiTests;
+			sourceTree = "<group>";
+		};
+		49E282162150E7D40045622E /* KotobiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49E282172150E7D40045622E /* KotobiUITests.swift */,
+				49E282192150E7D40045622E /* Info.plist */,
+			);
+			path = KotobiUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -482,6 +579,59 @@
 			productReference = 49A6347C2141F36E0050A67E /* booksTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		49E281F42150E7D20045622E /* Kotobi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E2821A2150E7D40045622E /* Build configuration list for PBXNativeTarget "Kotobi" */;
+			buildPhases = (
+				49E281F12150E7D20045622E /* Sources */,
+				49E281F22150E7D20045622E /* Frameworks */,
+				49E281F32150E7D20045622E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kotobi;
+			productName = Kotobi;
+			productReference = 49E281F52150E7D20045622E /* Kotobi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49E282072150E7D30045622E /* KotobiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E2821D2150E7D40045622E /* Build configuration list for PBXNativeTarget "KotobiTests" */;
+			buildPhases = (
+				49E282042150E7D30045622E /* Sources */,
+				49E282052150E7D30045622E /* Frameworks */,
+				49E282062150E7D30045622E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49E2820A2150E7D30045622E /* PBXTargetDependency */,
+			);
+			name = KotobiTests;
+			productName = KotobiTests;
+			productReference = 49E282082150E7D30045622E /* KotobiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49E282122150E7D30045622E /* KotobiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E282202150E7D40045622E /* Build configuration list for PBXNativeTarget "KotobiUITests" */;
+			buildPhases = (
+				49E2820F2150E7D30045622E /* Sources */,
+				49E282102150E7D30045622E /* Frameworks */,
+				49E282112150E7D30045622E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49E282152150E7D40045622E /* PBXTargetDependency */,
+			);
+			name = KotobiUITests;
+			productName = KotobiUITests;
+			productReference = 49E282132150E7D30045622E /* KotobiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -498,6 +648,17 @@
 					49A6347B2141F36E0050A67E = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 4975253F21357E61000A47E5;
+					};
+					49E281F42150E7D20045622E = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					49E282072150E7D30045622E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 49E281F42150E7D20045622E;
+					};
+					49E282122150E7D30045622E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 49E281F42150E7D20045622E;
 					};
 				};
 			};
@@ -516,6 +677,9 @@
 			targets = (
 				4975253F21357E61000A47E5 /* books */,
 				49A6347B2141F36E0050A67E /* booksTests */,
+				49E281F42150E7D20045622E /* Kotobi */,
+				49E282072150E7D30045622E /* KotobiTests */,
+				49E282122150E7D30045622E /* KotobiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -539,6 +703,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		49A6347A2141F36E0050A67E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E281F32150E7D20045622E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E281FE2150E7D30045622E /* Assets.xcassets in Resources */,
+				49E282012150E7D30045622E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E282062150E7D30045622E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E282112150E7D30045622E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -573,9 +760,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E27EE6214E58A40045622E /* Nass.swift in Sources */,
-				49E27EE7214E58A40045622E /* Kalima.swift in Sources */,
-				49E27EE8214E58A40045622E /* StemConst.swift in Sources */,
 				4975258721358C34000A47E5 /* ValueWitnessTable.swift in Sources */,
 				4975258821358C34000A47E5 /* Metadata+Class.swift in Sources */,
 				49C5E55F2140ABD700ED9BF0 /* Cipher.swift in Sources */,
@@ -588,10 +772,12 @@
 				49C5E5772140ABD700ED9BF0 /* Setter.swift in Sources */,
 				49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */,
 				499798572144AAF9005D46C5 /* MNRecord.swift in Sources */,
+				49E281EE2150E7350045622E /* DbKitab.swift in Sources */,
 				49C5E5532140ABD700ED9BF0 /* Connection.swift in Sources */,
 				49C5E5612140ABD700ED9BF0 /* RTree.swift in Sources */,
 				49A3CEA92138214700F06188 /* MNFile.swift in Sources */,
 				49C5E57B2140ABD700ED9BF0 /* Schema.swift in Sources */,
+				49E281EC2150E7350045622E /* Kalima.swift in Sources */,
 				49C5E5572140ABD700ED9BF0 /* Errors.swift in Sources */,
 				4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */,
 				4975257B21358C34000A47E5 /* Construct.swift in Sources */,
@@ -606,7 +792,6 @@
 				49E27FB6214E99D80045622E /* Bahth.swift in Sources */,
 				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
-				49E27FB2214E67DB0045622E /* DbKitab.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,
 				49C5E5692140ABD700ED9BF0 /* Query.swift in Sources */,
@@ -631,11 +816,14 @@
 				4975258321358C34000A47E5 /* NominalType.swift in Sources */,
 				49C5E5632140ABD700ED9BF0 /* FTS4.swift in Sources */,
 				4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */,
+				49E281ED2150E7350045622E /* FahresKalimat.swift in Sources */,
+				49E281EF2150E7350045622E /* Nass.swift in Sources */,
 				49C5E55D2140ABD700ED9BF0 /* Helpers.swift in Sources */,
 				4975258021358C34000A47E5 /* Storage.swift in Sources */,
 				49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */,
 				4975257A21358C34000A47E5 /* Any+Extensions.swift in Sources */,
 				4975257521358C34000A47E5 /* Metadata+Tuple.swift in Sources */,
+				49E281F02150E7350045622E /* StemConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +836,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		49E281F12150E7D20045622E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E281FA2150E7D20045622E /* ViewController.swift in Sources */,
+				49E281F82150E7D20045622E /* AppDelegate.swift in Sources */,
+				49E281FC2150E7D20045622E /* Document.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E282042150E7D30045622E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E2820D2150E7D30045622E /* KotobiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49E2820F2150E7D30045622E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E282182150E7D40045622E /* KotobiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -655,6 +869,16 @@
 			isa = PBXTargetDependency;
 			target = 4975253F21357E61000A47E5 /* books */;
 			targetProxy = 49A634812141F36E0050A67E /* PBXContainerItemProxy */;
+		};
+		49E2820A2150E7D30045622E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49E281F42150E7D20045622E /* Kotobi */;
+			targetProxy = 49E282092150E7D30045622E /* PBXContainerItemProxy */;
+		};
+		49E282152150E7D40045622E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49E281F42150E7D20045622E /* Kotobi */;
+			targetProxy = 49E282142150E7D40045622E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -673,6 +897,14 @@
 				4975254D21357E63000A47E5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		49E281FF2150E7D30045622E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49E282002150E7D30045622E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -878,6 +1110,144 @@
 			};
 			name = Release;
 		};
+		49E2821B2150E7D40045622E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kotobi/Kotobi.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = Kotobi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.Kotobi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		49E2821C2150E7D40045622E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Kotobi/Kotobi.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = Kotobi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.Kotobi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		49E2821E2150E7D40045622E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = KotobiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.KotobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kotobi.app/Contents/MacOS/Kotobi";
+			};
+			name = Debug;
+		};
+		49E2821F2150E7D40045622E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = KotobiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.KotobiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kotobi.app/Contents/MacOS/Kotobi";
+			};
+			name = Release;
+		};
+		49E282212150E7D40045622E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = KotobiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.KotobiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Kotobi;
+			};
+			name = Debug;
+		};
+		49E282222150E7D40045622E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TSK3U7V2QW;
+				INFOPLIST_FILE = KotobiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.KotobiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Kotobi;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -904,6 +1274,33 @@
 			buildConfigurations = (
 				49A634842141F36E0050A67E /* Debug */,
 				49A634852141F36E0050A67E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E2821A2150E7D40045622E /* Build configuration list for PBXNativeTarget "Kotobi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E2821B2150E7D40045622E /* Debug */,
+				49E2821C2150E7D40045622E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E2821D2150E7D40045622E /* Build configuration list for PBXNativeTarget "KotobiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E2821E2150E7D40045622E /* Debug */,
+				49E2821F2150E7D40045622E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49E282202150E7D40045622E /* Build configuration list for PBXNativeTarget "KotobiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E282212150E7D40045622E /* Debug */,
+				49E282222150E7D40045622E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

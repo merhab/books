@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
-        if !(dbKitab!.rdsKitab.eof()){
-        dbKitab!.rdsKitab.moveNext()
+        if !(dbKitab?.akhirKitab)!{
+        dbKitab!.lahik()
 
         self.page.text = dbKitab!.getCurrentSafha().nass
         page.rightToLeftAnimation()
@@ -19,8 +19,8 @@ class BookViewController: UIViewController {
     }
 
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
-        if !(dbKitab!.rdsKitab.bof()) {
-        dbKitab!.rdsKitab.movePreior()
+        if !(dbKitab?.awalKitab)! {
+        dbKitab!.sabik()
 
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
         self.page.text = dbKitab!.getCurrentSafha().nass
