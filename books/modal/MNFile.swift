@@ -10,16 +10,39 @@ import Foundation
 
 class MNFile  {
     static let booksFolderName = "KOTOB"
-    
-    static func createFolderInDocuments(folder name:String)->Bool{
-        // Create a FileManager instance
-        
-        let fileManager = FileManager.default
-        
+    static let dbSuffix = ".kitab"
+    static let fihresSuffix = ".fihras"
+    /**
+     get the working dir work for IOS and MACOS
+        - Return Strtring contain the working directory path
+     */
+    static func getDocFolder()->String{
+        #if os(iOS) || os(watchOS) || os(tvOS)
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let documentsDirectory = paths[0]
-        let dataPath = documentsDirectory + "/\(name)/"
+        #elseif os(OSX)
+        let documentsDirectory = Bundle.main.bundleURL.deletingLastPathComponent().path
+        #else
+        documentsDirectory = ""
+        println("OMG, it's that mythical new Apple product!!!")
+        #endif
         
+        return documentsDirectory
+    }
+    
+    /**
+    create the databases folder works for IOS and MACOS
+     - Parameters:
+        - name: is string with the databases folder name
+     - Return: true is success false else
+     */
+    static func createDbFolder(folder name:String)->Bool{
+        // Create a FileManager instance
+
+        let documentsDirectory = MNFile.getDocFolder()
+
+        let dataPath = documentsDirectory + "/\(name)/"
+        let fileManager = FileManager.default
         
         if  !fileManager.fileExists(atPath: dataPath){
             do {  try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: true, attributes: nil)
@@ -50,8 +73,7 @@ class MNFile  {
         // Create a FileManager instance
         
         let fileManager = FileManager.default
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentsDirectory = paths[0]
+        let documentsDirectory = MNFile.getDocFolder()
         let name = (path as NSString).lastPathComponent
         //let dataPath2 = documentsDirectory.appendingPathComponent(booksFolderName)!.appendingPathComponent(name)
         let dataPath = "\(documentsDirectory)/\(booksFolderName)/\(name)"
@@ -85,8 +107,7 @@ class MNFile  {
      */
     
     static func getDataBasePath(book name:String)->String{  // just give the name of database ex:1.kitab
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentsDirectory = paths[0]
+        let documentsDirectory = MNFile.getDocFolder()
         
         let dataPath = "\(documentsDirectory)/\(booksFolderName)/\(name)"
         
@@ -132,7 +153,7 @@ class MNFile  {
      - pathURL: The Url where we search , files type is .kitab
      */
    static func searchDb(pathURL: URL) -> [String] {
-        return searchDb(pathURL: pathURL, suffix: ".kitab")
+        return searchDb(pathURL: pathURL, suffix: dbSuffix)
     }
     /**
      find all files with given extension in an URL
@@ -165,15 +186,21 @@ class MNFile  {
         
         return files
     }
-    
+   /**
+     Search all database files in ios its search in doc folder , in macos its search in app folder
+     */
    static func searchDbFilesInDoc()->[String]{// use this myFumc to move files
 
-    let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    let documentsPath = MNFile.getDocFolder()
     return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
     }
-    
+//    #if os(iOS) || os(watchOS) || os(tvOS)
+//    #elseif os(OSX)
+//    #else
+//    #endif
+    #if os(iOS) || os(watchOS) || os(tvOS)
     static func searchDbFilesInRes()->[String]{// use this myFumc to move files
-
+        
         let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
         return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
     }
@@ -182,12 +209,25 @@ class MNFile  {
         return searchDb(pathURL: URL(fileURLWithPath: documentsPath))
         
     }
+    #else
+    static func searchDbFilesInRes()->[String]{// use this
+        return [String]()
+    }
+    static func searchDbFilesInInbox()->[String]{
+        return [String]()
+        
+    }
+
+    #endif
+    /**
+     Search all fihres files in ios its search in doc folder , in macos its search in app folder
+     */
     static func searchINDFilesInDoc()->[String]{// use this myFumc to move files
         
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: ".fihras")
+        let documentsPath = MNFile.getDocFolder()
+        return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: fihresSuffix)
     }
-    
+    #if os(iOS) || os(watchOS) || os(tvOS)
     static func searchIndFilesInRes()->[String]{// use this myFumc to move files
         
         let documentsPath = Bundle.main.resourcePath! //+ "/Resources"
@@ -196,6 +236,22 @@ class MNFile  {
     static func searchIndFilesInInbox()->[String]{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]+"/Inbox"
         return searchDb(pathURL: URL(fileURLWithPath: documentsPath),suffix: ".fihras")
+        
+    }
+     #else
+    static func searchIndFilesInRes()->[String]{// use this
+        return [String]()
+    }
+    static func searchIndFilesInInbox()->[String]{
+        return [String]()
+        
+    }
+    #endif
+    
+    
+    
+    static func getAppPath()->String{
+        return  Bundle.main.bundleURL.deletingLastPathComponent().path
         
     }
 

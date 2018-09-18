@@ -18,7 +18,7 @@ class DBBooksList {
     var path : String
     
     init() {
-        _ = MNFile.createFolderInDocuments(folder: MNFile.booksFolderName)
+        _ = MNFile.createDbFolder(folder: MNFile.booksFolderName)
         var databaseExists = false
         if MNFile.fileExists(path: MNFile.getDataBasePath(book: "booksList.kitab")) {
             databaseExists = true

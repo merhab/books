@@ -1,15 +1,14 @@
 //
-//  kotobiTests.swift
-//  kotobiTests
+//  booksTests.swift
+//  booksTests
 //
 //  Created by merhab on 18‏/9‏/2018.
 //  Copyright © 2018 merhab. All rights reserved.
 //
 
 import XCTest
-@testable import kotobi
-
-class kotobiTests: XCTestCase {
+@testable import books
+class booksTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -22,8 +21,7 @@ class kotobiTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        print(MNFile.getAppPath())
     }
     
     func testPerformanceExample() {
