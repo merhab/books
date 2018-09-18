@@ -8,6 +8,7 @@
 
 import Cocoa
 
+
 class Document: NSDocument {
 
     override init() {
