@@ -228,7 +228,7 @@ class DBMNrecord  {
     
     func update()->Bool {
         var values = [String]()
-        var int=0
+        var int=1
         var str1=""
         var str2=""
         for i in record.getFields(){
