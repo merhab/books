@@ -55,6 +55,7 @@ class DBBooksList {
     func moveFile(files :[String]) {// TODO  move files must makes a log file
         print(files)
         for file in files {
+            
             var databaseBook : MNDatabase
             databaseBook = MNDatabase(path: file)
             let dbBookInfoFromBooksList = DBMNrecord (database: dataBase, record: BooksList())
@@ -91,11 +92,13 @@ class DBBooksList {
             if   MNFile.moveFileToBookFolder(file: file) {
                 print ("file moved to book folder: \(file)")
                 #if os(OSX)
-                let str = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
-                if let int = Int(str){
-                 let dbFahres = FahresKalimat(kitabId:int)
-                    dbFahres.fahrasatKitab()}
-                
+                let bookId = MNFile.getIdFromPath(path: file)
+                if bookId != -1 {
+                 let dbFahres = DBFahresKalimat(kitabId:bookId)
+                        if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromBookId(bookId: bookId), table: Kalima().getTableName()){
+                            dbFahres.fahrasatKitab()
+                    }
+                }
                 #endif
                 
             }else{
@@ -104,6 +107,8 @@ class DBBooksList {
         }
         
     }
+    
+
     /**
      find and move all books from res , doc , inbox to KOTOB folder
      this will not move indexes

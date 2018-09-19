@@ -7,12 +7,17 @@
 //
 
 import Foundation
-class DbKitab {
+class DbKitab : Kitab{
    private var rdsKitab : MNRecordset
     private var dbSafha : DBMNrecord
     var dbKitabParam : DBMNrecord
     private var currentSafha : Nass
-    var dataBase : MNDatabase
+    var nass : String {
+        get {
+            return readCompressedSafha()
+        }
+    }
+
     var khawi : Bool {
         get{
             return rdsKitab.isEmpty
@@ -28,7 +33,7 @@ class DbKitab {
             return rdsKitab.eof()
         }
     }
-    var kitabId : Int
+
     var safhaId : Int {
         get{
             return dbSafha.record.ID
@@ -36,28 +41,29 @@ class DbKitab {
     }
     
     init(kitabId : Int) {
-    self.kitabId = kitabId
+  
+    
     let path = MNFile.getDataBasePath(kitabId: kitabId)
-     dataBase = MNDatabase(path: path)
-     dbSafha = DBMNrecord(database: dataBase, record: Book())
+     let mdataBase = MNDatabase(path: path)
+     dbSafha = DBMNrecord(database: mdataBase, record: Book())
      _ = dbSafha.updateTableStruct()
-     rdsKitab = MNRecordset(database: dataBase, table: dbSafha.tableName)
-    dbKitabParam = DBMNrecord(database: dataBase, record: MNrecordParams())
+     rdsKitab = MNRecordset(database: mdataBase, table: dbSafha.tableName)
+    dbKitabParam = DBMNrecord(database: mdataBase, record: MNrecordParams())
         _ = dbKitabParam.createTable()
         if rdsKitab.isEmpty {
             currentSafha = Nass(nass: "", kalimaBidaya: Kalima(text: ""))
         } else {
-            //TODO: getObject nee redesign
+            //TODO: getObject need redesign
            dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = Nass.getWords(text: safha.pgText)
             let kalima = Kalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
             currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
   
-            
+
 
         }
-        
+              super.init(kitabId: kitabId, dataBase: mdataBase)
     }
     
     func getCurrentSafha()->Nass  {
@@ -69,6 +75,25 @@ class DbKitab {
         return currentSafha
 
         
+    }
+    func compressSafha()  {
+        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+        if let safha = dbSafha.record as? Book {
+        safha.pgText = Nass.compress(text: safha.pgText)
+            if safha.ID != -1 {
+                _ = dbSafha.update()
+            }
+        }
+    }
+    
+    func readCompressedSafha() -> String {
+        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+        if let safha = dbSafha.record as? Book {
+            return Nass.deCompress(textBase64: safha.pgText)
+
+        }else {
+            return ""
+        }
     }
     
     func awal()   {

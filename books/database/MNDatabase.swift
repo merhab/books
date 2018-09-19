@@ -165,6 +165,40 @@ class MNDatabase {
      return getRecords(query: sql, ofset: from, limit: count)
 
     }
+    
+    static func tableExists ( path : String , table  : String)->Bool{
+        if !MNFile.fileExists(path: path){return false}
+        let database = MNDatabase(path: path)
+        let rds = database.getRecords(query: "SELECT name as tables FROM sqlite_master")
+        if !rds.isEmpty  {
+            for rd in rds {
+                if let tableName = rd["tables"] as? String , tableName == table {
+                    
+                        return true
+                    }
+            }
+        }
+        return false
+    }
+    
+    static func tableIsEmpty ( path : String , table name : String)->Bool{
+        if !MNDatabase.tableExists(path: path, table: name) {
+            return true
+        }
+        
+      let database = MNDatabase(path: path)
+        let rds = database.getRecords(query: "select count(ID) as recordCount from \(name)")
+        if !rds.isEmpty,let count = rds[0]["recordCount"] as? Int64 , count > 0  {
+            
+            return false
+                }
+    
+            
+      
+        return true
+    }
+    
+    
 }
 
 //*****************

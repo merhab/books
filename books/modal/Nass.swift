@@ -31,6 +31,10 @@ class Nass : MNrecord{
         self.mnKalimaBidaya = kalimaBidaya
 
     }
+     init(nass : String) {
+        self.nass = nass
+        self.mnKalimaBidaya = Kalima()
+    }
     
     static func removeTashkil(text : String) -> String {
 
@@ -80,6 +84,25 @@ class Nass : MNrecord{
             }
         }
         return String(NormalizedArray)
+    }
+    func compress()->String {
+        return Nass.compress(text: nass)
+    }
+    static func compress (text : String)->String{
+        let dataToCompress : Data! = text.data(using: .utf8)
+        let compressedData = dataToCompress.deflate()
+        let strBase64 = compressedData!.base64EncodedString(options: .lineLength64Characters)
+        
+        return strBase64
+    }
+    
+    static func deCompress(textBase64 text : String)->String
+    {
+       let dataToCompress = Data(referencing: NSData(base64Encoded: text, options: NSData.Base64DecodingOptions(rawValue: 0))!)
+        
+        let result = dataToCompress.inflate()
+        return String(decoding: result!, as: UTF8.self)
+        
     }
 }
 

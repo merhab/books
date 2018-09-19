@@ -7,23 +7,24 @@
 //
 
 import Foundation
-class FahresKalimat {
+class DBFahresKalimat : Kitab {
 
-    private var dataBase : MNDatabase
-    var kitabId : Int
+
+
     private var dbKitab : DbKitab
     
     
     init(kitabId: Int) {
-        self.kitabId = kitabId
+
         var path = MNFile.getDocFolder()+"/\(MNFile.booksFolderName)/\(MNFile.fihrasFolderName)"
         _ = MNFile.createFolder(path :path)
         path = path + "/\(kitabId)\(MNFile.fihresSuffix)"
-        self.dataBase = MNDatabase(path: path)
-        _ = DBMNrecord(database: dataBase, record: Kalima(text: "")).createTable()
-        _ = DBMNrecord(database: dataBase, record: KalimaTartib(kalima: Kalima(text: ""))).createTable()
+        let mdataBase = MNDatabase(path: path)
+        _ = DBMNrecord(database: mdataBase, record: Kalima(text: "")).createTable()
+        _ = DBMNrecord(database: mdataBase, record: KalimaTartib(kalima: Kalima(text: ""))).createTable()
         dbKitab = DbKitab(kitabId: kitabId)
-
+        
+        super.init(kitabId: kitabId, dataBase: mdataBase)
         
         
     }
@@ -66,10 +67,11 @@ class FahresKalimat {
         if !dbKitab.khawi {
         dbKitab.awal()
         fahrasatSafha()
+        dbKitab.compressSafha() 
             while !dbKitab.akhirKitab {
                 dbKitab.lahik()
                 fahrasatSafha()
-                
+                dbKitab.compressSafha()
             }
             
         }

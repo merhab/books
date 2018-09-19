@@ -12,7 +12,7 @@
 		490CACA72151654200CE3989 /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EB2150E7350045622E /* StemConst.swift */; };
 		490CACA82151654200CE3989 /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EA2150E7350045622E /* Nass.swift */; };
 		490CACA92151654200CE3989 /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E72150E7340045622E /* Kalima.swift */; };
-		490CACAA2151654200CE3989 /* FahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* FahresKalimat.swift */; };
+		490CACAA2151654200CE3989 /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* DBFahresKalimat.swift */; };
 		490CACAB2151655400CE3989 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		490CACAC2151655A00CE3989 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
 		490CACAD2151655A00CE3989 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
@@ -20,6 +20,7 @@
 		490CACB02151656900CE3989 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		490CACB12151656900CE3989 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
 		490CAE692151732300CE3989 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
+		490CAE9121525BA300CE3989 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9021525BA200CE3989 /* Compression.swift */; };
 		49289F79214645AE00620690 /* 5.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F76214645AE00620690 /* 5.kitab */; };
 		49289F7A214645AE00620690 /* 4.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F77214645AE00620690 /* 4.kitab */; };
 		4975254421357E61000A47E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254321357E61000A47E5 /* AppDelegate.swift */; };
@@ -90,7 +91,7 @@
 		49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB3214E89FE0045622E /* DBBooksList.swift */; };
 		49E27FB6214E99D80045622E /* Bahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB5214E99D80045622E /* Bahth.swift */; };
 		49E281EC2150E7350045622E /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E72150E7340045622E /* Kalima.swift */; };
-		49E281ED2150E7350045622E /* FahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* FahresKalimat.swift */; };
+		49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* DBFahresKalimat.swift */; };
 		49E281EF2150E7350045622E /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EA2150E7350045622E /* Nass.swift */; };
 		49E281F02150E7350045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EB2150E7350045622E /* StemConst.swift */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		490CAC8F215161B900CE3989 /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		490CAC91215161B900CE3989 /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
 		490CAC93215161B900CE3989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		490CAE9021525BA200CE3989 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = ../../../../Desktop/tests/compressionTest/Compression.swift; sourceTree = "<group>"; };
 		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
 		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
 		4975254021357E61000A47E5 /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,7 +200,7 @@
 		49E27FB3214E89FE0045622E /* DBBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBBooksList.swift; sourceTree = "<group>"; };
 		49E27FB5214E99D80045622E /* Bahth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bahth.swift; sourceTree = "<group>"; };
 		49E281E72150E7340045622E /* Kalima.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalima.swift; sourceTree = "<group>"; };
-		49E281E82150E7340045622E /* FahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FahresKalimat.swift; sourceTree = "<group>"; };
+		49E281E82150E7340045622E /* DBFahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFahresKalimat.swift; sourceTree = "<group>"; };
 		49E281EA2150E7350045622E /* Nass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nass.swift; sourceTree = "<group>"; };
 		49E281EB2150E7350045622E /* StemConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StemConst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -322,6 +324,7 @@
 		4997985021440645005D46C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				490CAE9021525BA200CE3989 /* Compression.swift */,
 				4997984D21440623005D46C5 /* Extentions.swift */,
 			);
 			path = Extensions;
@@ -335,7 +338,7 @@
 				49E281EB2150E7350045622E /* StemConst.swift */,
 				49E281EA2150E7350045622E /* Nass.swift */,
 				49E281E72150E7340045622E /* Kalima.swift */,
-				49E281E82150E7340045622E /* FahresKalimat.swift */,
+				49E281E82150E7340045622E /* DBFahresKalimat.swift */,
 				499798562144AAF9005D46C5 /* MNRecord.swift */,
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
 			);
@@ -565,7 +568,7 @@
 				490CACAF2151655A00CE3989 /* Bahth.swift in Sources */,
 				490CACA82151654200CE3989 /* Nass.swift in Sources */,
 				490CACA92151654200CE3989 /* Kalima.swift in Sources */,
-				490CACAA2151654200CE3989 /* FahresKalimat.swift in Sources */,
+				490CACAA2151654200CE3989 /* DBFahresKalimat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +591,7 @@
 				499798572144AAF9005D46C5 /* MNRecord.swift in Sources */,
 				49C5E5532140ABD700ED9BF0 /* Connection.swift in Sources */,
 				49C5E5612140ABD700ED9BF0 /* RTree.swift in Sources */,
+				490CAE9121525BA300CE3989 /* Compression.swift in Sources */,
 				49A3CEA92138214700F06188 /* MNFile.swift in Sources */,
 				49C5E57B2140ABD700ED9BF0 /* Schema.swift in Sources */,
 				49E281EC2150E7350045622E /* Kalima.swift in Sources */,
@@ -629,7 +633,7 @@
 				4975258321358C34000A47E5 /* NominalType.swift in Sources */,
 				49C5E5632140ABD700ED9BF0 /* FTS4.swift in Sources */,
 				4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */,
-				49E281ED2150E7350045622E /* FahresKalimat.swift in Sources */,
+				49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */,
 				49E281EF2150E7350045622E /* Nass.swift in Sources */,
 				49C5E55D2140ABD700ED9BF0 /* Helpers.swift in Sources */,
 				4975258021358C34000A47E5 /* Storage.swift in Sources */,

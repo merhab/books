@@ -22,14 +22,23 @@ class MNFile  {
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let documentsDirectory = paths[0]
         #elseif os(OSX)
-        let documentsDirectory = "/Users/merhab/Documents/kotobi/database"
-            //Bundle.main.bundleURL.deletingLastPathComponent().path
+        let documentsDirectory = Bundle.main.bundleURL.deletingLastPathComponent().path
         #else
         documentsDirectory = ""
         println("OMG, it's that mythical new Apple product!!!")
         #endif
         
         return documentsDirectory
+    }
+    /**
+     get the Fihras dir works for IOS and MACOS
+     - Return Strtring contain the working directory path
+     */
+    
+    static func getFahressFolder()->String{
+        var path = getDocFolder()
+        path = path + "/\(booksFolderName)/\(fihrasFolderName)"
+        return path
     }
     
     /**
@@ -114,7 +123,7 @@ class MNFile  {
     //***********************
     
     /**
-    get the path of a book in docs/kotob
+    get the path of a book in docs/kotob  works for IOS/MACOS
      - Parameters:
         - name is string contain the kitab id and .kitab extenssion
      */
@@ -132,7 +141,7 @@ class MNFile  {
 
     }
     /**
-    get the path of a book in docs/kotob
+    get the path of a book in docs/kotob works for IOS/MACOS
      - Parameters:
         - id: integer the Kitab id
      
@@ -266,6 +275,19 @@ class MNFile  {
     static func getAppPath()->String{
         return  Bundle.main.bundleURL.deletingLastPathComponent().path
         
+    }
+    
+    static func getIdFromPath(path : String) -> Int {
+        let str = URL(fileURLWithPath: path).deletingPathExtension().lastPathComponent
+        if let int = Int(str){
+         return int
+        } else {return -1}
+    }
+    
+    static func getFihrasPathFromBookId(bookId:Int)->String{
+        var str = getDocFolder()
+        str = str + "/\(booksFolderName)/\(fihrasFolderName)/\(bookId)\(fihresSuffix)"
+        return str
     }
 
     
