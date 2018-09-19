@@ -11,7 +11,6 @@ class Kalima : MNrecord {
     var mnKitabId = -1
     var mnSafhaId = -1
     var mnTartibInSafha = -1.0
-    var kalimaDiscription : KalimaDescription?
     var text : String
     
     init(text : String , kitabId : Int = -1 , safhaId : Int = -1 ,

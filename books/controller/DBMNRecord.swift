@@ -50,9 +50,9 @@ class DBMNrecord  {
                         str = str + " , \(doubleQuote)\(props[i].name)\(doubleQuote) TEXT DEFAULT \(doubleQuote)\(doubleQuote) "
                     }
                     if str2 == "" {
-                       str2 = " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name) ;"
+                       str2 = " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name)) ;"
                     }else {
-                        str2 = str2 + " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name) ;"
+                        str2 = str2 + " CREATE INDEX IF NOT EXISTS \(props[i].name)Ind ON \(tableName) (\(props[i].name)) ;"
 
                     }
                     
@@ -146,6 +146,7 @@ class DBMNrecord  {
         var str2=""
         
         for i in record.getFields(){
+        if !i.name.contains("mn") {
             if i.name != "ID" {
                 if i.type.lowercased() == "string" {
                     if str2==""{
@@ -179,7 +180,7 @@ class DBMNrecord  {
                 }
                 
             }
-        }
+        }}
 
         let tableName=record.getTableName()
         let sql="INSERT INTO \(tableName) (\(str1)) VALUES(\(str2))"
@@ -285,6 +286,7 @@ class DBMNrecord  {
     
     func createTable ()->Bool{
        return database.execute(self.mnSqlCreate)
+        
     }
     
     func getRecordWithId(ID : Int) {
@@ -338,6 +340,23 @@ class DBMNrecord  {
         case "BooksCat" :
             let   myRecord = myRd as! BooksCat
             return recordToObject(myRd: myRecord,fld: fld) as! BooksCat
+        case "Kalima" :
+            let   myRecord = myRd as! Kalima
+            return recordToObject(myRd: myRecord,fld: fld) as! Kalima
+        case "KalimaTartib" :
+            let   myRecord = myRd as! KalimaTartib
+            return recordToObject(myRd: myRecord,fld: fld) as! KalimaTartib
+        case "KalimaDescription" :
+            let   myRecord = myRd as! KalimaDescription
+            return recordToObject(myRd: myRecord,fld: fld) as! KalimaDescription
+            
+        case "MNrecordParams" :
+            let   myRecord = myRd as! MNrecordParams
+            return recordToObject(myRd: myRecord,fld: fld) as! MNrecordParams
+        case "Nass" :
+            let   myRecord = myRd as! Nass
+            return recordToObject(myRd: myRecord,fld: fld) as! Nass
+
             
         default:
             let  myRecord = myRd
@@ -357,6 +376,7 @@ class DBMNrecord  {
         // print (props)
         var str = ""
         for i in props.indices {
+            if !props[i].key.contains("mn") {
             str = String(describing: type(of: props[i].value))
             
             //print ("\(String(describing: fld[props[i].key] )) : \(props[i].value)")
@@ -379,7 +399,7 @@ class DBMNrecord  {
                             try! set(false, key: props[i].key, for: &myRecord )
                         }}
                     else {
-                        try! set(fld[props[i].key] ?? false, key: props[i].key, for: &myRecord )
+                        try! set(fld[props[i].key] ?? false, key: props[i].key, for: &myRecord  )
                     }}
                     // case Property type is Int
                 else {
@@ -387,12 +407,15 @@ class DBMNrecord  {
                         !(fld[props[i].key] is String) // case Property type is Int but not set , sqlite send empty string
                     {
                         try! set(Int((fld[props[i].key]) as! Int64 ) , key: props[i].key, for: &myRecord )
-                    } else {try! set(-1 , key: props[i].key, for: &myRecord )}
+                    } else {
+                        try! set(-1 , key: props[i].key, for: &myRecord )
+                        
+                    }
                 }
             }
             
             
-        }
+        }}
         (myRecord as! MNrecord).ID = Int(fld["ID"] as? Int64 ?? -1)
 
         if (Int(fld["selected"] as? Int64 ?? 0)) == 0 {(myRecord as! MNrecord).selected = false } else { (myRecord as! MNrecord).selected = true}

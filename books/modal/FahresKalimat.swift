@@ -16,7 +16,10 @@ class FahresKalimat {
     
     init(kitabId: Int) {
         self.kitabId = kitabId
-        self.dataBase = MNDatabase(path: MNFile.getDataBasePath(kitabId: kitabId))
+        var path = MNFile.getDocFolder()+"/\(MNFile.booksFolderName)/\(MNFile.fihrasFolderName)"
+        _ = MNFile.createFolder(path :path)
+        path = path + "/\(kitabId)\(MNFile.fihresSuffix)"
+        self.dataBase = MNDatabase(path: path)
         _ = DBMNrecord(database: dataBase, record: Kalima(text: "")).createTable()
         _ = DBMNrecord(database: dataBase, record: KalimaTartib(kalima: Kalima(text: ""))).createTable()
         dbKitab = DbKitab(kitabId: kitabId)

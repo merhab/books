@@ -28,12 +28,8 @@ class DBBooksList {
        path =  MNFile.getDataBasePath(book: "booksList.kitab")
        dataBase = MNDatabase(path: path)
         dbBooksList = DBMNrecord(database: dataBase, record: BooksList())
-        rdsBooksList = MNRecordset(database: dataBase, table: dbBooksList.tableName)
         dbMen = DBMNrecord(database: dataBase, record: Men())
-        rdsMen = MNRecordset(database: dataBase, table: dbMen.tableName)
         dbCat = DBMNrecord(database: dataBase, record: BooksCat())
-        rdsCat = MNRecordset(database: dataBase, tableName: dbCat.tableName, whereSql: "", orderBy: "bkCatOrder")
-
         if databaseExists {
             _ = dbBooksList.updateTableStruct()
             _ = dbCat.updateTableStruct()
@@ -47,6 +43,13 @@ class DBBooksList {
             (dbCat.record as! BooksCat).bkCatOrder = -1
             _ = dbCat.insert()
         }
+        rdsBooksList = MNRecordset(database: dataBase, table: dbBooksList.tableName)
+
+        rdsMen = MNRecordset(database: dataBase, table: dbMen.tableName)
+
+        rdsCat = MNRecordset(database: dataBase, tableName: dbCat.tableName, whereSql: "", orderBy: "bkCatOrder")
+
+
     }
     
     func moveFile(files :[String]) {// TODO  move files must makes a log file
@@ -87,6 +90,13 @@ class DBBooksList {
             
             if   MNFile.moveFileToBookFolder(file: file) {
                 print ("file moved to book folder: \(file)")
+                #if os(OSX)
+                let str = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
+                if let int = Int(str){
+                 let dbFahres = FahresKalimat(kitabId:int)
+                    dbFahres.fahrasatKitab()}
+                
+                #endif
                 
             }else{
                 print ("error cant moved to book folder: \(file)")

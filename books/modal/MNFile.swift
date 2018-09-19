@@ -12,6 +12,7 @@ class MNFile  {
     static let booksFolderName = "KOTOB"
     static let dbSuffix = ".kitab"
     static let fihresSuffix = ".fihras"
+    static let fihrasFolderName = "FAHARIS"
     /**
      get the working dir work for IOS and MACOS
         - Return Strtring contain the working directory path
@@ -21,7 +22,8 @@ class MNFile  {
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         let documentsDirectory = paths[0]
         #elseif os(OSX)
-        let documentsDirectory = Bundle.main.bundleURL.deletingLastPathComponent().path
+        let documentsDirectory = "/Users/merhab/Documents/kotobi/database"
+            //Bundle.main.bundleURL.deletingLastPathComponent().path
         #else
         documentsDirectory = ""
         println("OMG, it's that mythical new Apple product!!!")
@@ -42,6 +44,19 @@ class MNFile  {
         let documentsDirectory = MNFile.getDocFolder()
 
         let dataPath = documentsDirectory + "/\(name)/"
+        return createFolder(path:dataPath)
+    }
+
+//***************************
+    
+    /**
+     create a folder folder with the given path
+     - Parameters:
+     - path: is string with  folder path
+     - Return: true is success false else
+     */
+    static func createFolder(path :String)->Bool{
+        let dataPath = path
         let fileManager = FileManager.default
         
         if  !fileManager.fileExists(atPath: dataPath){
@@ -53,8 +68,6 @@ class MNFile  {
             }
         } else {return true}
     }
-
-//***************************
     
  static func moveFileFromDocToBookFolder(file name:String)->Bool{ // only file name and extention
     

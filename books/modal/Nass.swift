@@ -9,10 +9,10 @@
 import Foundation
 class Nass : MNrecord{
     var nass :String
-    var kalimaBidaya : Kalima
+    var mnKalimaBidaya : Kalima
     var kitabId : Int {
         get {
-            return kalimaBidaya.mnKitabId
+            return mnKalimaBidaya.mnKitabId
         }
     }
     var nassNormalized : String {
@@ -28,7 +28,7 @@ class Nass : MNrecord{
 
     init(nass : String  , kalimaBidaya : Kalima) {
         self.nass = nass
-        self.kalimaBidaya = kalimaBidaya
+        self.mnKalimaBidaya = kalimaBidaya
 
     }
     
