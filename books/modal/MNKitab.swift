@@ -6,8 +6,12 @@
 //  Copyright © 2018 merhab. All rights reserved.
 //
 
+
 import Foundation
-class Kitab {
+/**
+ super class for DBKitab and DbFahresKalima
+ */
+class MNKitab {
         var kitabId : Int
         var dataBase : MNDatabase
     init(kitabId : Int , dataBase : MNDatabase){

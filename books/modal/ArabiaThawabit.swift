@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct StemConst {
+struct ArabiaThawabit {
   static let prefixLetters = "مأسفلونيتاكب"
    static let suffixLetters = "امتةكنهوي"
     static let inFIXletters = "اتويدط"

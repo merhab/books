@@ -45,13 +45,13 @@ class DbKitab {
     dbKitabParam = DBMNrecord(database: dataBase, record: MNrecordParams())
         _ = dbKitabParam.createTable()
         if rdsKitab.isEmpty {
-            currentSafha = Nass(nass: "", kalimaBidaya: Kalima(text: ""))
+            currentSafha = Nass(nass: "", kalimaBidaya: MNKalima(text: ""))
         } else {
             //TODO: getObject nee redesign
            dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = Nass.getWords(text: safha.pgText)
-            let kalima = Kalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+            let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
             currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
   
             
@@ -64,7 +64,7 @@ class DbKitab {
          dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
         let safha = dbSafha.record as! Book
         let words = Nass.getWords(text: safha.pgText)
-        let kalima = Kalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
+        let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
         currentSafha = Nass(nass: safha.pgText, kalimaBidaya: kalima)
         return currentSafha
 

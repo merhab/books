@@ -325,39 +325,46 @@ class DBMNrecord  {
         //var myRecord : MNrecord
         let myRd = record
         switch String(describing: type(of: myRd)  ) {
-        case "Book":
+        case MNThawabit.BookTypeName:
             let    myRecord = myRd as! Book
             return recordToObject(myRd: myRecord,fld: fld) as! Book
-        case "Men" :
+        case MNThawabit.MenTypeName :
             let    myRecord = myRd as! Men
             return recordToObject(myRd: myRecord,fld: fld) as! Men
-        case "BooksList" :
+        case MNThawabit.BooksListTypeName :
             let    myRecord = myRd as! BooksList
             return recordToObject(myRd: myRecord,fld: fld) as! BooksList
-        case "BookIndex" :
+        case MNThawabit.BookIndexTypeName :
             let    myRecord = myRd as! BookIndex
             return recordToObject(myRd: myRecord,fld: fld) as! BookIndex
-        case "BooksCat" :
+        case MNThawabit.BooksCatTypeName :
             let   myRecord = myRd as! BooksCat
             return recordToObject(myRd: myRecord,fld: fld) as! BooksCat
-        case "Kalima" :
-            let   myRecord = myRd as! Kalima
-            return recordToObject(myRd: myRecord,fld: fld) as! Kalima
-        case "KalimaTartib" :
-            let   myRecord = myRd as! KalimaTartib
-            return recordToObject(myRd: myRecord,fld: fld) as! KalimaTartib
-        case "KalimaDescription" :
-            let   myRecord = myRd as! KalimaDescription
-            return recordToObject(myRd: myRecord,fld: fld) as! KalimaDescription
+        case MNThawabit.MNKalimaTypeName :
+            let   myRecord = myRd as! MNKalima
+            return recordToObject(myRd: myRecord,fld: fld) as! MNKalima
+        case MNThawabit.MNKalimaTartibTypeName :
+            let   myRecord = myRd as! MNKalimaTartib
+            return recordToObject(myRd: myRecord,fld: fld) as! MNKalimaTartib
+        case MNThawabit.MNKalimaDescriptionTypeName :
+            let   myRecord = myRd as! MNKalimaDescription
+            return recordToObject(myRd: myRecord,fld: fld) as! MNKalimaDescription
             
-        case "MNrecordParams" :
+        case MNThawabit.MNrecordParamsTypeName :
             let   myRecord = myRd as! MNrecordParams
             return recordToObject(myRd: myRecord,fld: fld) as! MNrecordParams
-        case "Nass" :
-            let   myRecord = myRd as! Nass
-            return recordToObject(myRd: myRecord,fld: fld) as! Nass
-
-            
+        case MNThawabit.MNNassTypeName :
+            let   myRecord = myRd as! MNNass
+            return recordToObject(myRd: myRecord,fld: fld) as! MNNass
+        case MNThawabit.MNBahthTypeName :
+            let   myRecord = myRd as! MNBahth
+            return recordToObject(myRd: myRecord,fld: fld) as! MNBahth
+        case MNThawabit.MNBahthFiTypeName :
+            let   myRecord = myRd as! MNBahthFi
+            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthFi
+        case MNThawabit.MNBahthNatijaTypeName :
+            let   myRecord = myRd as! MNBahthNatija
+            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthNatija
         default:
             let  myRecord = myRd
             return recordToObject(myRd: myRecord,fld: fld) as! MNrecord

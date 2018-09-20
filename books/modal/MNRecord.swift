@@ -13,6 +13,11 @@ import Foundation
 
 
 class MNrecord  {
+static let IDfieldName = "ID"
+static let selectedFieldName = "selected"
+static let versionFieldName = "version"
+static let MNrecordTypeName = "MNrecord"
+static let namesExcludeChars = "mn"
     var ID = -1
     var version = 0.0
     var selected  = false
@@ -33,18 +38,18 @@ class MNrecord  {
     func getMNRecordField() -> [Field]  {
         var field : Field
         var fields = [Field]()
-        if String(describing: type(of: self)).lowercased() != "mnrecord" {
+        if String(describing: type(of: self)) != MNrecord.MNrecordTypeName {
             field=Field(with: self.ID)
-            field.name="ID"
-            field.type="Int"
+            field.name=MNrecord.IDfieldName
+            field.type = MNThawabit.IntTypeName
             fields.append(field)
             field=Field(with: self.selected)
-            field.name="selected"
-            field.type="Bool"
+            field.name=MNrecord.selectedFieldName
+            field.type=MNThawabit.BoolTypeName
             fields.append(field)
             field=Field(with: self.version)
-            field.name="version"
-            field.type="Double"
+            field.name=MNrecord.versionFieldName
+            field.type=MNThawabit.DoubleTypeName
             fields.append(field)
         }
         return fields
@@ -58,7 +63,7 @@ class MNrecord  {
         var fields = [Field]()
         var IDExists = false
         for i in props.indices {
-            if !(props[i].key.range(of: "mn")?.lowerBound==props[i].key.startIndex){//start with db
+            if !(props[i].key.range(of: MNrecord.namesExcludeChars)?.lowerBound==props[i].key.startIndex){//start with db
                 if props[i].key == "ID" {IDExists = true}
                 field=Field(with: props[i].value)
                 field.type=String(describing:(type(of: props[i].value)))

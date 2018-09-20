@@ -7,9 +7,9 @@
 //
 
 import Foundation
-class Nass : MNrecord{
+class MNNass : MNrecord{
     var nass :String
-    var mnKalimaBidaya : Kalima
+    var mnKalimaBidaya : MNKalima
     var kitabId : Int {
         get {
             return mnKalimaBidaya.mnKitabId
@@ -17,23 +17,23 @@ class Nass : MNrecord{
     }
     var nassNormalized : String {
         get{
-            return Nass.normalize(text: nass)
+            return MNNass.normalize(text: nass)
         }
            }
     var nassWithoutTachkil : String {
         get {
-            return Nass.removeTashkil(text: nass)
+            return MNNass.removeTashkil(text: nass)
         }
     }
 
-    init(nass : String  , kalimaBidaya : Kalima) {
+    init(nass : String  , kalimaBidaya : MNKalima) {
         self.nass = nass
         self.mnKalimaBidaya = kalimaBidaya
 
     }
      init(nass : String) {
         self.nass = nass
-        self.mnKalimaBidaya = Kalima()
+        self.mnKalimaBidaya = MNKalima()
     }
     
     static func removeTashkil(text : String) -> String {
@@ -55,25 +55,25 @@ class Nass : MNrecord{
     }
     
     static func getNormalizedWords(text : String) -> [String] {
-        let str = Nass.normalize(text: text)
-        return Nass.getWords(text: str)
+        let str = MNNass.normalize(text: text)
+        return MNNass.getWords(text: str)
     }
     
      func getNormalizedWords() -> [String] {
-        let str = Nass.normalize(text: nass)
-        return Nass.getWords(text: str)
+        let str = MNNass.normalize(text: nass)
+        return MNNass.getWords(text: str)
     }
     func getWords() -> [String] {
-        return Nass.getWords(text: nass)
+        return MNNass.getWords(text: nass)
     }
     
     static func normalize(text : String)->String{
         
-        let nassArray = Array(Nass.removeTashkil(text: text))
+        let nassArray = Array(MNNass.removeTashkil(text: text))
         var NormalizedArray = [Character]()
         for char in nassArray {
-            if StemConst.horof.contains(char){
-                if StemConst.alif.contains(char){
+            if ArabiaThawabit.horof.contains(char){
+                if ArabiaThawabit.alif.contains(char){
                     NormalizedArray.append("ء")
                     
                 }else if char == "ي"
@@ -86,7 +86,7 @@ class Nass : MNrecord{
         return String(NormalizedArray)
     }
     func compress()->String {
-        return Nass.compress(text: nass)
+        return MNNass.compress(text: nass)
     }
     static func compress (text : String)->String{
         let dataToCompress : Data! = text.data(using: .utf8)

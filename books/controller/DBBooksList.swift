@@ -95,7 +95,7 @@ class DBBooksList {
                 let bookId = MNFile.getIdFromPath(path: file)
                 if bookId != -1 {
                  let dbFahres = DBFahresKalimat(kitabId:bookId)
-                        if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromBookId(bookId: bookId), table: Kalima().getTableName()){
+                        if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromBookId(bookId: bookId), table: MNKalima().getTableName()){
                             dbFahres.fahrasatKitab()
                     }
                 }

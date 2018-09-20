@@ -7,20 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490CAC92215161B900CE3989 /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAC91215161B900CE3989 /* booksTests.swift */; };
-		490CACA62151654200CE3989 /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4988AA32215111C4006BA0B8 /* DbKitab.swift */; };
-		490CACA72151654200CE3989 /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EB2150E7350045622E /* StemConst.swift */; };
-		490CACA82151654200CE3989 /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EA2150E7350045622E /* Nass.swift */; };
-		490CACA92151654200CE3989 /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E72150E7340045622E /* Kalima.swift */; };
-		490CACAA2151654200CE3989 /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* DBFahresKalimat.swift */; };
-		490CACAB2151655400CE3989 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
-		490CACAC2151655A00CE3989 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
-		490CACAD2151655A00CE3989 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
-		490CACAF2151655A00CE3989 /* Bahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB5214E99D80045622E /* Bahth.swift */; };
-		490CACB02151656900CE3989 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
-		490CACB12151656900CE3989 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
-		490CAE692151732300CE3989 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
-		490CAE9121525BA300CE3989 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9021525BA200CE3989 /* Compression.swift */; };
+		490CAE972153FD5800CE3989 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE962153FD5700CE3989 /* Compression.swift */; };
+		490CAE992153FD8300CE3989 /* MNKalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE982153FD8300CE3989 /* MNKalima.swift */; };
+		490CAE9C2153FDD200CE3989 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9B2153FDD100CE3989 /* Properties.swift */; };
+		490CAE9E2153FE4900CE3989 /* MNKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9D2153FE4900CE3989 /* MNKitab.swift */; };
+		490CAEA22153FFCF00CE3989 /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA12153FFCF00CE3989 /* DbKitab.swift */; };
+		490CAEA4215400D000CE3989 /* MNBahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA3215400CF00CE3989 /* MNBahth.swift */; };
+		490CAEA6215400DC00CE3989 /* ArabiaThawabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */; };
+		490CAEA9215400E600CE3989 /* MNNass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA8215400E600CE3989 /* MNNass.swift */; };
+		490CAEB22154091600CE3989 /* MNThawabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEB12154091600CE3989 /* MNThawabit.swift */; };
 		49289F79214645AE00620690 /* 5.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F76214645AE00620690 /* 5.kitab */; };
 		49289F7A214645AE00620690 /* 4.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F77214645AE00620690 /* 4.kitab */; };
 		4975254421357E61000A47E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254321357E61000A47E5 /* AppDelegate.swift */; };
@@ -50,10 +45,8 @@
 		4975258821358C34000A47E5 /* Metadata+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257121358C33000A47E5 /* Metadata+Class.swift */; };
 		4975258A21358C34000A47E5 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257321358C33000A47E5 /* Set.swift */; };
 		4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257421358C34000A47E5 /* RelativePointer.swift */; };
-		4975258D213591EB000A47E5 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258C213591EB000A47E5 /* Properties.swift */; };
 		4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
 		497C9B69214895670066BED9 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 497C9B68214895660066BED9 /* images.jpeg */; };
-		498BA1E3215113D0003BDB3D /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4988AA32215111C4006BA0B8 /* DbKitab.swift */; };
 		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
@@ -89,22 +82,8 @@
 		49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */; };
 		49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
 		49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB3214E89FE0045622E /* DBBooksList.swift */; };
-		49E27FB6214E99D80045622E /* Bahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB5214E99D80045622E /* Bahth.swift */; };
-		49E281EC2150E7350045622E /* Kalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E72150E7340045622E /* Kalima.swift */; };
 		49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* DBFahresKalimat.swift */; };
-		49E281EF2150E7350045622E /* Nass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EA2150E7350045622E /* Nass.swift */; };
-		49E281F02150E7350045622E /* StemConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281EB2150E7350045622E /* StemConst.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		490CAC94215161B900CE3989 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4975253821357E61000A47E5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4975253F21357E61000A47E5;
-			remoteInfo = books;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		497525AD21359DAB000A47E5 /* Embed Frameworks */ = {
@@ -120,10 +99,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		490CAC8F215161B900CE3989 /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		490CAC91215161B900CE3989 /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
-		490CAC93215161B900CE3989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		490CAE9021525BA200CE3989 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = ../../../../Desktop/tests/compressionTest/Compression.swift; sourceTree = "<group>"; };
+		490CAE962153FD5700CE3989 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
+		490CAE982153FD8300CE3989 /* MNKalima.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNKalima.swift; sourceTree = "<group>"; };
+		490CAE9B2153FDD100CE3989 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = "Reflection-master/Sources/Reflection/Properties.swift"; sourceTree = SOURCE_ROOT; };
+		490CAE9D2153FE4900CE3989 /* MNKitab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNKitab.swift; sourceTree = "<group>"; };
+		490CAEA12153FFCF00CE3989 /* DbKitab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
+		490CAEA3215400CF00CE3989 /* MNBahth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MNBahth.swift; path = books/modal/MNBahth.swift; sourceTree = SOURCE_ROOT; };
+		490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArabiaThawabit.swift; sourceTree = "<group>"; };
+		490CAEA8215400E600CE3989 /* MNNass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNNass.swift; sourceTree = "<group>"; };
+		490CAEB12154091600CE3989 /* MNThawabit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MNThawabit.swift; path = ../../../kotobi/kotobi/MNThawabit.swift; sourceTree = "<group>"; };
 		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
 		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
 		4975254021357E61000A47E5 /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,10 +139,8 @@
 		4975257121358C33000A47E5 /* Metadata+Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Metadata+Class.swift"; sourceTree = "<group>"; };
 		4975257321358C33000A47E5 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		4975257421358C34000A47E5 /* RelativePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativePointer.swift; sourceTree = "<group>"; };
-		4975258C213591EB000A47E5 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = "../../../../Downloads/Reflection-master/Sources/Reflection/Properties.swift"; sourceTree = "<group>"; };
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
 		497C9B68214895660066BED9 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
-		4988AA32215111C4006BA0B8 /* DbKitab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
 		498BA1E22151138E003BDB3D /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../../KOTOB/1.kitab; sourceTree = "<group>"; };
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
@@ -198,21 +180,10 @@
 		49C5E5522140ABD700ED9BF0 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
 		49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecordSet.swift; sourceTree = "<group>"; };
 		49E27FB3214E89FE0045622E /* DBBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBBooksList.swift; sourceTree = "<group>"; };
-		49E27FB5214E99D80045622E /* Bahth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bahth.swift; sourceTree = "<group>"; };
-		49E281E72150E7340045622E /* Kalima.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kalima.swift; sourceTree = "<group>"; };
 		49E281E82150E7340045622E /* DBFahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFahresKalimat.swift; sourceTree = "<group>"; };
-		49E281EA2150E7350045622E /* Nass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nass.swift; sourceTree = "<group>"; };
-		49E281EB2150E7350045622E /* StemConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StemConst.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		490CAC8C215161B900CE3989 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4975253D21357E61000A47E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,15 +194,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		490CAC90215161B900CE3989 /* booksTests */ = {
-			isa = PBXGroup;
-			children = (
-				490CAC91215161B900CE3989 /* booksTests.swift */,
-				490CAC93215161B900CE3989 /* Info.plist */,
-			);
-			path = booksTests;
-			sourceTree = "<group>";
-		};
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
@@ -245,7 +207,6 @@
 			isa = PBXGroup;
 			children = (
 				4975254021357E61000A47E5 /* books.app */,
-				490CAC8F215161B900CE3989 /* booksTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,7 +214,6 @@
 		4975254221357E61000A47E5 /* books */ = {
 			isa = PBXGroup;
 			children = (
-				490CAC90215161B900CE3989 /* booksTests */,
 				4975255521357E8F000A47E5 /* suplimentair */,
 				49C5E5322140ABD700ED9BF0 /* SQLite */,
 				4997985021440645005D46C5 /* Extensions */,
@@ -308,7 +268,7 @@
 				4975255E21358C32000A47E5 /* Metadata+Tuple.swift */,
 				4975256A21358C33000A47E5 /* MetadataType.swift */,
 				4975256C21358C33000A47E5 /* NominalType.swift */,
-				4975258C213591EB000A47E5 /* Properties.swift */,
+				490CAE9B2153FDD100CE3989 /* Properties.swift */,
 				4975256721358C32000A47E5 /* NominalTypeDescriptor.swift */,
 				4975256821358C33000A47E5 /* PointerType.swift */,
 				4975256F21358C33000A47E5 /* ReflectionError.swift */,
@@ -324,7 +284,7 @@
 		4997985021440645005D46C5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				490CAE9021525BA200CE3989 /* Compression.swift */,
+				490CAE962153FD5700CE3989 /* Compression.swift */,
 				4997984D21440623005D46C5 /* Extentions.swift */,
 			);
 			path = Extensions;
@@ -333,11 +293,11 @@
 		49AF51A1213C3AE800964DE0 /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				490CAEB12154091600CE3989 /* MNThawabit.swift */,
+				490CAE982153FD8300CE3989 /* MNKalima.swift */,
 				49A3CEA82138214700F06188 /* MNFile.swift */,
-				4988AA32215111C4006BA0B8 /* DbKitab.swift */,
-				49E281EB2150E7350045622E /* StemConst.swift */,
-				49E281EA2150E7350045622E /* Nass.swift */,
-				49E281E72150E7340045622E /* Kalima.swift */,
+				490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */,
+				490CAEA8215400E600CE3989 /* MNNass.swift */,
 				49E281E82150E7340045622E /* DBFahresKalimat.swift */,
 				499798562144AAF9005D46C5 /* MNRecord.swift */,
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
@@ -359,10 +319,12 @@
 		49AF51A3213C3AFB00964DE0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				490CAEA12153FFCF00CE3989 /* DbKitab.swift */,
 				49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */,
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
 				49E27FB3214E89FE0045622E /* DBBooksList.swift */,
-				49E27FB5214E99D80045622E /* Bahth.swift */,
+				490CAEA3215400CF00CE3989 /* MNBahth.swift */,
+				490CAE9D2153FE4900CE3989 /* MNKitab.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -451,24 +413,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		490CAC8E215161B900CE3989 /* booksTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 490CAC96215161B900CE3989 /* Build configuration list for PBXNativeTarget "booksTests" */;
-			buildPhases = (
-				490CAC8B215161B900CE3989 /* Sources */,
-				490CAC8C215161B900CE3989 /* Frameworks */,
-				490CAC8D215161B900CE3989 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				490CAC95215161B900CE3989 /* PBXTargetDependency */,
-			);
-			name = booksTests;
-			productName = booksTests;
-			productReference = 490CAC8F215161B900CE3989 /* booksTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		4975253F21357E61000A47E5 /* books */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4975255221357E63000A47E5 /* Build configuration list for PBXNativeTarget "books" */;
@@ -497,10 +441,6 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = merhab;
 				TargetAttributes = {
-					490CAC8E215161B900CE3989 = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 4975253F21357E61000A47E5;
-					};
 					4975253F21357E61000A47E5 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -520,19 +460,11 @@
 			projectRoot = "";
 			targets = (
 				4975253F21357E61000A47E5 /* books */,
-				490CAC8E215161B900CE3989 /* booksTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		490CAC8D215161B900CE3989 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4975253E21357E61000A47E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,33 +484,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		490CAC8B215161B900CE3989 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				490CAC92215161B900CE3989 /* booksTests.swift in Sources */,
-				490CACAB2151655400CE3989 /* MNDatabase.swift in Sources */,
-				490CACA62151654200CE3989 /* DbKitab.swift in Sources */,
-				490CACA72151654200CE3989 /* StemConst.swift in Sources */,
-				490CACB02151656900CE3989 /* MNRecord.swift in Sources */,
-				490CACB12151656900CE3989 /* DatabaseObjects.swift in Sources */,
-				490CACAC2151655A00CE3989 /* MNRecordSet.swift in Sources */,
-				490CACAD2151655A00CE3989 /* DBMNRecord.swift in Sources */,
-				490CAE692151732300CE3989 /* MNFile.swift in Sources */,
-				490CACAF2151655A00CE3989 /* Bahth.swift in Sources */,
-				490CACA82151654200CE3989 /* Nass.swift in Sources */,
-				490CACA92151654200CE3989 /* Kalima.swift in Sources */,
-				490CACAA2151654200CE3989 /* DBFahresKalimat.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4975253C21357E61000A47E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4975258721358C34000A47E5 /* ValueWitnessTable.swift in Sources */,
 				4975258821358C34000A47E5 /* Metadata+Class.swift in Sources */,
-				498BA1E3215113D0003BDB3D /* DbKitab.swift in Sources */,
+				490CAEA9215400E600CE3989 /* MNNass.swift in Sources */,
 				49C5E55F2140ABD700ED9BF0 /* Cipher.swift in Sources */,
 				49C5E5712140ABD700ED9BF0 /* Collation.swift in Sources */,
 				49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */,
@@ -591,10 +503,8 @@
 				499798572144AAF9005D46C5 /* MNRecord.swift in Sources */,
 				49C5E5532140ABD700ED9BF0 /* Connection.swift in Sources */,
 				49C5E5612140ABD700ED9BF0 /* RTree.swift in Sources */,
-				490CAE9121525BA300CE3989 /* Compression.swift in Sources */,
 				49A3CEA92138214700F06188 /* MNFile.swift in Sources */,
 				49C5E57B2140ABD700ED9BF0 /* Schema.swift in Sources */,
-				49E281EC2150E7350045622E /* Kalima.swift in Sources */,
 				49C5E5572140ABD700ED9BF0 /* Errors.swift in Sources */,
 				4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */,
 				4975257B21358C34000A47E5 /* Construct.swift in Sources */,
@@ -606,8 +516,8 @@
 				4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */,
 				49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */,
 				4975258521358C34000A47E5 /* Metadata.swift in Sources */,
-				49E27FB6214E99D80045622E /* Bahth.swift in Sources */,
 				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
+				490CAE9C2153FDD200CE3989 /* Properties.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,
@@ -620,39 +530,35 @@
 				49C5E5752140ABD700ED9BF0 /* DateAndTimeFunctions.swift in Sources */,
 				49C5E5732140ABD700ED9BF0 /* CustomFunctions.swift in Sources */,
 				499798782145EF81005D46C5 /* CatViewController.swift in Sources */,
-				4975258D213591EB000A47E5 /* Properties.swift in Sources */,
 				4975257E21358C34000A47E5 /* NominalTypeDescriptor.swift in Sources */,
 				4975254421357E61000A47E5 /* AppDelegate.swift in Sources */,
 				4975257C21358C34000A47E5 /* Metadata+Struct.swift in Sources */,
+				490CAEA22153FFCF00CE3989 /* DbKitab.swift in Sources */,
+				490CAE9E2153FE4900CE3989 /* MNKitab.swift in Sources */,
 				49C5E56B2140ABD700ED9BF0 /* Coding.swift in Sources */,
 				49C5E5672140ABD700ED9BF0 /* Foundation.swift in Sources */,
 				4975258621358C34000A47E5 /* ReflectionError.swift in Sources */,
+				490CAE992153FD8300CE3989 /* MNKalima.swift in Sources */,
 				49C5E5652140ABD700ED9BF0 /* FTS5.swift in Sources */,
 				49C5E5792140ABD700ED9BF0 /* Operators.swift in Sources */,
+				490CAEA4215400D000CE3989 /* MNBahth.swift in Sources */,
+				490CAEB22154091600CE3989 /* MNThawabit.swift in Sources */,
 				4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */,
+				490CAE972153FD5800CE3989 /* Compression.swift in Sources */,
 				4975258321358C34000A47E5 /* NominalType.swift in Sources */,
 				49C5E5632140ABD700ED9BF0 /* FTS4.swift in Sources */,
 				4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */,
 				49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */,
-				49E281EF2150E7350045622E /* Nass.swift in Sources */,
 				49C5E55D2140ABD700ED9BF0 /* Helpers.swift in Sources */,
 				4975258021358C34000A47E5 /* Storage.swift in Sources */,
 				49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */,
+				490CAEA6215400DC00CE3989 /* ArabiaThawabit.swift in Sources */,
 				4975257A21358C34000A47E5 /* Any+Extensions.swift in Sources */,
 				4975257521358C34000A47E5 /* Metadata+Tuple.swift in Sources */,
-				49E281F02150E7350045622E /* StemConst.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		490CAC95215161B900CE3989 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4975253F21357E61000A47E5 /* books */;
-			targetProxy = 490CAC94215161B900CE3989 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4975254721357E61000A47E5 /* Main.storyboard */ = {
@@ -674,46 +580,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		490CAC97215161B900CE3989 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TSK3U7V2QW;
-				INFOPLIST_FILE = booksTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.booksTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/books.app/books";
-			};
-			name = Debug;
-		};
-		490CAC98215161B900CE3989 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TSK3U7V2QW;
-				INFOPLIST_FILE = booksTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.booksTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/books.app/books";
-			};
-			name = Release;
-		};
 		4975255021357E63000A47E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -877,15 +743,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		490CAC96215161B900CE3989 /* Build configuration list for PBXNativeTarget "booksTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				490CAC97215161B900CE3989 /* Debug */,
-				490CAC98215161B900CE3989 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4975253B21357E61000A47E5 /* Build configuration list for PBXProject "books" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

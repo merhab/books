@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class DBFahresKalimat : Kitab {
+class DBFahresKalimat : MNKitab {
 
 
 
@@ -20,8 +20,8 @@ class DBFahresKalimat : Kitab {
         _ = MNFile.createFolder(path :path)
         path = path + "/\(kitabId)\(MNFile.fihresSuffix)"
         let mdataBase = MNDatabase(path: path)
-        _ = DBMNrecord(database: mdataBase, record: Kalima(text: "")).createTable()
-        _ = DBMNrecord(database: mdataBase, record: KalimaTartib(kalima: Kalima(text: ""))).createTable()
+        _ = DBMNrecord(database: mdataBase, record: MNKalima(text: "")).createTable()
+        _ = DBMNrecord(database: mdataBase, record: MNKalimaTartib(kalima: MNKalima(text: ""))).createTable()
         dbKitab = DbKitab(kitabId: kitabId)
         
         super.init(kitabId: kitabId, dataBase: mdataBase)
@@ -29,12 +29,12 @@ class DBFahresKalimat : Kitab {
         
     }
     
-   private func getNormalizedKalimatSafha() -> [Kalima] {
+   private func getNormalizedKalimatSafha() -> [MNKalima] {
         let nass = dbKitab.getCurrentSafha()
         let kalim = nass.getNormalizedWords()
-        var kalimat = [Kalima]()
+        var kalimat = [MNKalima]()
         for i in kalim.indices {
-            kalimat.append(Kalima(text: kalim[i], kitabId: dbKitab.kitabId, safhaId: dbKitab.safhaId, tartibInSafha: Double(i)))
+            kalimat.append(MNKalima(text: kalim[i], kitabId: dbKitab.kitabId, safhaId: dbKitab.safhaId, tartibInSafha: Double(i)))
         }
         
         return kalimat
@@ -43,15 +43,15 @@ class DBFahresKalimat : Kitab {
        let kalimat = getNormalizedKalimatSafha()
         for kalima in kalimat {
             let dbKalima = DBMNrecord(database: dataBase, record:kalima )
-            let dbKalimaMinFahres = DBMNrecord(database: dataBase, record: Kalima(text: ""))
+            let dbKalimaMinFahres = DBMNrecord(database: dataBase, record: MNKalima(text: ""))
             dbKalimaMinFahres.getFirstRecord(filter: " text = '\(kalima.kalima)'")
             if dbKalimaMinFahres.isNull {
                 _ = dbKalima.save()
-                let tartibKalima = KalimaTartib(kalima: kalima)
+                let tartibKalima = MNKalimaTartib(kalima: kalima)
                 let dbTartibKalima = DBMNrecord(database: dataBase, record: tartibKalima)
                 _ = dbTartibKalima.save()
             }else{
-                let tartibKalima = KalimaTartib(kalima: kalima)
+                let tartibKalima = MNKalimaTartib(kalima: kalima)
                 tartibKalima.idKalima = dbKalimaMinFahres.record.ID
                 let dbTartibKalima = DBMNrecord(database: dataBase, record: tartibKalima)
                 _ = dbTartibKalima.save()

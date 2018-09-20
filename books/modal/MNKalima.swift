@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class Kalima : MNrecord {
+class MNKalima : MNrecord {
     var mnKitabId = -1
     var mnSafhaId = -1
     var mnTartibInSafha = -1.0
@@ -36,7 +36,7 @@ class Kalima : MNrecord {
     }
     static private func getJithr1(wrd : String) -> String {
 
-        let word = Kalima(text: wrd)
+        let word = MNKalima(text: wrd)
         
            // print (word.getPrefix(count: 4))
             
@@ -44,9 +44,9 @@ class Kalima : MNrecord {
             var success = false
         repeat {
             success = true
-            for i in stride(from: StemConst.maxSuffix, to: 0, by: -1) {
+            for i in stride(from: ArabiaThawabit.maxSuffix, to: 0, by: -1) {
                 let prefix = word.getSuffix(count: i)
-                if StemConst.suffixList.contains(prefix) {
+                if ArabiaThawabit.suffixList.contains(prefix) {
                     let endIndex = word.kalima.index(word.kalima.endIndex, offsetBy: -i)
                     let truncated = word.kalima.substring(to: endIndex)
                     if truncated.count>2 {
@@ -62,9 +62,9 @@ class Kalima : MNrecord {
                      } while success
             repeat {
                 success = true
-                for i in  stride(from: StemConst.maxPrefix, to: 0, by: -1)  {
+                for i in  stride(from: ArabiaThawabit.maxPrefix, to: 0, by: -1)  {
                     let prefix = word.getPrefix(count: i)
-                    if StemConst.prifixList.contains(prefix) {
+                    if ArabiaThawabit.prifixList.contains(prefix) {
                         let t  = String(word.kalima.dropFirst(prefix.count))
                         if t.count>2 {
                             word.kalima = t
@@ -92,11 +92,11 @@ class Kalima : MNrecord {
         var array = Array(wrd)
         if wrd.count > 3 {
   
-            if StemConst.ajwafLetters.contains(array[1]) {
+            if ArabiaThawabit.ajwafLetters.contains(array[1]) {
               array.remove(at: 1)
                 return(String(array))
             }
-            if StemConst.ajwafLetters.contains(array[array.count-2]){
+            if ArabiaThawabit.ajwafLetters.contains(array[array.count-2]){
                 array.remove(at: array.count-2)
                 return String(array)
             }
@@ -109,11 +109,11 @@ class Kalima : MNrecord {
         var array = Array(wrd)
         if wrd.count > 3 {
             
-            if StemConst.infixLetters.contains(array[1]) {
+            if ArabiaThawabit.infixLetters.contains(array[1]) {
                 array.remove(at: 1)
                 return(String(array))
             }
-            if StemConst.infixLetters.contains(array[array.count-2]){
+            if ArabiaThawabit.infixLetters.contains(array[array.count-2]){
                 array.remove(at: array.count-2)
                 return String(array)
             }
@@ -125,7 +125,7 @@ class Kalima : MNrecord {
     
 }
 
-class KalimaDescription : MNrecord {
+class MNKalimaDescription : MNrecord {
 
     var kalimaId = -1
     var kalimaType = ""
@@ -133,12 +133,12 @@ class KalimaDescription : MNrecord {
     var kalimaZamen = ""
     var kalimaJithr = ""
 }
-class KalimaTartib: MNrecord {
+class MNKalimaTartib: MNrecord {
    var idKalima = -1
    var tartib = -1.0
     var idKitab = -1
     var idSafha = -1
-     init(kalima : Kalima) {
+     init(kalima : MNKalima) {
 
         self.idKalima = kalima.ID
         self.idKitab = kalima.mnKitabId

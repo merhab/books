@@ -283,6 +283,7 @@ class MNRecordset {
     func bof() -> Bool {
         return recordNo == 0
     }
+    
     func getField()->[String:Any] {
         if positionInPage >= 0 {
         return fields[positionInPage]

@@ -1,11 +1,11 @@
 extension AnyExtensions {
     
     mutating func mutableStorage() -> UnsafeMutableRawPointer {
-        return kotobi.mutableStorage(instance: &self)
+        return books.mutableStorage(instance: &self)
     }
     
     mutating func storage() -> UnsafeRawPointer {
-        return kotobi.storage(instance: &self)
+        return books.storage(instance: &self)
     }
     
 }
