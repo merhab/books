@@ -44,7 +44,7 @@ class DBFahresKalimat : Kitab {
         for kalima in kalimat {
             let dbKalima = DBMNrecord(database: dataBase, record:kalima )
             let dbKalimaMinFahres = DBMNrecord(database: dataBase, record: Kalima(text: ""))
-            dbKalimaMinFahres.getFirstRecord(filter: " text = '\(kalima.text)'")
+            dbKalimaMinFahres.getFirstRecord(filter: " text = '\(kalima.kalima)'")
             if dbKalimaMinFahres.isNull {
                 _ = dbKalima.save()
                 let tartibKalima = KalimaTartib(kalima: kalima)
