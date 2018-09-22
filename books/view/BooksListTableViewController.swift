@@ -108,7 +108,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             var myCat = BooksCat()
         myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getField())) as! BooksCat
             cell.booksListLabel.text=myCat.bkCatTitle
-            cell.bkId = myCat.bkCatId// will use this to load our book in the book view
+            cell.bkId = myCat.ID// will use this to load our books in the book view
             return cell
         }
        
@@ -120,19 +120,24 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
       if tableView == catTableView {
       let currentCell = catTableView.cellForRow(at: indexPath) as! Mycell
         dbBooksList!.rdsBooksList.filtered = false
-        if currentCell.bkId == -1 {
+        // the case of all books is when cat ID = 1
+        if currentCell.bkId == 1 {
           dbBooksList!.rdsBooksList.filter = ""
           dbBooksList!.rdsBooksList.filtered = false
         }else{
-        dbBooksList!.rdsBooksList.filter = " bkCatId = \(currentCell.bkId)"
-        dbBooksList!.rdsBooksList.filtered = true
-        }
+            // we start the cat by the record 1: all books
+            // witch is not from the database
+            // so we need to reduce it
+            dbBooksList?.setFilterByAsnaf(catId: currentCell.bkId)
+            dbBooksList!.rdsBooksList.filtered = true
 
+        }
         booksListTableView.reloadData()
+        
         catMenuButtonAction(UIBarButtonItem())
-
         }
-    }
+        }
+   
 
 
 }

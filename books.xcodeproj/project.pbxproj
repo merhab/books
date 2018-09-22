@@ -10,12 +10,19 @@
 		490CAE972153FD5800CE3989 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE962153FD5700CE3989 /* Compression.swift */; };
 		490CAE992153FD8300CE3989 /* MNKalima.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE982153FD8300CE3989 /* MNKalima.swift */; };
 		490CAE9C2153FDD200CE3989 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9B2153FDD100CE3989 /* Properties.swift */; };
-		490CAE9E2153FE4900CE3989 /* MNKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAE9D2153FE4900CE3989 /* MNKitab.swift */; };
 		490CAEA22153FFCF00CE3989 /* DbKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA12153FFCF00CE3989 /* DbKitab.swift */; };
-		490CAEA4215400D000CE3989 /* MNBahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA3215400CF00CE3989 /* MNBahth.swift */; };
 		490CAEA6215400DC00CE3989 /* ArabiaThawabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */; };
 		490CAEA9215400E600CE3989 /* MNNass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEA8215400E600CE3989 /* MNNass.swift */; };
 		490CAEB22154091600CE3989 /* MNThawabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEB12154091600CE3989 /* MNThawabit.swift */; };
+		490CAEBD21544A8000CE3989 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEBC21544A8000CE3989 /* MNDatabase.swift */; };
+		490CAEBF21544A9300CE3989 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEBE21544A9300CE3989 /* MNRecordSet.swift */; };
+		490CAEC121544AA100CE3989 /* MNKitab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC021544AA100CE3989 /* MNKitab.swift */; };
+		490CAEC521544ACE00CE3989 /* MNDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC421544ACD00CE3989 /* MNDate.swift */; };
+		490CAEC721544ADC00CE3989 /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC621544ADC00CE3989 /* DBFahresKalimat.swift */; };
+		490CAECA21544B0800CE3989 /* MNBahth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC821544B0800CE3989 /* MNBahth.swift */; };
+		490CAECB21544B0800CE3989 /* MNBahthFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC921544B0800CE3989 /* MNBahthFi.swift */; };
+		490CAECD21544B5B00CE3989 /* MNBahthNatija.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAECC21544B5A00CE3989 /* MNBahthNatija.swift */; };
+		490CAED521544B9600CE3989 /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAED421544B9600CE3989 /* booksTests.swift */; };
 		49289F79214645AE00620690 /* 5.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F76214645AE00620690 /* 5.kitab */; };
 		49289F7A214645AE00620690 /* 4.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F77214645AE00620690 /* 4.kitab */; };
 		4975254421357E61000A47E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254321357E61000A47E5 /* AppDelegate.swift */; };
@@ -47,11 +54,12 @@
 		4975258B21358C34000A47E5 /* RelativePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975257421358C34000A47E5 /* RelativePointer.swift */; };
 		4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975258E21359828000A47E5 /* DatabaseObjects.swift */; };
 		497C9B69214895670066BED9 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 497C9B68214895660066BED9 /* images.jpeg */; };
+		4988B68B21563D5700602BC1 /* MNKitabSinf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4988B68A21563D5700602BC1 /* MNKitabSinf.swift */; };
+		4988B68F2156575F00602BC1 /* 1.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 4988B68E215656EC00602BC1 /* 1.kitab */; };
 		4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984A2143E948005D46C5 /* DBMNRecord.swift */; };
 		4997984E21440623005D46C5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997984D21440623005D46C5 /* Extentions.swift */; };
 		499798572144AAF9005D46C5 /* MNRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798562144AAF9005D46C5 /* MNRecord.swift */; };
 		499798782145EF81005D46C5 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499798772145EF81005D46C5 /* CatViewController.swift */; };
-		49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA02138213400F06188 /* MNDatabase.swift */; };
 		49A3CEA92138214700F06188 /* MNFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A3CEA82138214700F06188 /* MNFile.swift */; };
 		49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E43F2140385800ED9BF0 /* BookViewController.swift */; };
 		49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */; };
@@ -80,10 +88,18 @@
 		49C5E57D2140ABD700ED9BF0 /* AggregateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E54C2140ABD700ED9BF0 /* AggregateFunctions.swift */; };
 		49C5E57F2140ABD700ED9BF0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49C5E54D2140ABD700ED9BF0 /* Info.plist */; };
 		49C5E5812140ABD700ED9BF0 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */; };
-		49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */; };
 		49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E27FB3214E89FE0045622E /* DBBooksList.swift */; };
-		49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E281E82150E7340045622E /* DBFahresKalimat.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		490CAED721544B9600CE3989 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4975253821357E61000A47E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4975253F21357E61000A47E5;
+			remoteInfo = books;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		497525AD21359DAB000A47E5 /* Embed Frameworks */ = {
@@ -102,12 +118,21 @@
 		490CAE962153FD5700CE3989 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
 		490CAE982153FD8300CE3989 /* MNKalima.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNKalima.swift; sourceTree = "<group>"; };
 		490CAE9B2153FDD100CE3989 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = "Reflection-master/Sources/Reflection/Properties.swift"; sourceTree = SOURCE_ROOT; };
-		490CAE9D2153FE4900CE3989 /* MNKitab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNKitab.swift; sourceTree = "<group>"; };
 		490CAEA12153FFCF00CE3989 /* DbKitab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DbKitab.swift; sourceTree = "<group>"; };
-		490CAEA3215400CF00CE3989 /* MNBahth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MNBahth.swift; path = books/modal/MNBahth.swift; sourceTree = SOURCE_ROOT; };
 		490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArabiaThawabit.swift; sourceTree = "<group>"; };
 		490CAEA8215400E600CE3989 /* MNNass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNNass.swift; sourceTree = "<group>"; };
 		490CAEB12154091600CE3989 /* MNThawabit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MNThawabit.swift; path = ../../../kotobi/kotobi/MNThawabit.swift; sourceTree = "<group>"; };
+		490CAEBC21544A8000CE3989 /* MNDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
+		490CAEBE21544A9300CE3989 /* MNRecordSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MNRecordSet.swift; sourceTree = "<group>"; };
+		490CAEC021544AA100CE3989 /* MNKitab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNKitab.swift; sourceTree = "<group>"; };
+		490CAEC421544ACD00CE3989 /* MNDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDate.swift; sourceTree = "<group>"; };
+		490CAEC621544ADC00CE3989 /* DBFahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFahresKalimat.swift; sourceTree = "<group>"; };
+		490CAEC821544B0800CE3989 /* MNBahth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNBahth.swift; sourceTree = "<group>"; };
+		490CAEC921544B0800CE3989 /* MNBahthFi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNBahthFi.swift; sourceTree = "<group>"; };
+		490CAECC21544B5A00CE3989 /* MNBahthNatija.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNBahthNatija.swift; sourceTree = "<group>"; };
+		490CAED221544B9600CE3989 /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		490CAED421544B9600CE3989 /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
+		490CAED621544B9600CE3989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
 		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
 		4975254021357E61000A47E5 /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,12 +166,12 @@
 		4975257421358C34000A47E5 /* RelativePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelativePointer.swift; sourceTree = "<group>"; };
 		4975258E21359828000A47E5 /* DatabaseObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseObjects.swift; sourceTree = "<group>"; };
 		497C9B68214895660066BED9 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
-		498BA1E22151138E003BDB3D /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../../KOTOB/1.kitab; sourceTree = "<group>"; };
+		4988B68A21563D5700602BC1 /* MNKitabSinf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNKitabSinf.swift; sourceTree = "<group>"; };
+		4988B68E215656EC00602BC1 /* 1.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.kitab; path = ../../../../KOTOB/1.kitab; sourceTree = "<group>"; };
 		4997984A2143E948005D46C5 /* DBMNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMNRecord.swift; sourceTree = "<group>"; };
 		4997984D21440623005D46C5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		499798562144AAF9005D46C5 /* MNRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecord.swift; sourceTree = "<group>"; };
 		499798772145EF81005D46C5 /* CatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
-		49A3CEA02138213400F06188 /* MNDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNDatabase.swift; sourceTree = "<group>"; };
 		49A3CEA82138214700F06188 /* MNFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNFile.swift; sourceTree = "<group>"; };
 		49C5E43F2140385800ED9BF0 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UthmanTN1 Ver10.otf"; sourceTree = "<group>"; };
@@ -178,12 +203,17 @@
 		49C5E5502140ABD700ED9BF0 /* SQLite-Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SQLite-Bridging.h"; sourceTree = "<group>"; };
 		49C5E5512140ABD700ED9BF0 /* SQLite-Bridging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SQLite-Bridging.m"; sourceTree = "<group>"; };
 		49C5E5522140ABD700ED9BF0 /* fts3_tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fts3_tokenizer.h; sourceTree = "<group>"; };
-		49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNRecordSet.swift; sourceTree = "<group>"; };
 		49E27FB3214E89FE0045622E /* DBBooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBBooksList.swift; sourceTree = "<group>"; };
-		49E281E82150E7340045622E /* DBFahresKalimat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBFahresKalimat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		490CAECF21544B9600CE3989 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4975253D21357E61000A47E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -194,10 +224,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490CAED321544B9600CE3989 /* booksTests */ = {
+			isa = PBXGroup;
+			children = (
+				490CAED421544B9600CE3989 /* booksTests.swift */,
+				490CAED621544B9600CE3989 /* Info.plist */,
+			);
+			path = booksTests;
+			sourceTree = "<group>";
+		};
 		4975253721357E61000A47E5 = {
 			isa = PBXGroup;
 			children = (
 				4975254221357E61000A47E5 /* books */,
+				490CAED321544B9600CE3989 /* booksTests */,
 				4975254121357E61000A47E5 /* Products */,
 				4975255821358941000A47E5 /* Frameworks */,
 			);
@@ -207,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				4975254021357E61000A47E5 /* books.app */,
+				490CAED221544B9600CE3989 /* booksTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,7 +274,7 @@
 			children = (
 				497C9B68214895660066BED9 /* images.jpeg */,
 				49C5E44221406A5B00ED9BF0 /* UthmanTN1B Ver10.otf */,
-				498BA1E22151138E003BDB3D /* 1.kitab */,
+				4988B68E215656EC00602BC1 /* 1.kitab */,
 				49289F77214645AE00620690 /* 4.kitab */,
 				49289F76214645AE00620690 /* 5.kitab */,
 				49C5E44121406A5B00ED9BF0 /* UthmanTN1 Ver10.otf */,
@@ -293,12 +334,19 @@
 		49AF51A1213C3AE800964DE0 /* modal */ = {
 			isa = PBXGroup;
 			children = (
+				4988B68A21563D5700602BC1 /* MNKitabSinf.swift */,
+				490CAECC21544B5A00CE3989 /* MNBahthNatija.swift */,
+				490CAEC821544B0800CE3989 /* MNBahth.swift */,
+				490CAEC921544B0800CE3989 /* MNBahthFi.swift */,
+				490CAEC421544ACD00CE3989 /* MNDate.swift */,
+				490CAEC021544AA100CE3989 /* MNKitab.swift */,
+				490CAEBE21544A9300CE3989 /* MNRecordSet.swift */,
+				490CAEBC21544A8000CE3989 /* MNDatabase.swift */,
 				490CAEB12154091600CE3989 /* MNThawabit.swift */,
 				490CAE982153FD8300CE3989 /* MNKalima.swift */,
 				49A3CEA82138214700F06188 /* MNFile.swift */,
 				490CAEA5215400DC00CE3989 /* ArabiaThawabit.swift */,
 				490CAEA8215400E600CE3989 /* MNNass.swift */,
-				49E281E82150E7340045622E /* DBFahresKalimat.swift */,
 				499798562144AAF9005D46C5 /* MNRecord.swift */,
 				4975258E21359828000A47E5 /* DatabaseObjects.swift */,
 			);
@@ -319,12 +367,10 @@
 		49AF51A3213C3AFB00964DE0 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				490CAEC621544ADC00CE3989 /* DBFahresKalimat.swift */,
 				490CAEA12153FFCF00CE3989 /* DbKitab.swift */,
-				49C5E5A42141DE6400ED9BF0 /* MNRecordSet.swift */,
 				4997984A2143E948005D46C5 /* DBMNRecord.swift */,
 				49E27FB3214E89FE0045622E /* DBBooksList.swift */,
-				490CAEA3215400CF00CE3989 /* MNBahth.swift */,
-				490CAE9D2153FE4900CE3989 /* MNKitab.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -332,7 +378,6 @@
 		49AF51A4213C3B2F00964DE0 /* database */ = {
 			isa = PBXGroup;
 			children = (
-				49A3CEA02138213400F06188 /* MNDatabase.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -413,6 +458,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		490CAED121544B9600CE3989 /* booksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 490CAED921544B9600CE3989 /* Build configuration list for PBXNativeTarget "booksTests" */;
+			buildPhases = (
+				490CAECE21544B9600CE3989 /* Sources */,
+				490CAECF21544B9600CE3989 /* Frameworks */,
+				490CAED021544B9600CE3989 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				490CAED821544B9600CE3989 /* PBXTargetDependency */,
+			);
+			name = booksTests;
+			productName = booksTests;
+			productReference = 490CAED221544B9600CE3989 /* booksTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4975253F21357E61000A47E5 /* books */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4975255221357E63000A47E5 /* Build configuration list for PBXNativeTarget "books" */;
@@ -441,6 +504,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = merhab;
 				TargetAttributes = {
+					490CAED121544B9600CE3989 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 4975253F21357E61000A47E5;
+					};
 					4975253F21357E61000A47E5 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
@@ -460,11 +527,19 @@
 			projectRoot = "";
 			targets = (
 				4975253F21357E61000A47E5 /* books */,
+				490CAED121544B9600CE3989 /* booksTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		490CAED021544B9600CE3989 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4975253E21357E61000A47E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,6 +548,7 @@
 				497C9B69214895670066BED9 /* images.jpeg in Resources */,
 				49289F79214645AE00620690 /* 5.kitab in Resources */,
 				49289F7A214645AE00620690 /* 4.kitab in Resources */,
+				4988B68F2156575F00602BC1 /* 1.kitab in Resources */,
 				49C5E44321406A5B00ED9BF0 /* UthmanTN1 Ver10.otf in Resources */,
 				49C5E44421406A5B00ED9BF0 /* UthmanTN1B Ver10.otf in Resources */,
 				4975254E21357E63000A47E5 /* LaunchScreen.storyboard in Resources */,
@@ -484,6 +560,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		490CAECE21544B9600CE3989 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				490CAED521544B9600CE3989 /* booksTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4975253C21357E61000A47E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -493,8 +577,9 @@
 				490CAEA9215400E600CE3989 /* MNNass.swift in Sources */,
 				49C5E55F2140ABD700ED9BF0 /* Cipher.swift in Sources */,
 				49C5E5712140ABD700ED9BF0 /* Collation.swift in Sources */,
-				49C5E5A52141DE6400ED9BF0 /* MNRecordSet.swift in Sources */,
+				490CAEBF21544A9300CE3989 /* MNRecordSet.swift in Sources */,
 				49C5E55B2140ABD700ED9BF0 /* Value.swift in Sources */,
+				490CAEBD21544A8000CE3989 /* MNDatabase.swift in Sources */,
 				4975258A21358C34000A47E5 /* Set.swift in Sources */,
 				4975257D21358C34000A47E5 /* Advance.swift in Sources */,
 				49C5E5552140ABD700ED9BF0 /* Blob.swift in Sources */,
@@ -503,6 +588,7 @@
 				499798572144AAF9005D46C5 /* MNRecord.swift in Sources */,
 				49C5E5532140ABD700ED9BF0 /* Connection.swift in Sources */,
 				49C5E5612140ABD700ED9BF0 /* RTree.swift in Sources */,
+				4988B68B21563D5700602BC1 /* MNKitabSinf.swift in Sources */,
 				49A3CEA92138214700F06188 /* MNFile.swift in Sources */,
 				49C5E57B2140ABD700ED9BF0 /* Schema.swift in Sources */,
 				49C5E5572140ABD700ED9BF0 /* Errors.swift in Sources */,
@@ -516,12 +602,13 @@
 				4975254621357E61000A47E5 /* BooksListTableViewController.swift in Sources */,
 				49E27FB4214E89FE0045622E /* DBBooksList.swift in Sources */,
 				4975258521358C34000A47E5 /* Metadata.swift in Sources */,
-				49A3CEA12138213400F06188 /* MNDatabase.swift in Sources */,
+				490CAECB21544B0800CE3989 /* MNBahthFi.swift in Sources */,
 				490CAE9C2153FDD200CE3989 /* Properties.swift in Sources */,
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,
 				49C5E5692140ABD700ED9BF0 /* Query.swift in Sources */,
+				490CAEC121544AA100CE3989 /* MNKitab.swift in Sources */,
 				49C5E57D2140ABD700ED9BF0 /* AggregateFunctions.swift in Sources */,
 				4975258221358C34000A47E5 /* Get.swift in Sources */,
 				4975258121358C34000A47E5 /* MetadataType.swift in Sources */,
@@ -534,21 +621,22 @@
 				4975254421357E61000A47E5 /* AppDelegate.swift in Sources */,
 				4975257C21358C34000A47E5 /* Metadata+Struct.swift in Sources */,
 				490CAEA22153FFCF00CE3989 /* DbKitab.swift in Sources */,
-				490CAE9E2153FE4900CE3989 /* MNKitab.swift in Sources */,
 				49C5E56B2140ABD700ED9BF0 /* Coding.swift in Sources */,
 				49C5E5672140ABD700ED9BF0 /* Foundation.swift in Sources */,
 				4975258621358C34000A47E5 /* ReflectionError.swift in Sources */,
 				490CAE992153FD8300CE3989 /* MNKalima.swift in Sources */,
 				49C5E5652140ABD700ED9BF0 /* FTS5.swift in Sources */,
+				490CAEC521544ACE00CE3989 /* MNDate.swift in Sources */,
 				49C5E5792140ABD700ED9BF0 /* Operators.swift in Sources */,
-				490CAEA4215400D000CE3989 /* MNBahth.swift in Sources */,
+				490CAECA21544B0800CE3989 /* MNBahth.swift in Sources */,
 				490CAEB22154091600CE3989 /* MNThawabit.swift in Sources */,
 				4997984B2143E948005D46C5 /* DBMNRecord.swift in Sources */,
 				490CAE972153FD5800CE3989 /* Compression.swift in Sources */,
+				490CAECD21544B5B00CE3989 /* MNBahthNatija.swift in Sources */,
+				490CAEC721544ADC00CE3989 /* DBFahresKalimat.swift in Sources */,
 				4975258321358C34000A47E5 /* NominalType.swift in Sources */,
 				49C5E5632140ABD700ED9BF0 /* FTS4.swift in Sources */,
 				4975258F21359828000A47E5 /* DatabaseObjects.swift in Sources */,
-				49E281ED2150E7350045622E /* DBFahresKalimat.swift in Sources */,
 				49C5E55D2140ABD700ED9BF0 /* Helpers.swift in Sources */,
 				4975258021358C34000A47E5 /* Storage.swift in Sources */,
 				49C5E4402140385800ED9BF0 /* BookViewController.swift in Sources */,
@@ -559,6 +647,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		490CAED821544B9600CE3989 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4975253F21357E61000A47E5 /* books */;
+			targetProxy = 490CAED721544B9600CE3989 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4975254721357E61000A47E5 /* Main.storyboard */ = {
@@ -580,6 +676,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		490CAEDA21544B9600CE3989 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = booksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.booksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/books.app/books";
+			};
+			name = Debug;
+		};
+		490CAEDB21544B9600CE3989 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = booksTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.merhab.booksTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/books.app/books";
+			};
+			name = Release;
+		};
 		4975255021357E63000A47E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -743,6 +879,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		490CAED921544B9600CE3989 /* Build configuration list for PBXNativeTarget "booksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				490CAEDA21544B9600CE3989 /* Debug */,
+				490CAEDB21544B9600CE3989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4975253B21357E61000A47E5 /* Build configuration list for PBXProject "books" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

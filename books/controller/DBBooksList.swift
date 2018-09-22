@@ -14,7 +14,7 @@ class DBBooksList {
     var dbMen : DBMNrecord
     var rdsCat : MNRecordset
     var dbCat : DBMNrecord
-    var dataBase : MNDatabase
+    var BooksListdataBase : MNDatabase
     var path : String
     
     init() {
@@ -26,10 +26,10 @@ class DBBooksList {
             databaseExists = false
         }
        path =  MNFile.getDataBasePath(book: "booksList.kitab")
-       dataBase = MNDatabase(path: path)
-        dbBooksList = DBMNrecord(database: dataBase, record: BooksList())
-        dbMen = DBMNrecord(database: dataBase, record: Men())
-        dbCat = DBMNrecord(database: dataBase, record: BooksCat())
+       BooksListdataBase = MNDatabase(path: path)
+        dbBooksList = DBMNrecord(database: BooksListdataBase, record: BooksList())
+        dbMen = DBMNrecord(database: BooksListdataBase, record: Men())
+        dbCat = DBMNrecord(database: BooksListdataBase, record: BooksCat())
         if databaseExists {
             _ = dbBooksList.updateTableStruct()
             _ = dbCat.updateTableStruct()
@@ -39,15 +39,15 @@ class DBBooksList {
             _ = dbCat.createTable()
             _ = dbMen.createTable()
             (dbCat.record as! BooksCat).bkCatTitle = "كل الكتب"
-            dbCat.record.ID = 1
+            dbCat.record.ID = -1
             (dbCat.record as! BooksCat).bkCatOrder = -1
             _ = dbCat.insert()
         }
-        rdsBooksList = MNRecordset(database: dataBase, table: dbBooksList.tableName)
+        rdsBooksList = MNRecordset(database: BooksListdataBase, table: dbBooksList.tableName)
 
-        rdsMen = MNRecordset(database: dataBase, table: dbMen.tableName)
+        rdsMen = MNRecordset(database: BooksListdataBase, table: dbMen.tableName)
 
-        rdsCat = MNRecordset(database: dataBase, tableName: dbCat.tableName, whereSql: "", orderBy: "bkCatOrder")
+        rdsCat = MNRecordset(database: BooksListdataBase, tableName: dbCat.tableName, whereSql: "", orderBy: "bkCatOrder")
 
 
     }
@@ -56,14 +56,14 @@ class DBBooksList {
         print(files)
         for file in files {
             
-            var databaseBook : MNDatabase
-            databaseBook = MNDatabase(path: file)
-            let dbBookInfoFromBooksList = DBMNrecord (database: dataBase, record: BooksList())
-            let dbBookInfoFromBook = DBMNrecord(database: databaseBook, record: BooksList())
-            let dbMenFromBooksList = DBMNrecord (database: dataBase, record: Men())
-            let dbMenFromBook = DBMNrecord(database: databaseBook, record: Men())
-            let dbCatFromBooksList = DBMNrecord (database: dataBase, record: BooksCat())
-            let dbCatFromBook = DBMNrecord(database: databaseBook, record: BooksCat())
+            var databaseKitab : MNDatabase
+            databaseKitab = MNDatabase(path: file)
+            let dbBookInfoFromBooksList = DBMNrecord (database: BooksListdataBase, record: BooksList())
+            let dbBookInfoFromBook = DBMNrecord(database: databaseKitab, record: BooksList())
+            let dbMenFromBooksList = DBMNrecord (database: BooksListdataBase, record: Men())
+            let dbMenFromBook = DBMNrecord(database: databaseKitab, record: Men())
+            let dbCatFromBooksList = DBMNrecord (database: BooksListdataBase, record: BooksCat())
+            let dbCatFromBook = DBMNrecord(database: databaseKitab, record: BooksCat())
             //print( dbBookInfoFromBook.updateTableStruct())
             dbBookInfoFromBook.getRecordWithId(ID: 1)
             if !dbBookInfoFromBook.isNull {
@@ -81,6 +81,21 @@ class DBBooksList {
                 if !dbCatFromBook.isNull {
                     dbCatFromBooksList.getFirstRecord(filter: "bkCatId = \((dbCatFromBook.record as! BooksCat).bkCatId)")
                     _ = dbCatFromBooksList.saveOrUpdate(dbRecord: dbCatFromBook)
+                    // impliment the KitabSinf table
+
+
+                    let kitabSinf = MNKitabSinf()
+                    var dbMNKitabSinf : DBMNrecord
+
+                    dbMNKitabSinf = DBMNrecord(database: BooksListdataBase, record: kitabSinf)
+                    _ = dbMNKitabSinf.createTable()
+                    // we use the Cat Id from Mn not from shamelah 
+                        kitabSinf.idCat = dbCatFromBook.record.ID
+                        kitabSinf.idKitab = (dbBookInfoFromBooksList.record as! BooksList).ID
+                        let IDs = BooksListdataBase.getArrayOfIDs(query: kitabSinf.sqlGetEqualRecordFromDatabase)
+                    if IDs.isEmpty {
+                        _ = dbMNKitabSinf.saveOrUpdte()
+                    }
                 }
                 
             }else{
@@ -95,7 +110,7 @@ class DBBooksList {
                 let bookId = MNFile.getIdFromPath(path: file)
                 if bookId != -1 {
                  let dbFahres = DBFahresKalimat(kitabId:bookId)
-                        if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromBookId(bookId: bookId), table: MNKalima().getTableName()){
+                    if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromKitabId(kitabId: bookId), table: MNKalima().getTableName()){
                             dbFahres.fahrasatKitab()
                     }
                 }
@@ -122,9 +137,28 @@ class DBBooksList {
         rdsCat.refresh()
         rdsMen.refresh()
     }
-    
-    func getINdexes()  {
+    /**
+     filter the bookslist by Cat , have to set filtered to true to apply the filter
+     - Parameters:
+       - catId: the ID of cat from MnRecord not the Shamelah bkCatId
+    */
+    func setFilterByAsnaf(ID : Int)  {
+        let Ids = BooksListdataBase.getArrayOfIDs(query:
+            "select booksList.ID from MNKitabSinf left JOIN booksList ON booksList.ID = MNKitabSinf.idKitab where MNKitabSinf.idcat = \(ID)"
+        )
+        var str = ""
+        for i in Ids {
+            if str == "" {
+                str = "\(i)"
+            } else {
+                str = str + ",\(i)"
+            }
+        }
+        if str != "" {
+            str = "("+str+")"
+            rdsBooksList.filter = " Id in \(str)"
 
+    }
     }
 
 }

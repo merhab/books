@@ -15,7 +15,7 @@ class MNDatabase {
             return Int(database.lastInsertRowid)
         }
     }
-    private var path:String=""
+     var path:String=""
     
     init(path:String) {
         self.path=path
@@ -91,8 +91,14 @@ class MNDatabase {
         let stmt = try! database.prepare(SQL)
         for row in stmt{
             for (index,_) in stmt.columnNames.enumerated() {
-
-                    array.append(Int(row[index] as! Int64)-1)
+                
+                if let int64 = (row[index] as? Int64) {
+                    array.append(Int(int64))
+                }
+                if let int = (row[index] as? Int) {
+                    array.append(int)
+                }
+                    //array.append(Int(row[index] as! Int64)-1)
 
             }
 

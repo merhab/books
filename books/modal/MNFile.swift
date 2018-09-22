@@ -13,6 +13,7 @@ class MNFile  {
     static let dbSuffix = ".kitab"
     static let fihresSuffix = ".fihras"
     static let fihrasFolderName = "FAHARIS"
+    static let sinfSuffix = ".sinf"
     /**
      get the working dir work for IOS and MACOS
         - Return Strtring contain the working directory path
@@ -284,10 +285,17 @@ class MNFile  {
         } else {return -1}
     }
     
-    static func getFihrasPathFromBookId(bookId:Int)->String{
+    static func getFihrasPathFromKitabId(kitabId:Int)->String{
         var str = getDocFolder()
-        str = str + "/\(booksFolderName)/\(fihrasFolderName)/\(bookId)\(fihresSuffix)"
+        str = str + "/\(booksFolderName)/\(fihrasFolderName)/\(kitabId)\(fihresSuffix)"
         return str
+    }
+    
+    static func getSinfPathFromKitabId (idKitab : Int)->String{
+        var str =  getDocFolder()
+        str = str + "/\(booksFolderName)/\(fihrasFolderName)/\(idKitab)\(sinfSuffix)"
+        return str
+        
     }
 
     

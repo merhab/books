@@ -74,7 +74,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-0T-QhD">
-                                <rect key="frame" x="768" y="64" width="311" height="911"/>
+                                <rect key="frame" x="457" y="64" width="311" height="911"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4iz-Tg-Gut">
                                         <rect key="frame" x="8" y="8" width="295" height="895"/>
@@ -147,7 +147,7 @@
                         <constraints>
                             <constraint firstItem="JNg-OU-5ph" firstAttribute="trailing" secondItem="IQk-ms-wyU" secondAttribute="trailing" id="3uI-Rd-gAa"/>
                             <constraint firstItem="4FB-0T-QhD" firstAttribute="bottom" secondItem="JNg-OU-5ph" secondAttribute="bottom" id="6nz-D1-g6L"/>
-                            <constraint firstItem="4FB-0T-QhD" firstAttribute="trailing" secondItem="JNg-OU-5ph" secondAttribute="trailing" constant="311" id="Cgc-OQ-gw5"/>
+                            <constraint firstItem="4FB-0T-QhD" firstAttribute="trailing" secondItem="JNg-OU-5ph" secondAttribute="trailing" identifier="311" id="Cgc-OQ-gw5"/>
                             <constraint firstItem="JNg-OU-5ph" firstAttribute="bottom" secondItem="IQk-ms-wyU" secondAttribute="bottom" id="HmI-Kh-k0h"/>
                             <constraint firstItem="JNg-OU-5ph" firstAttribute="leading" secondItem="IQk-ms-wyU" secondAttribute="leading" id="KTl-pB-u4b"/>
                             <constraint firstItem="4FB-0T-QhD" firstAttribute="top" secondItem="IQk-ms-wyU" secondAttribute="top" id="Van-Ya-h3D"/>
@@ -290,6 +290,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4S4-ng-2yC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cz9-kN-vtE">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
