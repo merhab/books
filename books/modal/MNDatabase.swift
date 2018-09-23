@@ -37,10 +37,11 @@ class MNDatabase {
     
     func execute(_ sql : String) -> Bool {
         do{try database.execute(sql)
+            print ("executed 💁‍♂️")
             return true
         }
         catch let error{
-            print("cant create table: \(error)")
+            print("cant create table 🤦‍♂️: \(error)")
             return false
         }
     }
@@ -125,7 +126,7 @@ class MNDatabase {
                 for (index,name) in stmt.columnNames.enumerated() {
                     if row[index] != nil {
                         field[name] = row[index]
-                    }else {field[name] = ""}
+                    }else {field[name] = nil}
                 }
                 fields.append(field)
             }

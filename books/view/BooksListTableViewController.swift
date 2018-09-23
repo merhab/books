@@ -12,6 +12,9 @@ class Mycell: UITableViewCell  {
     
 
     var bkId = -1
+    var kitabInfoFromBooksList : BooksList?
+    var sinf : BooksCat?
+
     @IBOutlet weak var booksListLabel: UILabel!
     
     @IBOutlet weak var catLabel: UILabel!
@@ -21,7 +24,10 @@ class BooksListTableViewController: UIViewController  {
   
     
     // Vars
-    
+    var isSelectingBooks = false
+    var selectedBooks = [Int]()
+    let finishSelectionCaption = "تم"
+    let startSelectionCaption = "تحديد"
     @IBOutlet weak var catSearchBar: UISearchBar!
     @IBOutlet weak var booksListSearchBar: UISearchBar!
     @IBOutlet weak var catTableView: UITableView!
@@ -29,6 +35,7 @@ class BooksListTableViewController: UIViewController  {
     @IBOutlet weak var catViewRightMargin: NSLayoutConstraint!
     @IBOutlet weak var catView: UIView!
     @IBOutlet weak var catViewTrailling: NSLayoutConstraint!
+    @IBOutlet weak var saveSelectionButton: UIButton!
     
     var dbBooksList : DBBooksList?
     var bookPath = ""
@@ -45,6 +52,18 @@ class BooksListTableViewController: UIViewController  {
         
         }
        
+    @IBAction func selectAction(_ sender: UIButton) {
+        isSelectingBooks = !isSelectingBooks
+        if isSelectingBooks{
+          sender.setTitle(finishSelectionCaption, for: .normal)
+          saveSelectionButton.isEnabled = true
+        } else {
+          sender.setTitle(startSelectionCaption, for: .normal)
+          saveSelectionButton.isEnabled = false
+        }
+        
+
+    }
     
     
     
@@ -60,6 +79,7 @@ class BooksListTableViewController: UIViewController  {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if !isSelectingBooks {
         let bookView : BookViewController = segue.destination as! BookViewController
         let ind = booksListTableView.indexPathForSelectedRow //optional, to get from any UIButton for example
         
@@ -70,6 +90,10 @@ class BooksListTableViewController: UIViewController  {
 
         bookView.kitabId = currentCell.bkId
         
+    }
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if !isSelectingBooks {return true} else {return false}
     }
 
 
@@ -100,15 +124,29 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
         //myBook = rdsBooksList?.getObject(myRd: myBook) as! BooksList
         cell.booksListLabel.text=myBook.bkTitle
         cell.bkId = myBook.bkId // will use this to load our book in the book view
+        cell.kitabInfoFromBooksList = myBook
+        // make the checkbox appear or disappear
+        if myBook.selected {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
         return cell
         }
     if tableView == catTableView {
             let cell = tableView.dequeueReusableCell(withIdentifier: catCellId, for: indexPath) as! Mycell
             dbBooksList!.rdsCat.move(to :indexPath.row)
             var myCat = BooksCat()
-        myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getField())) as! BooksCat
+            myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getField())) as! BooksCat
             cell.booksListLabel.text=myCat.bkCatTitle
             cell.bkId = myCat.ID// will use this to load our books in the book view
+            cell.sinf = myCat
+                // make the checkbox appear or disappear
+        if myCat.selected {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+        }
             return cell
         }
        
@@ -117,6 +155,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+
       if tableView == catTableView {
       let currentCell = catTableView.cellForRow(at: indexPath) as! Mycell
         dbBooksList!.rdsBooksList.filtered = false
@@ -128,17 +167,48 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             // we start the cat by the record 1: all books
             // witch is not from the database
             // so we need to reduce it
-            dbBooksList?.setFilterByAsnaf(catId: currentCell.bkId)
+            dbBooksList?.setFilterByAsnaf(ID: currentCell.bkId)
             dbBooksList!.rdsBooksList.filtered = true
 
         }
         booksListTableView.reloadData()
         
-        catMenuButtonAction(UIBarButtonItem())
+       // catMenuButtonAction(UIBarButtonItem())
         }
-        }
-   
+        // handle the selection checkbox
+        if isSelectingBooks {
+        let cell = tableView.cellForRow(at: indexPath) as! Mycell
+        if tableView == catTableView {
 
+         //update the checkbox of cat list
+        if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
+            cell.accessoryType = UITableViewCellAccessoryType.none
+            cell.sinf?.selected = false
+            _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.sinf!).update()
+            dbBooksList?.saveSelectedFilteredBooks(idCat: cell.sinf!.ID, selected: false)
+            }else{
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+            cell.sinf?.selected = true
+            _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.sinf!).update()
+            dbBooksList?.saveSelectedFilteredBooks(idCat: cell.sinf!.ID, selected: true)
+            }
+                    booksListTableView.reloadData()
+      } else {
+            // update the checkbox of books list
+            if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
+                cell.accessoryType = UITableViewCellAccessoryType.none
+                cell.kitabInfoFromBooksList?.selected = false
+                _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.kitabInfoFromBooksList!).update()
+            }else{
+                cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                cell.kitabInfoFromBooksList?.selected = true
+                _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.kitabInfoFromBooksList!).update()
+            }
+            }
+        
+    }
+   
+    }
 
 }
 

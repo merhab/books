@@ -136,9 +136,7 @@ class DBMNrecord  {
    
     }
 
-    func insert() -> Bool {
-        return save()
-    }
+ 
 
     
     func save() -> Bool {
@@ -213,7 +211,7 @@ class DBMNrecord  {
         else {
             if self.isNull {
                 self.record = dbRecord.record
-                return self.insert()
+                return self.save()
                 
             }else {
                 if self.record > dbRecord.record {
@@ -232,7 +230,20 @@ class DBMNrecord  {
         var str1=""
         var str2=""
         for i in record.getFields(){
-            values.append("\(i.val)")
+            switch i.type {
+                case "String":
+                values.append("'\(i.val)'")
+                case "Bool":
+                    if (i.val as! Bool) == true {
+                        values.append("1")
+                    }else {
+                        values.append("0")
+                }
+                
+                default:
+                values.append("\(i.val)")
+            }
+            //values.append("\(i.val)")
             str1="\(i.name) = ?\(int)"
             int+=1
             if str2==""{
@@ -245,6 +256,9 @@ class DBMNrecord  {
         let tbl=record.getTableName()
         let sql="update \(tbl) set \(str2) where id=\(record.ID)"
         let success =  database.run(sql: sql,bindings: values)
+        if success {
+            print("\(record.ID) : updated 💁‍♂️")
+        }else {print("\(record.ID) : not updted 🤦‍♂️")}
             return success
      
         

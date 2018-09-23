@@ -41,7 +41,7 @@ class DBBooksList {
             (dbCat.record as! BooksCat).bkCatTitle = "كل الكتب"
             dbCat.record.ID = -1
             (dbCat.record as! BooksCat).bkCatOrder = -1
-            _ = dbCat.insert()
+            _ = dbCat.save()
         }
         rdsBooksList = MNRecordset(database: BooksListdataBase, table: dbBooksList.tableName)
 
@@ -159,6 +159,24 @@ class DBBooksList {
             rdsBooksList.filter = " Id in \(str)"
 
     }
+    }
+    
+    func saveSelectedFilteredBooks(idCat : Int , selected : Bool){
+        var  str = ""
+        
+        if selected { str = "1"}else {str = "0"}
+        if !rdsBooksList.isEmpty {
+            let sqlUpdate = """
+            UPDATE bookslist set selected = \(str)  where bookslist.ID in (select booksList.ID
+            from MNKitabSinf
+            left JOIN booksList
+            ON booksList.ID = MNKitabSinf.idKitab
+            where MNKitabSinf.idcat = \(idCat) )
+"""
+            let success = rdsBooksList.dataBase.execute(sqlUpdate)
+            print (success)
+            rdsBooksList.refresh()
+        }
     }
 
 }
