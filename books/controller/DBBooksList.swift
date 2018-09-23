@@ -106,15 +106,15 @@ class DBBooksList {
             
             if   MNFile.moveFileToBookFolder(file: file) {
                 print ("file moved to book folder: \(file)")
-                #if os(OSX)
+            //    #if os(OSX)
                 let bookId = MNFile.getIdFromPath(path: file)
                 if bookId != -1 {
                  let dbFahres = DBFahresKalimat(kitabId:bookId)
-                    if MNDatabase.tableIsEmpty(path: MNFile.getFihrasPathFromKitabId(kitabId: bookId), table: MNKalima().getTableName()){
+                    if MNDatabase.tableIsEmpty(path: MNFile.getDataBasePath(kitabId: bookId), table: "kitabFahras"){
                             dbFahres.fahrasatKitab()
                     }
                 }
-                #endif
+            //    #endif
                 
             }else{
                 print ("error cant moved to book folder: \(file)")
@@ -177,6 +177,28 @@ class DBBooksList {
             print (success)
             rdsBooksList.refresh()
         }
+    }
+    func saveSelected() {
+        let cat = BooksCat()
+        cat.bkCatTitle = MNDate.getTimeStamp()
+        cat.bkCatId = -1
+        _ = DBMNrecord(database: rdsBooksList.dataBase, record: cat).save()
+        let tasnif = MNKitabSinf()
+        let dbtasnif = DBMNrecord(database: rdsBooksList.dataBase, record: tasnif)
+        let rdsSelected = MNRecordset(database: rdsBooksList.dataBase, tableName: rdsBooksList.tableName, columns: "ID", whereSql: "selected = 1", orderBy: "")
+        if !rdsSelected.isEmpty{
+            while !rdsSelected.eof() {
+            tasnif.idKitab = Int(rdsBooksList.getField()["ID"] as! Int64)
+            tasnif.idCat=cat.ID
+            tasnif.ID = -1
+            _ = dbtasnif.save()
+            rdsSelected.moveNext()
+            }
+
+        }
+
+        
+
     }
 
 }

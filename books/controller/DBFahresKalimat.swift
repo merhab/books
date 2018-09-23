@@ -16,12 +16,12 @@ class DBFahresKalimat : MNKitab {
     
     init(kitabId: Int) {
 
-        var path = MNFile.getDocFolder()+"/\(MNFile.booksFolderName)/\(MNFile.fihrasFolderName)"
-        _ = MNFile.createFolder(path :path)
-        path = path + "/\(kitabId)\(MNFile.fihresSuffix)"
+        let path = MNFile.getDataBasePath(kitabId: kitabId)
+//        _ = MNFile.createFolder(path :path)
+//        path = path + "/\(kitabId)\(MNFile.fihresSuffix)"
         let mdataBase = MNDatabase(path: path)
-        _ = DBMNrecord(database: mdataBase, record: MNKalima(text: "")).createTable()
-        _ = DBMNrecord(database: mdataBase, record: MNKalimaTartib(kalima: MNKalima(text: ""))).createTable()
+//        _ = DBMNrecord(database: mdataBase, record: MNKalima(text: "")).createTable()
+//        _ = DBMNrecord(database: mdataBase, record: MNKalimaTartib(kalima: MNKalima(text: ""))).createTable()
         dbKitab = DbKitab(kitabId: kitabId)
         
         super.init(kitabId: kitabId, dataBase: mdataBase)
@@ -64,14 +64,43 @@ class DBFahresKalimat : MNKitab {
     }
     
     func fahrasatKitab()  {
+        _ = dbKitab.dataBase.execute(
+            """
+            CREATE VIRTUAL TABLE IF NOT EXISTS kitabFahras USING fts5(pgText);
+            CREATE TRIGGER IF NOT EXISTS kitabFahrasINSERT AFTER INSERT ON book BEGIN
+            INSERT INTO kitabFahras (
+            rowid,
+            pgText
+            )
+            VALUES(
+            new.id,
+            new.pgText
+            );
+            END;
+
+            -- Trigger on UPDATE
+            CREATE TRIGGER IF NOT EXISTS kitabFahrasUpdate UPDATE OF pgText ON book BEGIN
+            UPDATE kitabFahras SET pgText = new.pgText WHERE rowid = old.id;
+            END;
+
+            -- Trigger on DELETE
+            CREATE TRIGGER  IF NOT EXISTS kitabFahrasDelete AFTER DELETE ON book BEGIN
+            DELETE FROM kitabFahras WHERE rowid = old.id;
+            END;
+
+            """
+        )
         if !dbKitab.khawi {
         dbKitab.awal()
-        fahrasatSafha()
-        dbKitab.compressSafha() 
+        var str = dbKitab.getCurrentSafha().nassNormalized
+        _ = dbKitab.dataBase.execute("INSERT INTO kitabFahras(pgText) VALUES  ('\(str)');")
+
             while !dbKitab.akhirKitab {
                 dbKitab.lahik()
-                fahrasatSafha()
-                dbKitab.compressSafha()
+                str = dbKitab.getCurrentSafha().nassNormalized
+              _ = dbKitab.dataBase.execute("INSERT INTO kitabFahras(pgText) VALUES  ('\(str)');")
+
+
             }
             
         }

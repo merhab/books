@@ -14,7 +14,7 @@ class DbKitab : MNKitab{
     private var currentSafha : MNNass
     var nass : String {
         get {
-            return readCompressedSafha()
+            return currentSafha.nass
         }
     }
 
@@ -76,25 +76,25 @@ class DbKitab : MNKitab{
 
         
     }
-    func compressSafha()  {
-        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
-        if let safha = dbSafha.record as? Book {
-        safha.pgText = MNNass.compress(text: safha.pgText)
-            if safha.ID != -1 {
-                _ = dbSafha.update()
-            }
-        }
-    }
+//    func compressSafha()  {
+//        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+//        if let safha = dbSafha.record as? Book {
+//        safha.pgText = MNNass.compress(text: safha.pgText)
+//            if safha.ID != -1 {
+//                _ = dbSafha.update()
+//            }
+//        }
+//    }
     
-    func readCompressedSafha() -> String {
-        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
-        if let safha = dbSafha.record as? Book {
-            return MNNass.deCompress(textBase64: safha.pgText)
-
-        }else {
-            return ""
-        }
-    }
+//    func readCompressedSafha() -> String {
+//        dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+//        if let safha = dbSafha.record as? Book {
+//            return MNNass.deCompress(textBase64: safha.pgText)
+//
+//        }else {
+//            return ""
+//        }
+//    }
     
     func awal()   {
         rdsKitab.moveFirst()

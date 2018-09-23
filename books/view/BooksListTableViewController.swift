@@ -42,6 +42,9 @@ class BooksListTableViewController: UIViewController  {
     let booksListCellId = "booksListCell"
     let catCellId = "catCell"
     
+    @IBAction func saveSelecion(_ sender: UIButton) {
+        dbBooksList?.saveSelected()
+    }
     @IBAction func catMenuButtonAction(_ sender: UIBarButtonItem) {
         if catViewTrailling.constant == 0  {
            catViewTrailling.constant = 311
