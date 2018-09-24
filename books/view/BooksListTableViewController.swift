@@ -38,6 +38,7 @@ class BooksListTableViewController: UIViewController  {
     @IBOutlet weak var saveSelectionButton: UIButton!
     
     var dbBooksList : DBBooksList?
+    var dbBookListProtocol : DbBookListProtocol?
     var bookPath = ""
     let booksListCellId = "booksListCell"
     let catCellId = "catCell"
@@ -52,7 +53,7 @@ class BooksListTableViewController: UIViewController  {
          catViewTrailling.constant = 0
         }
         UIView.animate(withDuration: 0.3, animations: {self.view.layoutIfNeeded()})
-        
+
         }
        
     @IBAction func selectAction(_ sender: UIButton) {
@@ -79,6 +80,9 @@ class BooksListTableViewController: UIViewController  {
         catView.layer.shadowOpacity = 5
         dbBooksList = DBBooksList()
         dbBooksList?.getDataBases()
+        if let dbProtocol = dbBookListProtocol {
+            dbProtocol.getDbBookList(dbBookList: dbBooksList!)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,7 +111,7 @@ class BooksListTableViewController: UIViewController  {
 extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == booksListTableView {
-        return dbBooksList!.rdsBooksList.recordCount
+        return dbBooksList!.recordCount
         }
         if tableView == catTableView {
             return (dbBooksList!.rdsCat.recordCount)
@@ -121,9 +125,9 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if tableView == booksListTableView {
         let cell = tableView.dequeueReusableCell(withIdentifier: booksListCellId, for: indexPath) as! Mycell
-        dbBooksList!.rdsBooksList.move(to :indexPath.row)
+        dbBooksList!.taharakIla(mawki3 :indexPath.row)
         var myBook = BooksList()
-        myBook =  DBMNrecord(database: (dbBooksList!.rdsBooksList.dataBase), record: myBook).getObject(fld: (dbBooksList!.rdsBooksList.getField())) as! BooksList
+        myBook =  DBMNrecord(database: (dbBooksList!.dataBase), record: myBook).getObject(fld: (dbBooksList!.getFields())) as! BooksList
         //myBook = rdsBooksList?.getObject(myRd: myBook) as! BooksList
         cell.booksListLabel.text=myBook.bkTitle
         cell.bkId = myBook.bkId // will use this to load our book in the book view
@@ -140,7 +144,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             let cell = tableView.dequeueReusableCell(withIdentifier: catCellId, for: indexPath) as! Mycell
             dbBooksList!.rdsCat.move(to :indexPath.row)
             var myCat = BooksCat()
-            myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getField())) as! BooksCat
+            myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getFields())) as! BooksCat
             cell.booksListLabel.text=myCat.bkCatTitle
             cell.bkId = myCat.ID// will use this to load our books in the book view
             cell.sinf = myCat
@@ -161,17 +165,17 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
 
       if tableView == catTableView {
       let currentCell = catTableView.cellForRow(at: indexPath) as! Mycell
-        dbBooksList!.rdsBooksList.filtered = false
+        dbBooksList!.filtered = false
         // the case of all books is when cat ID = 1
         if currentCell.bkId == 1 {
-          dbBooksList!.rdsBooksList.filter = ""
-          dbBooksList!.rdsBooksList.filtered = false
+          dbBooksList!.filter = ""
+          dbBooksList!.filtered = false
         }else{
             // we start the cat by the record 1: all books
             // witch is not from the database
             // so we need to reduce it
             dbBooksList?.setFilterByAsnaf(ID: currentCell.bkId)
-            dbBooksList!.rdsBooksList.filtered = true
+            dbBooksList!.filtered = true
 
         }
         booksListTableView.reloadData()
@@ -187,12 +191,12 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
         if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
             cell.accessoryType = UITableViewCellAccessoryType.none
             cell.sinf?.selected = false
-            _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.sinf!).update()
+            _ = DBMNrecord(database: dbBooksList!.dataBase, record: cell.sinf!).update()
             dbBooksList?.saveSelectedFilteredBooks(idCat: cell.sinf!.ID, selected: false)
             }else{
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
             cell.sinf?.selected = true
-            _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.sinf!).update()
+            _ = DBMNrecord(database: dbBooksList!.dataBase, record: cell.sinf!).update()
             dbBooksList?.saveSelectedFilteredBooks(idCat: cell.sinf!.ID, selected: true)
             }
                     booksListTableView.reloadData()
@@ -201,11 +205,11 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             if cell.accessoryType == UITableViewCellAccessoryType.checkmark {
                 cell.accessoryType = UITableViewCellAccessoryType.none
                 cell.kitabInfoFromBooksList?.selected = false
-                _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.kitabInfoFromBooksList!).update()
+                _ = DBMNrecord(database: dbBooksList!.dataBase, record: cell.kitabInfoFromBooksList!).update()
             }else{
                 cell.accessoryType = UITableViewCellAccessoryType.checkmark
                 cell.kitabInfoFromBooksList?.selected = true
-                _ = DBMNrecord(database: dbBooksList!.rdsBooksList.dataBase, record: cell.kitabInfoFromBooksList!).update()
+                _ = DBMNrecord(database: dbBooksList!.dataBase, record: cell.kitabInfoFromBooksList!).update()
             }
             }
         
@@ -220,9 +224,9 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
 extension BooksListTableViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         if searchBar == booksListSearchBar {
-        if searchText == "" { dbBooksList!.rdsBooksList.filtered = false}  else {
-            dbBooksList!.rdsBooksList.filter = " bkTitle like '%\(searchText)%'"
-            dbBooksList!.rdsBooksList.filtered = true}
+        if searchText == "" { dbBooksList!.filtered = false}  else {
+            dbBooksList!.filter = " bkTitle like '%\(searchText)%'"
+            dbBooksList!.filtered = true}
         booksListTableView.reloadData()
     }
         if searchBar == catSearchBar {
@@ -234,4 +238,8 @@ extension BooksListTableViewController : UISearchBarDelegate {
     }
     
     
+}
+
+protocol DbBookListProtocol {
+    func getDbBookList(dbBookList : DBBooksList)
 }

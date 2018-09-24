@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 class BookViewController: UIViewController {
     @IBAction func swipLeft(_ sender: UISwipeGestureRecognizer) {
-        if !(dbKitab?.akhirKitab)!{
+        if !(dbKitab?.nihaya)!{
         dbKitab!.lahik()
 
         self.page.text = dbKitab!.getCurrentSafha().nass
@@ -19,7 +19,7 @@ class BookViewController: UIViewController {
     }
 
     @IBAction func swipRight(_ sender: UISwipeGestureRecognizer) {
-        if !(dbKitab?.awalKitab)! {
+        if !(dbKitab?.bidaya)! {
         dbKitab!.sabik()
 
     //    UIView.transition(with: self.page, duration: 0.6, options: [.curveEaseInOut,.transitionCurlUp], animations: {self.page.text = self.book.pgText})
@@ -40,8 +40,10 @@ class BookViewController: UIViewController {
 //        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.viewSwipped(_:)))
 //        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
 //        page.addGestureRecognizer(swipeLeft)
+        if kitabId != -1 {
         dbKitab = DbKitab(kitabId: kitabId)
         page.text = dbKitab!.getCurrentSafha().nass
+        }
         
     }
     

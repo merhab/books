@@ -8,14 +8,33 @@
 
 import Foundation
 class DBBooksList {
-    var rdsBooksList : MNRecordset
+  private  var rdsBooksList : MNRecordset
     var dbBooksList : DBMNrecord
     var rdsMen : MNRecordset
     var dbMen : DBMNrecord
     var rdsCat : MNRecordset
     var dbCat : DBMNrecord
     var BooksListdataBase : MNDatabase
-    var path : String
+    var databasePath : String
+    var dataBase : MNDatabase {return rdsBooksList.dataBase }
+    var recordCount : Int{return rdsBooksList.recordCount}
+    var filter : String {
+        set {
+          rdsBooksList.filter = filter
+          self.filterSlaves()
+        }
+        get{
+            return rdsBooksList.filter
+        }
+    }
+    var filtered : Bool {
+        set{
+          rdsBooksList.filtered = filtered
+        }
+        get{
+            return rdsBooksList.filtered
+        }
+    }
     
     init() {
         _ = MNFile.createDbFolder(folder: MNFile.booksFolderName)
@@ -25,8 +44,8 @@ class DBBooksList {
         } else {
             databaseExists = false
         }
-       path =  MNFile.getDataBasePath(book: "booksList.kitab")
-       BooksListdataBase = MNDatabase(path: path)
+       databasePath =  MNFile.getDataBasePath(book: "booksList.kitab")
+       BooksListdataBase = MNDatabase(path: databasePath)
         dbBooksList = DBMNrecord(database: BooksListdataBase, record: BooksList())
         dbMen = DBMNrecord(database: BooksListdataBase, record: Men())
         dbCat = DBMNrecord(database: BooksListdataBase, record: BooksCat())
@@ -128,7 +147,7 @@ class DBBooksList {
      find and move all books from res , doc , inbox to KOTOB folder
      this will not move indexes
      */
-    func getDataBases()  {
+     func getDataBases()  {
         var files =  MNFile.searchDbFilesInRes()
         files.append(contentsOf: MNFile.searchDbFilesInDoc())
         files.append(contentsOf: MNFile.searchDbFilesInInbox())
@@ -142,7 +161,7 @@ class DBBooksList {
      - Parameters:
        - catId: the ID of cat from MnRecord not the Shamelah bkCatId
     */
-    func setFilterByAsnaf(ID : Int)  {
+     func setFilterByAsnaf(ID : Int)  {
         let Ids = BooksListdataBase.getArrayOfIDs(query:
             "select booksList.ID from MNKitabSinf left JOIN booksList ON booksList.ID = MNKitabSinf.idKitab where MNKitabSinf.idcat = \(ID)"
         )
@@ -187,18 +206,60 @@ class DBBooksList {
         let dbtasnif = DBMNrecord(database: rdsBooksList.dataBase, record: tasnif)
         let rdsSelected = MNRecordset(database: rdsBooksList.dataBase, tableName: rdsBooksList.tableName, columns: "ID", whereSql: "selected = 1", orderBy: "")
         if !rdsSelected.isEmpty{
-            while !rdsSelected.eof() {
-            tasnif.idKitab = Int(rdsBooksList.getField()["ID"] as! Int64)
+            rdsSelected.moveFirst()
+            repeat  {
+            tasnif.idKitab = Int(rdsBooksList.getFields()["ID"] as! Int64)
             tasnif.idCat=cat.ID
             tasnif.ID = -1
             _ = dbtasnif.save()
             rdsSelected.moveNext()
-            }
+            }while !rdsSelected.eof()
 
         }
 
         
 
     }
+    private func filterSlaves(){
+        //TODO: filter slaves rds
+    }
+    
+    func awal()  {
+         rdsBooksList.moveFirst()
+                filterSlaves()
+    }
+    func lahik()  {
+         rdsBooksList.moveNext()
+                filterSlaves()
+    }
+    func sabik() {
+        rdsBooksList.movePreior()
+                filterSlaves()
+    }
+    func akhir(){
+        rdsBooksList.moveLast()
+                filterSlaves()
+    }
+    func khawi() -> Bool {
+        return rdsBooksList.isEmpty
+    }
+    func bidaya()->Bool{
+        return rdsBooksList.bof()
+    }
+    func nihaya() -> Bool {
+        return rdsBooksList.eof()
+    }
+    
+    func refresh (){
+        rdsBooksList.refresh()
+                filterSlaves()
+    }
+    func taharakIla(mawki3 : Int){
+        rdsBooksList.move(to: mawki3)
+    }
+    func getFields()->[String:Any]{
+        return rdsBooksList.getFields()
+    }
+    
 
 }

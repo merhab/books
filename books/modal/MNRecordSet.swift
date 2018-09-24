@@ -17,6 +17,7 @@ class MNRecordset {
     var tableName : String
     var recordCount : Int
     var recordNo : Int
+    var movePosition = 0
     var isEmpty = true
     private var whereSql = ""
     private var orderBySql = ""
@@ -24,7 +25,6 @@ class MNRecordset {
      * @param sqlClose containe the where and the order by keywords
     */
     private var sqlCloses : String {
-        get{
             var str = ""
             if whereSql != "" {
                 str = " where \(whereSql) "
@@ -32,9 +32,9 @@ class MNRecordset {
             if filtered {
                 if filter != "" {
                     if str == "" {
-                        str = "where \(filter)"
+                        str = " where \(filter) "
                     }else {
-                        str = "AND \(filter)"
+                        str = " AND \(filter) "
                     }
                 }
             }
@@ -42,21 +42,12 @@ class MNRecordset {
                 str = str + " order by \(orderBySql) "
             }
             return str
-        }
+
     }
     private var positionInPage : Int
     var dataBase : MNDatabase //(path: "")
-    var field: Dictionary<String, Any> {
-        get{ return getField()}
-    }
-   private  var sql : String {
-        get {
-
-
-             return "select * from \(tableName) \(sqlCloses)"
-            
-        }
-    }
+    var field: Dictionary<String, Any> { return getFields()}
+   private  var sql : String {return "select * from \(tableName) \(sqlCloses)"}
     var filter = "" // the where sql close without the where
     var filtered = false {
         didSet {
@@ -256,35 +247,41 @@ class MNRecordset {
         
     }
     func moveNext()  {
-        if !eof() {
+        if movePosition <  recordCount-1 {
             recordNo += 1
+
             move(to: recordNo)
         }
+         if movePosition < recordCount {movePosition += 1}
     }
     func movePreior()  {
-        if !bof(){
+        
+        if movePosition > 0{
             recordNo -= 1
+
             move(to: recordNo)
         }
+        if movePosition > -1 {movePosition -= 1}
     }
     func moveFirst()  {
         recordNo = 0
+        movePosition = 0
         move(to: 0)
     }
     
     func moveLast()  {
         recordNo = recordCount-1
-        
+        movePosition = recordCount-1
         move(to: recordNo)
     }
     func eof() -> Bool {
-        return recordNo == recordCount-1
+        return movePosition == recordCount
     }
     func bof() -> Bool {
-        return recordNo == 0
+        return movePosition == -1
     }
     
-    func getField()->[String:Any] {
+    func getFields()->[String:Any] {
         if positionInPage >= 0 {
         return fields[positionInPage]
         } else {

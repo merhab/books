@@ -23,6 +23,9 @@
 		490CAECB21544B0800CE3989 /* MNBahthFi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAEC921544B0800CE3989 /* MNBahthFi.swift */; };
 		490CAECD21544B5B00CE3989 /* MNBahthNatija.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAECC21544B5A00CE3989 /* MNBahthNatija.swift */; };
 		490CAED521544B9600CE3989 /* booksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CAED421544B9600CE3989 /* booksTests.swift */; };
+		490F4D542158C4C300E04BF9 /* MNUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F4D532158C4C300E04BF9 /* MNUI.swift */; };
+		490F4D562158CE2E00E04BF9 /* BahthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F4D552158CE2E00E04BF9 /* BahthViewController.swift */; };
+		490F4D582158D0CC00E04BF9 /* MNNatija.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F4D572158D0CC00E04BF9 /* MNNatija.swift */; };
 		49289F79214645AE00620690 /* 5.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F76214645AE00620690 /* 5.kitab */; };
 		49289F7A214645AE00620690 /* 4.kitab in Resources */ = {isa = PBXBuildFile; fileRef = 49289F77214645AE00620690 /* 4.kitab */; };
 		4975254421357E61000A47E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975254321357E61000A47E5 /* AppDelegate.swift */; };
@@ -133,6 +136,9 @@
 		490CAED221544B9600CE3989 /* booksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = booksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		490CAED421544B9600CE3989 /* booksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksTests.swift; sourceTree = "<group>"; };
 		490CAED621544B9600CE3989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		490F4D532158C4C300E04BF9 /* MNUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNUI.swift; sourceTree = "<group>"; };
+		490F4D552158CE2E00E04BF9 /* BahthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BahthViewController.swift; sourceTree = "<group>"; };
+		490F4D572158D0CC00E04BF9 /* MNNatija.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MNNatija.swift; sourceTree = "<group>"; };
 		49289F76214645AE00620690 /* 5.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5.kitab; sourceTree = "<group>"; };
 		49289F77214645AE00620690 /* 4.kitab */ = {isa = PBXFileReference; lastKnownFileType = file; path = 4.kitab; sourceTree = "<group>"; };
 		4975254021357E61000A47E5 /* books.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = books.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,6 +343,7 @@
 				4988B68A21563D5700602BC1 /* MNKitabSinf.swift */,
 				490CAECC21544B5A00CE3989 /* MNBahthNatija.swift */,
 				490CAEC821544B0800CE3989 /* MNBahth.swift */,
+				490F4D572158D0CC00E04BF9 /* MNNatija.swift */,
 				490CAEC921544B0800CE3989 /* MNBahthFi.swift */,
 				490CAEC421544ACD00CE3989 /* MNDate.swift */,
 				490CAEC021544AA100CE3989 /* MNKitab.swift */,
@@ -360,6 +367,8 @@
 				49C5E43F2140385800ED9BF0 /* BookViewController.swift */,
 				499798772145EF81005D46C5 /* CatViewController.swift */,
 				4975254721357E61000A47E5 /* Main.storyboard */,
+				490F4D552158CE2E00E04BF9 /* BahthViewController.swift */,
+				490F4D532158C4C300E04BF9 /* MNUI.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -572,12 +581,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				490F4D562158CE2E00E04BF9 /* BahthViewController.swift in Sources */,
 				4975258721358C34000A47E5 /* ValueWitnessTable.swift in Sources */,
 				4975258821358C34000A47E5 /* Metadata+Class.swift in Sources */,
 				490CAEA9215400E600CE3989 /* MNNass.swift in Sources */,
 				49C5E55F2140ABD700ED9BF0 /* Cipher.swift in Sources */,
 				49C5E5712140ABD700ED9BF0 /* Collation.swift in Sources */,
 				490CAEBF21544A9300CE3989 /* MNRecordSet.swift in Sources */,
+				490F4D542158C4C300E04BF9 /* MNUI.swift in Sources */,
 				49C5E55B2140ABD700ED9BF0 /* Value.swift in Sources */,
 				490CAEBD21544A8000CE3989 /* MNDatabase.swift in Sources */,
 				4975258A21358C34000A47E5 /* Set.swift in Sources */,
@@ -607,6 +618,7 @@
 				4975258421358C34000A47E5 /* Identity.swift in Sources */,
 				49C5E56F2140ABD700ED9BF0 /* CoreFunctions.swift in Sources */,
 				4975257F21358C34000A47E5 /* PointerType.swift in Sources */,
+				490F4D582158D0CC00E04BF9 /* MNNatija.swift in Sources */,
 				49C5E5692140ABD700ED9BF0 /* Query.swift in Sources */,
 				490CAEC121544AA100CE3989 /* MNKitab.swift in Sources */,
 				49C5E57D2140ABD700ED9BF0 /* AggregateFunctions.swift in Sources */,

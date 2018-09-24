@@ -12,62 +12,35 @@ class DbKitab : MNKitab{
     private var dbSafha : DBMNrecord
     var dbKitabParam : DBMNrecord
     private var currentSafha : MNNass
-    var nass : String {
-        get {
-            return currentSafha.nass
-        }
-    }
-
-    var khawi : Bool {
-        get{
-            return rdsKitab.isEmpty
-        }
-    }
-    var akhirKitab : Bool{
-        get {
-            return rdsKitab.eof()
-        }
-    }
-    var awalKitab : Bool {
-        get{
-            return rdsKitab.eof()
-        }
-    }
-
-    var safhaId : Int {
-        get{
-            return dbSafha.record.ID
-        }
-    }
+    var nass :  String {return currentSafha.nass }
+    var khawi : Bool  {return rdsKitab.isEmpty }
+    var nihaya : Bool {return rdsKitab.eof()}
+    var bidaya : Bool {return rdsKitab.eof()}
+    var safhaId : Int {return dbSafha.record.ID}
     
     init(kitabId : Int) {
-  
-    
-    let path = MNFile.getDataBasePath(kitabId: kitabId)
+     let path = MNFile.getDataBasePath(kitabId: kitabId)
      let mdataBase = MNDatabase(path: path)
      dbSafha = DBMNrecord(database: mdataBase, record: Book())
      _ = dbSafha.updateTableStruct()
      rdsKitab = MNRecordset(database: mdataBase, table: dbSafha.tableName)
-    dbKitabParam = DBMNrecord(database: mdataBase, record: MNrecordParams())
+     dbKitabParam = DBMNrecord(database: mdataBase, record: MNrecordParams())
         _ = dbKitabParam.createTable()
         if rdsKitab.isEmpty {
             currentSafha = MNNass(nass: "", kalimaBidaya: MNKalima(text: ""))
         } else {
             //TODO: getObject need redesign
-           dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+           dbSafha.getRecordWithId(ID:Int(rdsKitab.getFields()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = MNNass.getWords(text: safha.pgText)
             let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
             currentSafha = MNNass(nass: safha.pgText, kalimaBidaya: kalima)
-  
-
-
         }
               super.init(kitabId: kitabId, dataBase: mdataBase)
     }
     
     func getCurrentSafha()->MNNass  {
-         dbSafha.getRecordWithId(ID:Int(rdsKitab.getField()["ID"] as! Int64) )
+         dbSafha.getRecordWithId(ID:Int(rdsKitab.getFields()["ID"] as! Int64) )
         let safha = dbSafha.record as! Book
         let words = MNNass.getWords(text: safha.pgText)
         let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)

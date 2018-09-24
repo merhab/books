@@ -92,16 +92,15 @@ class DBFahresKalimat : MNKitab {
         )
         if !dbKitab.khawi {
         dbKitab.awal()
-        var str = dbKitab.getCurrentSafha().nassNormalized
-        _ = dbKitab.dataBase.execute("INSERT INTO kitabFahras(pgText) VALUES  ('\(str)');")
 
-            while !dbKitab.akhirKitab {
-                dbKitab.lahik()
-                str = dbKitab.getCurrentSafha().nassNormalized
+
+            repeat  {
+
+              let  str = dbKitab.getCurrentSafha().nassNormalized
               _ = dbKitab.dataBase.execute("INSERT INTO kitabFahras(pgText) VALUES  ('\(str)');")
+                dbKitab.lahik()
 
-
-            }
+            } while !dbKitab.nihaya
             
         }
 
