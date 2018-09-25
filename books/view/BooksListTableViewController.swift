@@ -144,7 +144,7 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
             let cell = tableView.dequeueReusableCell(withIdentifier: catCellId, for: indexPath) as! Mycell
             dbBooksList!.rdsCat.move(to :indexPath.row)
             var myCat = BooksCat()
-            myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getFields())) as! BooksCat
+            myCat =  DBMNrecord(database: (dbBooksList!.rdsCat.dataBase), record: myCat).getObject(fld: (dbBooksList!.rdsCat.getCurrentRecordAsDictionary())) as! BooksCat
             cell.booksListLabel.text=myCat.bkCatTitle
             cell.bkId = myCat.ID// will use this to load our books in the book view
             cell.sinf = myCat

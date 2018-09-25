@@ -77,6 +77,12 @@ class BooksCat : MNrecord {
     var bkCatTitleFormatted  = ""
     var bkCatTitleIndexed  = ""
 }
+// to get bahth nataij
+class KitabFahras: MNrecord {
+    static let kitabFahrasTableName = "kitabFahras"
+    static let bahthCols = "rowId as ID , rank"
+    var rank = -1.0
+}
 
 
 

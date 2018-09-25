@@ -14,7 +14,15 @@ class natijaCell : UITableViewCell{
 
 class BahthViewController: UIViewController {
     
-    var rdsSelectedBooksList : MNRecordset?
+    let khataKaimaFariga3onwan = "لم تختر مجال البحث🚨 "
+    let khataKaimaFarigaNass = "رجاء قم باختيار مجال البحث أولا"
+    let dbSelectedBooksList = DBBooksList()
+        /*MNRecordset(
+        database: MNDatabase(path: MNFile.getBooksListPath()),
+        tableName: BooksList().getTableName(),
+        whereSql: " selected = 1 ",
+        orderBy: "")*/
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,16 +36,11 @@ class BahthViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        dbSelectedBooksList.filtered = false
+        dbSelectedBooksList.filter = " selected = 1 "
+        dbSelectedBooksList.filtered = true
     }
-    */
 
 }
 extension BahthViewController : UITableViewDataSource{
@@ -59,3 +62,12 @@ extension BahthViewController : UITableViewDataSource{
 extension BahthViewController:UITableViewDelegate{
     
 }
+extension BahthViewController:UISearchBarDelegate{
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let bahthNass = searchBar.text{
+            let dbBahth = MNDBBAhth(bahthJomla: bahthNass, bahthIsm: "بحث : \(MNDate.getTimeStamp())")
+            dbBahth.ibhathFiKotob(completion: {_ in return})
+            }
+        }
+    }
+

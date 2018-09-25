@@ -22,10 +22,9 @@ class booksTests: XCTestCase {
     }
     
     func testExample() {
-        let database = MNDatabase(path: "/Users/merhab/Documents/KOTOB/4.kitab")
-        let result = database.getRecords(query: "select rowid,pgText from bookInd where pgText MATCH 'الله';")
-        let a = result[0]
-        print(a["pgText"] as! String)
+        let bahth = MNBahth(bahth: "لا أدري العلم لله أو الله أعلم و أنا حتما لست أدري"+"هل تعلم أن \" العلم \" رهان(على كل حال )", bahthIsm: "blabla")
+       let str = bahth.getSqlBahth()
+        print(str)
     }
     
     func testPerformanceExample() {

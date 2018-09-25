@@ -46,7 +46,7 @@ class MNRecordset {
     }
     private var positionInPage : Int
     var dataBase : MNDatabase //(path: "")
-    var field: Dictionary<String, Any> { return getFields()}
+    var field: Dictionary<String, Any> { return getCurrentRecordAsDictionary()}
    private  var sql : String {return "select * from \(tableName) \(sqlCloses)"}
     var filter = "" // the where sql close without the where
     var filtered = false {
@@ -281,7 +281,7 @@ class MNRecordset {
         return movePosition == -1
     }
     
-    func getFields()->[String:Any] {
+    func getCurrentRecordAsDictionary()->[String:Any] {
         if positionInPage >= 0 {
         return fields[positionInPage]
         } else {

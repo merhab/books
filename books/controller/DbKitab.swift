@@ -8,6 +8,8 @@
 
 import Foundation
 class DbKitab : MNKitab{
+    let kitabFahrasTableName = DBFahresKalimat.fahrasTableName
+
    private var rdsKitab : MNRecordset
     private var dbSafha : DBMNrecord
     var dbKitabParam : DBMNrecord
@@ -30,7 +32,7 @@ class DbKitab : MNKitab{
             currentSafha = MNNass(nass: "", kalimaBidaya: MNKalima(text: ""))
         } else {
             //TODO: getObject need redesign
-           dbSafha.getRecordWithId(ID:Int(rdsKitab.getFields()["ID"] as! Int64) )
+           dbSafha.getRecordWithId(ID:Int(rdsKitab.getCurrentRecordAsDictionary()["ID"] as! Int64) )
             let safha = dbSafha.record as! Book
             let words = MNNass.getWords(text: safha.pgText)
             let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
@@ -40,7 +42,7 @@ class DbKitab : MNKitab{
     }
     
     func getCurrentSafha()->MNNass  {
-         dbSafha.getRecordWithId(ID:Int(rdsKitab.getFields()["ID"] as! Int64) )
+         dbSafha.getRecordWithId(ID:Int(rdsKitab.getCurrentRecordAsDictionary()["ID"] as! Int64) )
         let safha = dbSafha.record as! Book
         let words = MNNass.getWords(text: safha.pgText)
         let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
@@ -84,6 +86,8 @@ class DbKitab : MNKitab{
     func idhab(ila position:Int)  {
         rdsKitab.move(to: position)
     }
+
+
     
 
 }

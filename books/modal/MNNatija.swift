@@ -7,6 +7,11 @@
 //
 
 import Foundation
-class MNNatija : BooksList{
-    var bahthId : Int = -1
+class MNNatija : MNrecord{
+    var kitabId = -1
+    var bahthId = -1
+    var safhaId = -1
+    var rank = -1.0
+    var safha = ""
+    var kitab3onwan = ""
 }

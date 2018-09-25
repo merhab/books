@@ -9,6 +9,7 @@
 import Foundation
 class DBBooksList {
   private  var rdsBooksList : MNRecordset
+//    var dbKitab : DbKitab?
     var dbBooksList : DBMNrecord
     var rdsMen : MNRecordset
     var dbMen : DBMNrecord
@@ -39,12 +40,12 @@ class DBBooksList {
     init() {
         _ = MNFile.createDbFolder(folder: MNFile.booksFolderName)
         var databaseExists = false
-        if MNFile.fileExists(path: MNFile.getDataBasePath(book: "booksList.kitab")) {
+        if MNFile.fileExists(path: MNFile.getDataBasePath(book: MNFile.booksListDataBaseName)) {
             databaseExists = true
         } else {
             databaseExists = false
         }
-       databasePath =  MNFile.getDataBasePath(book: "booksList.kitab")
+       databasePath =  MNFile.getDataBasePath(book: MNFile.booksListDataBaseName)
        BooksListdataBase = MNDatabase(path: databasePath)
         dbBooksList = DBMNrecord(database: BooksListdataBase, record: BooksList())
         dbMen = DBMNrecord(database: BooksListdataBase, record: Men())
@@ -129,7 +130,7 @@ class DBBooksList {
                 let bookId = MNFile.getIdFromPath(path: file)
                 if bookId != -1 {
                  let dbFahres = DBFahresKalimat(kitabId:bookId)
-                    if MNDatabase.tableIsEmpty(path: MNFile.getDataBasePath(kitabId: bookId), table: "kitabFahras"){
+                    if MNDatabase.tableIsEmpty(path: MNFile.getDataBasePath(kitabId: bookId), table: DBFahresKalimat.fahrasTableName){
                             dbFahres.fahrasatKitab()
                     }
                 }
@@ -208,7 +209,7 @@ class DBBooksList {
         if !rdsSelected.isEmpty{
             rdsSelected.moveFirst()
             repeat  {
-            tasnif.idKitab = Int(rdsBooksList.getFields()["ID"] as! Int64)
+            tasnif.idKitab = Int(rdsBooksList.getCurrentRecordAsDictionary()["ID"] as! Int64)
             tasnif.idCat=cat.ID
             tasnif.ID = -1
             _ = dbtasnif.save()
@@ -258,8 +259,19 @@ class DBBooksList {
         rdsBooksList.move(to: mawki3)
     }
     func getFields()->[String:Any]{
-        return rdsBooksList.getFields()
+        return rdsBooksList.getCurrentRecordAsDictionary()
     }
     
+    func getCurrentKitab ()->DbKitab{
+        let bookInfo = rdsBooksList.getCurrentRecordAsDictionary()
+        let kitabId=Int(bookInfo["bkId"] as! Int64)
+        let dbKItab = DbKitab(kitabId: kitabId)
+        return dbKItab
+    }
+    func getCurrentKitabId()->Int{
+        let bookInfo = rdsBooksList.getCurrentRecordAsDictionary()
+        let kitabId=Int(bookInfo["bkId"] as! Int64)
+        return kitabId
+    }
 
 }

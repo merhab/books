@@ -14,10 +14,13 @@ class MNFile  {
     static let fihresSuffix = ".fihras"
     static let fihrasFolderName = "FAHARIS"
     static let sinfSuffix = ".sinf"
+    static let booksListDataBaseName = "booksList.kitab"
+    static let bahthDatabaseName = "bahth.bahth"
     /**
      get the working dir work for IOS and MACOS
         - Return Strtring contain the working directory path
      */
+
     static func getDocFolder()->String{
         #if os(iOS) || os(watchOS) || os(tvOS)
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
@@ -30,6 +33,11 @@ class MNFile  {
         #endif
         
         return documentsDirectory
+    }
+    static func getBooksListPath()->String{
+        var str = getDocFolder()
+        str = str + "/\(booksFolderName)/\(booksListDataBaseName)"
+        return str
     }
     /**
      get the Fihras dir works for IOS and MACOS
@@ -296,6 +304,13 @@ class MNFile  {
         str = str + "/\(booksFolderName)/\(fihrasFolderName)/\(idKitab)\(sinfSuffix)"
         return str
         
+    }
+    
+    static func getBahthDatabasePath() -> String {
+        var str = ""
+        str = MNFile.getDocFolder()+"/\(MNFile.booksFolderName)/\(MNFile.bahthDatabaseName)"
+        
+        return str
     }
 
     

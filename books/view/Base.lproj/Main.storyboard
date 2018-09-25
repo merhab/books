@@ -213,31 +213,24 @@
         <!--البحث-->
         <scene sceneID="8Xq-3X-eTp">
             <objects>
-                <viewController id="twG-C6-dts" sceneMemberID="viewController">
+                <viewController restorationIdentifier="bahth" id="twG-C6-dts" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="15c-fH-M11">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVL-0d-esE">
-                                <rect key="frame" x="0.0" y="76" width="768" height="899"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="955"/>
                                 <connections>
                                     <segue destination="9sy-3V-oeJ" kind="embed" identifier="bahthSeg" id="ouh-UK-7kH"/>
                                 </connections>
                             </containerView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bgI-qw-Cmm">
-                                <rect key="frame" x="0.0" y="20" width="768" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bgI-qw-Cmm" firstAttribute="trailing" secondItem="le3-Ws-RPs" secondAttribute="trailing" id="2nD-66-edx"/>
-                            <constraint firstItem="bgI-qw-Cmm" firstAttribute="leading" secondItem="le3-Ws-RPs" secondAttribute="leading" id="AAh-AE-SPD"/>
-                            <constraint firstItem="tVL-0d-esE" firstAttribute="top" secondItem="bgI-qw-Cmm" secondAttribute="bottom" id="JHN-C5-XGQ"/>
-                            <constraint firstItem="tVL-0d-esE" firstAttribute="leading" secondItem="le3-Ws-RPs" secondAttribute="leading" id="NUQ-M6-ZlD"/>
-                            <constraint firstItem="tVL-0d-esE" firstAttribute="bottom" secondItem="le3-Ws-RPs" secondAttribute="bottom" id="YMy-l2-815"/>
-                            <constraint firstItem="bgI-qw-Cmm" firstAttribute="top" secondItem="le3-Ws-RPs" secondAttribute="top" id="feE-yp-EwB"/>
-                            <constraint firstItem="le3-Ws-RPs" firstAttribute="trailing" secondItem="tVL-0d-esE" secondAttribute="trailing" id="o7h-Mh-mPu"/>
+                            <constraint firstItem="tVL-0d-esE" firstAttribute="bottom" secondItem="le3-Ws-RPs" secondAttribute="bottom" id="DNt-lO-fuL"/>
+                            <constraint firstItem="tVL-0d-esE" firstAttribute="top" secondItem="le3-Ws-RPs" secondAttribute="top" id="hqA-Tq-mGz"/>
+                            <constraint firstItem="tVL-0d-esE" firstAttribute="trailing" secondItem="le3-Ws-RPs" secondAttribute="trailing" id="q9i-Db-SlH"/>
+                            <constraint firstItem="tVL-0d-esE" firstAttribute="leading" secondItem="le3-Ws-RPs" secondAttribute="leading" id="vh0-TV-832"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="le3-Ws-RPs"/>
                     </view>
@@ -252,7 +245,7 @@
             <objects>
                 <viewController id="9sy-3V-oeJ" customClass="BahthViewController" customModule="books" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sj4-s4-XqX">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="899"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="955"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igj-GX-zvB">
@@ -305,7 +298,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qMV-Xd-3dn">
-                                <rect key="frame" x="0.0" y="480" width="768" height="419"/>
+                                <rect key="frame" x="0.0" y="480" width="768" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="natija" id="z1o-aV-Y5i" customClass="natijaCell" customModule="books" customModuleProvider="target">
@@ -438,10 +431,10 @@
             </objects>
             <point key="canvasLocation" x="1665" y="-929"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Ybx-sB-CBV">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4S4-ng-2yC" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4S4-ng-2yC" customClass="MainTabBarController" customModule="books" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cz9-kN-vtE">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

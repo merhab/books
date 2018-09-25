@@ -72,16 +72,17 @@ class MNNass : MNrecord{
         let nassArray = Array(MNNass.removeTashkil(text: text))
         var NormalizedArray = [Character]()
         for char in nassArray {
-            if ArabiaThawabit.horof.contains(char){
+            let horof = ArabiaThawabit.horof 
+            if horof.contains(char){
                 if ArabiaThawabit.alif.contains(char){
-                    NormalizedArray.append("ء")
+                    NormalizedArray.append("ا")
                     
                 }else if char == "ي"
                 { NormalizedArray.append("ى")
                 }else {
                 NormalizedArray.append(char)
                 }
-            }
+            }else {NormalizedArray.append(" ")}
         }
         return String(NormalizedArray)
     }

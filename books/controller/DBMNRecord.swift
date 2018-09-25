@@ -373,12 +373,12 @@ class DBMNrecord  {
         case MNThawabit.MNBahthTypeName :
             let   myRecord = myRd as! MNBahth
             return recordToObject(myRd: myRecord,fld: fld) as! MNBahth
-        case MNThawabit.MNBahthFiTypeName :
-            let   myRecord = myRd as! MNBahthFi
-            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthFi
+//        case MNThawabit.MNBahthFiTypeName :
+//            let   myRecord = myRd as! MNBahthFi
+//            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthFi
         case MNThawabit.MNBahthNatijaTypeName :
-            let   myRecord = myRd as! MNBahthNatija
-            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthNatija
+            let   myRecord = myRd as! KitabFahras
+            return recordToObject(myRd: myRecord,fld: fld) as! KitabFahras
         default:
             let  myRecord = myRd
             return recordToObject(myRd: myRecord,fld: fld) as! MNrecord

@@ -12,6 +12,8 @@ class DBFahresKalimat : MNKitab {
 
 
     private var dbKitab : DbKitab
+    static let fahrasTableName = "kitabFahras"
+
     
     
     init(kitabId: Int) {
@@ -66,9 +68,9 @@ class DBFahresKalimat : MNKitab {
     func fahrasatKitab()  {
         _ = dbKitab.dataBase.execute(
             """
-            CREATE VIRTUAL TABLE IF NOT EXISTS kitabFahras USING fts5(pgText);
-            CREATE TRIGGER IF NOT EXISTS kitabFahrasINSERT AFTER INSERT ON book BEGIN
-            INSERT INTO kitabFahras (
+            CREATE VIRTUAL TABLE IF NOT EXISTS \(DBFahresKalimat.fahrasTableName) USING fts5(pgText);
+            CREATE TRIGGER IF NOT EXISTS \(DBFahresKalimat.fahrasTableName)INSERT AFTER INSERT ON book BEGIN
+            INSERT INTO \(DBFahresKalimat.fahrasTableName) (
             rowid,
             pgText
             )
@@ -79,13 +81,13 @@ class DBFahresKalimat : MNKitab {
             END;
 
             -- Trigger on UPDATE
-            CREATE TRIGGER IF NOT EXISTS kitabFahrasUpdate UPDATE OF pgText ON book BEGIN
-            UPDATE kitabFahras SET pgText = new.pgText WHERE rowid = old.id;
+            CREATE TRIGGER IF NOT EXISTS \(DBFahresKalimat.fahrasTableName)Update UPDATE OF pgText ON book BEGIN
+            UPDATE \(DBFahresKalimat.fahrasTableName) SET pgText = new.pgText WHERE rowid = old.id;
             END;
 
             -- Trigger on DELETE
-            CREATE TRIGGER  IF NOT EXISTS kitabFahrasDelete AFTER DELETE ON book BEGIN
-            DELETE FROM kitabFahras WHERE rowid = old.id;
+            CREATE TRIGGER  IF NOT EXISTS \(DBFahresKalimat.fahrasTableName)Delete AFTER DELETE ON book BEGIN
+            DELETE FROM \(DBFahresKalimat.fahrasTableName) WHERE rowid = old.id;
             END;
 
             """
@@ -97,7 +99,7 @@ class DBFahresKalimat : MNKitab {
             repeat  {
 
               let  str = dbKitab.getCurrentSafha().nassNormalized
-              _ = dbKitab.dataBase.execute("INSERT INTO kitabFahras(pgText) VALUES  ('\(str)');")
+              _ = dbKitab.dataBase.execute("INSERT INTO \(DBFahresKalimat.fahrasTableName)(pgText) VALUES  ('\(str)');")
                 dbKitab.lahik()
 
             } while !dbKitab.nihaya
