@@ -147,10 +147,12 @@ class DBMNrecord  {
         if !i.name.contains("mn") {
             if i.name != "ID" {
                 if i.type.lowercased() == "string" {
+                    var str = i.val as! String
+                    str = str.replacingOccurrences(of: "'", with: "")
                     if str2==""{
-                        str2="'\(i.val)'"
+                        str2="'\(str)'"
                     }else{
-                        str2=str2+",'\(i.val)'"
+                        str2=str2+",'\(str)'"
                         
                     }
                     
@@ -373,10 +375,10 @@ class DBMNrecord  {
         case MNThawabit.MNBahthTypeName :
             let   myRecord = myRd as! MNBahth
             return recordToObject(myRd: myRecord,fld: fld) as! MNBahth
-//        case MNThawabit.MNBahthFiTypeName :
-//            let   myRecord = myRd as! MNBahthFi
-//            return recordToObject(myRd: myRecord,fld: fld) as! MNBahthFi
-        case MNThawabit.MNBahthNatijaTypeName :
+        case MNThawabit.MNMNNatijaTypeName :
+            let   myRecord = myRd as! MNNatija
+            return recordToObject(myRd: myRecord,fld: fld) as! MNNatija
+        case MNThawabit.MNKitabFahrasTypeName :
             let   myRecord = myRd as! KitabFahras
             return recordToObject(myRd: myRecord,fld: fld) as! KitabFahras
         default:

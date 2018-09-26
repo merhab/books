@@ -19,23 +19,7 @@ class DBBooksList {
     var databasePath : String
     var dataBase : MNDatabase {return rdsBooksList.dataBase }
     var recordCount : Int{return rdsBooksList.recordCount}
-    var filter : String {
-        set {
-          rdsBooksList.filter = filter
-          self.filterSlaves()
-        }
-        get{
-            return rdsBooksList.filter
-        }
-    }
-    var filtered : Bool {
-        set{
-          rdsBooksList.filtered = filtered
-        }
-        get{
-            return rdsBooksList.filtered
-        }
-    }
+
     
     init() {
         _ = MNFile.createDbFolder(folder: MNFile.booksFolderName)
@@ -273,5 +257,14 @@ class DBBooksList {
         let kitabId=Int(bookInfo["bkId"] as! Int64)
         return kitabId
     }
-
+    func filter(filter:String){
+        rdsBooksList.filter=filter
+        filterSlaves()
+    }
+    func filtered(filtered:Bool)  {
+        rdsBooksList.filtered = filtered
+    }
+    func isFiltered() -> Bool {
+       return rdsBooksList.filtered
+    }
 }

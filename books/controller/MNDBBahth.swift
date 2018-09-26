@@ -16,16 +16,14 @@ class MNDBBAhth {
     
     init(bahthJomla : String , bahthIsm : String = "" ) {
         bahth = MNBahth(bahth: bahthJomla, bahthIsm: bahthIsm)
-        dbBooksList.filter = " selected = 1 "
-        dbBooksList.filtered = true
+
 
     }
-    func ibhathFiKitab(bahthNass : String , bahth3onwan : String ,kitabId :Int)  {
+    func ibhathFiKitab(kitabId :Int)  {
         let dataBase = MNDatabase(path: MNFile.getDataBasePath(kitabId: kitabId))
    //     DispatchQueue.global(qos: .userInteractive ).async {
-            let bahth = MNBahth(bahth: bahthNass, bahthIsm: bahth3onwan)
             //var nataij = [MNNatija]()
-            let filter = " where pgText MATCH '\(bahth.getSqlBahth())'"
+            let filter = "  pgText MATCH '\(bahth.getSqlBahth())'"
             let rdsBahth = MNRecordset(database: dataBase,
                                        tableName: KitabFahras.kitabFahrasTableName,
                                        columns: KitabFahras.bahthCols,
@@ -33,15 +31,19 @@ class MNDBBAhth {
                                        orderBy: "rank")
             if !rdsBahth.isEmpty{
                 while !rdsBahth.eof(){
-                    let dbKitabFahras = DBMNrecord(database: dataBase, record: KitabFahras())
-                    dbKitabFahras.record = dbKitabFahras.getObject(fld: rdsBahth.getCurrentRecordAsDictionary()) as! KitabFahras
+                    let kitabFahres = KitabFahras()
+                    let dic = rdsBahth.getCurrentRecordAsDictionary()
+                    kitabFahres.rank = dic["rank"] as? Double ?? 0
+                    kitabFahres.ID = Int(dic["ID"] as? Int64 ?? -1)
+                    kitabFahres.selected = false
+                    kitabFahres.version = 0
                     let natija = MNNatija()
-                    natija.bahthId = self.bahthId
+                    natija.bahthId = self.bahth.ID
                     natija.kitab3onwan = self.dbBooksList.getFields()["bkTitle"] as! String
                     natija.kitabId = kitabId
-                    natija.rank = rdsBahth.getCurrentRecordAsDictionary()["rank"] as! Double
-                    natija.safha = self.dbBooksList.getCurrentKitab().getCurrentSafha().nass
-                    natija.safhaId = Int(rdsBahth.getCurrentRecordAsDictionary()["ID"] as! Int64)
+                    natija.rank = kitabFahres.rank
+                    natija.safha = self.dbBooksList.getCurrentKitab().getSafhaWithId(safhaId: kitabFahres.ID ).nass
+                    natija.safhaId = kitabFahres.ID
                     self.hifdNatija(natija: natija)
 //                    nataij.append(natija)
                     rdsBahth.moveNext()
@@ -55,21 +57,23 @@ class MNDBBAhth {
         
     }
     func ibhathFiKotob(completion:@escaping([MNNatija])->Void?)  {
+        dbBooksList.filter(filter: " selected = 1 ")
+        dbBooksList.filtered( filtered: true)
+        if !dbBooksList.khawi(){
         hifdBahth()
-        let bahth3onwan = bahth.bahthIsm
-        let bahthNass = bahth.nassBahth
 //        DispatchQueue.global(qos: .userInteractive ).async {
 
            // var nataij = [MNNatija]()
-            if !self.dbBooksList.khawi(){
+
                 self.dbBooksList.awal()
                 while !self.dbBooksList.nihaya() {
-                    self.ibhathFiKitab(bahthNass: bahthNass, bahth3onwan: bahth3onwan,kitabId:self.dbBooksList.getCurrentKitabId() )
+                    self.ibhathFiKitab(kitabId:self.dbBooksList.getCurrentKitabId() )
                     self.dbBooksList.lahik()
                     }
-                }
+            
                 
 //            }
+        }
         }
     func hifdBahth()  {
         let dbBahth = DBMNrecord(database: MNDatabase(path: MNFile.getBahthDatabasePath()), record: bahth)

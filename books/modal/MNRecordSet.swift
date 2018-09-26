@@ -47,7 +47,8 @@ class MNRecordset {
     private var positionInPage : Int
     var dataBase : MNDatabase //(path: "")
     var field: Dictionary<String, Any> { return getCurrentRecordAsDictionary()}
-   private  var sql : String {return "select * from \(tableName) \(sqlCloses)"}
+    var cols : String
+   private  var sql : String {return "select \(cols) from \(tableName) \(sqlCloses)"}
     var filter = "" // the where sql close without the where
     var filtered = false {
         didSet {
@@ -69,10 +70,10 @@ class MNRecordset {
         var str = ""
         let sqlCloseTmp = sqlCloses
         if sqlCloseTmp != "" {
-            str = " select count(id) as recordCount from \(tableName)  \(sqlCloseTmp) "
+            str = " select count(rowid) as recordCount from \(tableName)  \(sqlCloseTmp) "
         }
         else {
-        str = "select count(id) as recordCount  from \(tableName) "
+        str = "select count(rowid) as recordCount  from \(tableName) "
         }
         
  
@@ -86,9 +87,9 @@ class MNRecordset {
         ofSet=0
         var sql = ""
         if sqlCloses != "" {
-            sql = "select count(id) as recordCount from \(tableName)  \(sqlCloses)"
+            sql = "select count(rowid) as recordCount from \(tableName)  \(sqlCloses)"
         }else {
-            sql = "select count(id) as recordCount from \(tableName) "
+            sql = "select count(rowid) as recordCount from \(tableName) "
         }
         recordCount = Int(dataBase.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if sqlCloses != "" {
@@ -119,12 +120,12 @@ class MNRecordset {
      init (database : MNDatabase ,tableName : String , SQL : String){
         self.dataBase = database
         self.tableName = tableName
-
+        cols = "*"
         var sql = ""
 
         self.dataBase = database
 
-         sql = "select count(id) as recordCount from \(tableName)"
+         sql = "select count(rowid) as recordCount from \(tableName)"
         recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if recordCount > 0
         {
@@ -149,16 +150,16 @@ class MNRecordset {
      * @param orderBy is String without 'ORDER BY' keyword
      */
     init (database : MNDatabase ,tableName : String , whereSql : String , orderBy : String){
-        
+        cols = "*"
         self.dataBase = database
         self.tableName = tableName
         self.whereSql = whereSql
         self.orderBySql=orderBy
         var sql = ""
         if whereSql != "" {
-           sql = "select count(id) as recordCount from \(tableName) where \(whereSql)"
+           sql = "select count(rowid) as recordCount from \(tableName) where \(whereSql)"
         }else {
-          sql = "select count(id) as recordCount from \(tableName) "
+          sql = "select count(rowid) as recordCount from \(tableName) "
         }
         recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if whereSql != "" {
@@ -190,15 +191,16 @@ class MNRecordset {
     init (database : MNDatabase ,tableName : String ,columns:String ,whereSql : String , orderBy : String){
         
         
+        cols = columns
         self.dataBase = database
         self.tableName = tableName
         self.whereSql = whereSql
         self.orderBySql=orderBy
         var sql = ""
         if whereSql != "" {
-            sql = "select count(id) as recordCount from \(tableName) where \(whereSql)"
+            sql = "select count(rowid) as recordCount from \(tableName) where \(whereSql)"
         }else {
-            sql = "select count(id) as recordCount from \(tableName) "
+            sql = "select count(rowid) as recordCount from \(tableName) "
         }
         recordCount = Int(database.getRecords(query: sql, ofset: -1, limit: -1)[0]["recordCount"] as! Int64)
         if whereSql != "" {
@@ -287,6 +289,9 @@ class MNRecordset {
         } else {
             return [String:Any]()
         }
+    }
+    func getSql() -> String {
+        return self.sql
     }
     
 

@@ -18,7 +18,7 @@ class DbKitab : MNKitab{
     var khawi : Bool  {return rdsKitab.isEmpty }
     var nihaya : Bool {return rdsKitab.eof()}
     var bidaya : Bool {return rdsKitab.eof()}
-    var safhaId : Int {return dbSafha.record.ID}
+    var safhaId : Int {return rdsKitab.recordNo}
     
     init(kitabId : Int) {
      let path = MNFile.getDataBasePath(kitabId: kitabId)
@@ -42,13 +42,19 @@ class DbKitab : MNKitab{
     }
     
     func getCurrentSafha()->MNNass  {
-         dbSafha.getRecordWithId(ID:Int(rdsKitab.getCurrentRecordAsDictionary()["ID"] as! Int64) )
+        return getSafhaWithId(safhaId:Int(rdsKitab.getCurrentRecordAsDictionary()["ID"] as! Int64) )
+
+
+        
+    }
+    func getSafhaWithId(safhaId : Int)->MNNass  {
+        dbSafha.getRecordWithId(ID:safhaId )
         let safha = dbSafha.record as! Book
         let words = MNNass.getWords(text: safha.pgText)
         let kalima = MNKalima(text: words[0], kitabId: kitabId, safhaId: safha.ID, tartibInSafha: 0)
         currentSafha = MNNass(nass: safha.pgText, kalimaBidaya: kalima)
         return currentSafha
-
+        
         
     }
 //    func compressSafha()  {

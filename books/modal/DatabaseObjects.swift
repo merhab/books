@@ -80,7 +80,7 @@ class BooksCat : MNrecord {
 // to get bahth nataij
 class KitabFahras: MNrecord {
     static let kitabFahrasTableName = "kitabFahras"
-    static let bahthCols = "rowId as ID , rank"
+    static let bahthCols = " rowId as ID , rank , 1 as selected , 0.1 as version "
     var rank = -1.0
 }
 

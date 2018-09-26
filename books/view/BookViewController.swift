@@ -32,6 +32,7 @@ class BookViewController: UIViewController {
 
         var dbKitab  : DbKitab?
         var kitabId = -1
+        var idSafha = -1
       
     
     
@@ -40,10 +41,25 @@ class BookViewController: UIViewController {
 //        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.viewSwipped(_:)))
 //        swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
 //        page.addGestureRecognizer(swipeLeft)
+
         if kitabId != -1 {
         dbKitab = DbKitab(kitabId: kitabId)
+ //           dbKitab?.idhab(ila: idSafha-1)
+            if idSafha != -1 {
+                while dbKitab?.safhaId != idSafha-1 {
+                    if (dbKitab?.safhaId)! > idSafha{
+                    dbKitab?.sabik()
+                    }else {
+                     dbKitab?.lahik()
+                    }
+                    
+                }
+
+            }
         page.text = dbKitab!.getCurrentSafha().nass
+            
         }
+
         
     }
     

@@ -194,7 +194,7 @@ class MNDatabase {
         }
         
       let database = MNDatabase(path: path)
-        let rds = database.getRecords(query: "select count(ID) as recordCount from \(name)")
+        let rds = database.getRecords(query: "select count(rowid) as recordCount from \(name)")
         if !rds.isEmpty,let count = rds[0]["recordCount"] as? Int64 , count > 0  {
             
             return false

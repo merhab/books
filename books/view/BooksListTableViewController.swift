@@ -165,17 +165,17 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
 
       if tableView == catTableView {
       let currentCell = catTableView.cellForRow(at: indexPath) as! Mycell
-        dbBooksList!.filtered = false
+        dbBooksList!.filtered( filtered: false)
         // the case of all books is when cat ID = 1
         if currentCell.bkId == 1 {
-          dbBooksList!.filter = ""
-          dbBooksList!.filtered = false
+          dbBooksList!.filter ( filter: "")
+          dbBooksList!.filtered ( filtered: false)
         }else{
             // we start the cat by the record 1: all books
             // witch is not from the database
             // so we need to reduce it
             dbBooksList?.setFilterByAsnaf(ID: currentCell.bkId)
-            dbBooksList!.filtered = true
+            dbBooksList!.filtered ( filtered: true)
 
         }
         booksListTableView.reloadData()
@@ -224,9 +224,9 @@ extension BooksListTableViewController : UITableViewDelegate,UITableViewDataSour
 extension BooksListTableViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         if searchBar == booksListSearchBar {
-        if searchText == "" { dbBooksList!.filtered = false}  else {
-            dbBooksList!.filter = " bkTitle like '%\(searchText)%'"
-            dbBooksList!.filtered = true}
+        if searchText == "" { dbBooksList!.filtered ( filtered: false)}  else {
+            dbBooksList!.filter ( filter:" bkTitle like '%\(searchText)%'")
+            dbBooksList!.filtered ( filtered: true)}
         booksListTableView.reloadData()
     }
         if searchBar == catSearchBar {
