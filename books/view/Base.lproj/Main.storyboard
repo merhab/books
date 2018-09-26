@@ -301,13 +301,52 @@
                                 <rect key="frame" x="0.0" y="480" width="768" height="475"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="natija" id="z1o-aV-Y5i" customClass="natijaCell" customModule="books" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="natija" rowHeight="98" id="z1o-aV-Y5i" customClass="natijaCell" customModule="books" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="768" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z1o-aV-Y5i" id="pyS-w2-QNX">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="97.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="العنوان" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhH-rw-VrG">
+                                                    <rect key="frame" x="693" y="11" width="60" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="hka-aW-yO0"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hjhj" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIl-I8-00b">
+                                                    <rect key="frame" x="0.0" y="0.0" width="693" height="31"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29M-pw-TKx">
+                                                    <rect key="frame" x="15" y="36" width="738" height="51"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RIl-I8-00b" firstAttribute="top" secondItem="pyS-w2-QNX" secondAttribute="top" id="2gH-rI-Q1N"/>
+                                                <constraint firstItem="OhH-rw-VrG" firstAttribute="leading" secondItem="RIl-I8-00b" secondAttribute="trailing" id="71h-e8-dgt"/>
+                                                <constraint firstItem="OhH-rw-VrG" firstAttribute="top" secondItem="pyS-w2-QNX" secondAttribute="topMargin" id="IoC-wf-lzj"/>
+                                                <constraint firstItem="OhH-rw-VrG" firstAttribute="trailing" secondItem="pyS-w2-QNX" secondAttribute="trailingMargin" id="J2T-cH-67l"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="29M-pw-TKx" secondAttribute="trailing" id="Tvs-VZ-FRj"/>
+                                                <constraint firstItem="29M-pw-TKx" firstAttribute="top" secondItem="RIl-I8-00b" secondAttribute="bottom" constant="5" id="U7e-AL-Lsv"/>
+                                                <constraint firstItem="29M-pw-TKx" firstAttribute="bottom" secondItem="pyS-w2-QNX" secondAttribute="bottomMargin" id="hjk-HM-lCs"/>
+                                                <constraint firstItem="29M-pw-TKx" firstAttribute="leading" secondItem="pyS-w2-QNX" secondAttribute="leadingMargin" id="krp-eX-Iye"/>
+                                                <constraint firstItem="RIl-I8-00b" firstAttribute="leading" secondItem="pyS-w2-QNX" secondAttribute="leading" id="ozj-rI-L7F"/>
+                                                <constraint firstItem="29M-pw-TKx" firstAttribute="top" secondItem="OhH-rw-VrG" secondAttribute="bottom" constant="5" id="sw4-m9-yHo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="kitab3onwanLabel" destination="RIl-I8-00b" id="3bV-GD-rXq"/>
+                                            <outlet property="safhaLabel" destination="29M-pw-TKx" id="gDR-gE-cRG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

@@ -75,13 +75,14 @@ class MNDBBAhth {
         let dbBahth = DBMNrecord(database: MNDatabase(path: MNFile.getBahthDatabasePath()), record: bahth)
         _ = dbBahth.createTable()
         _ = dbBahth.save()
-        
+        bahthId = bahth.ID
         
     }
     func hifdNatija(natija : MNNatija)  {
         let dbNatija = DBMNrecord(database: MNDatabase(path: MNFile.getBahthDatabasePath()), record: natija)
         _ = dbNatija.createTable()
         _ = dbNatija.save()
+
     }
     
     func hadfBahth()  {

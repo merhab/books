@@ -9,11 +9,18 @@
 import UIKit
 
 class natijaCell : UITableViewCell{
-    var natija : MNNatija?
+    var natija = MNNatija(){
+        didSet{
+            kitab3onwanLabel.text = natija.kitab3onwan
+            safhaLabel.text = natija.safha
+        }
+    }
+    @IBOutlet weak var kitab3onwanLabel: UILabel!
+    @IBOutlet weak var safhaLabel: UILabel!
 }
 
 class BahthViewController: UIViewController {
-    
+    var rdsNatija : MNRecordset?
     let khataKaimaFariga3onwan = "لم تختر مجال البحث🚨 "
     let khataKaimaFarigaNass = "رجاء قم باختيار مجال البحث أولا"
     let dbSelectedBooksList = DBBooksList()
@@ -45,14 +52,18 @@ class BahthViewController: UIViewController {
 }
 extension BahthViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return 0
+        if let rds = rdsNatija{
+        return rds.recordCount
+        }else {return 0}
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "natija", for: indexPath) as! natijaCell
-        
-        
+        if let rds = rdsNatija {
+
+            let dbNatija = DBMNrecord(database: rds.dataBase, record: MNNatija())
+            cell.natija = dbNatija.getObject(fld: rds.getCurrentRecordAsDictionary()) as! MNNatija
+        }
         return cell
         
     }
@@ -67,6 +78,10 @@ extension BahthViewController:UISearchBarDelegate{
         if let bahthNass = searchBar.text{
             let dbBahth = MNDBBAhth(bahthJomla: bahthNass, bahthIsm: "بحث : \(MNDate.getTimeStamp())")
             dbBahth.ibhathFiKotob(completion: {_ in return})
+            rdsNatija = MNRecordset(database: MNDatabase(path: MNFile.getBahthDatabasePath()),
+                                  tableName: MNNatija().getTableName(),
+                                  whereSql: "bahthId = \(dbBahth.bahthId)",
+                                  orderBy: "rank")
             }
         }
     }
